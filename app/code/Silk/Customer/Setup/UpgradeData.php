@@ -55,7 +55,7 @@ class UpgradeData implements UpgradeDataInterface
         /** @var $attributeSet AttributeSet */
         $attributeSet = $this->attributeSetFactory->create();
         $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
-        if ( version_compare($context->getVersion() , '1.0.2' , '<') ) {
+        if ( version_compare($context->getVersion() , '1.0.4' , '<') ) {
             $attributes = [
                 /*using for dealer*/
                 'is_enterprise' => [
@@ -72,35 +72,21 @@ class UpgradeData implements UpgradeDataInterface
                     'system' => 0 ,
                     'note' => 'Is it Enterprise?'
                 ] ,
-
-                'er_phone' => [
-                    'type' => 'varchar' ,
-                    'label' => 'Phone' ,
-                    'input' => 'text' ,
-                    'unique' => false ,
-                    'required' => false ,
-                    'visible' => true ,
-                    'default' => '' ,
-                    'user_defined' => true ,
-                    'position' => 999 ,
-                    'sort_order' => 999 ,
-                    'system' => 0 ,
-                    'note' => 'Enterprise Phone' ,
-                ] ,
-
-                /*using for customer */
-                'er_company' => [
-                    'type' => 'varchar' ,
-                    'label' => 'Company' ,
-                    'input' => 'text' ,
+                'is_beautifual' => [
+                    'type' => 'int' ,
+                    'label' => 'Is beautifual' ,
+                    'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean' ,
+                    'input' => 'select' ,
                     'required' => false ,
                     'visible' => true ,
                     'user_defined' => true ,
-                    'position' => 1001 ,
-                    'sort_order' => 1001 ,
-                    'note' => 'Enterprise Company' ,
+                    'position' => 997 ,
+                    'sort_order' => 997 ,
+                    'default' => 0 ,
                     'system' => 0 ,
+                    'note' => 'Is it Beautifual?'
                 ] ,
+
             ];
 
             foreach ( $attributes as $attributeCode => $_attribute ) {
