@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<section class="quick-add">
+    <div class="container">
+        <?= $block->getChildHtml('') ?>
+    </div>
+</section>
+<a href="javascript:;" class="action pop">
+    <svg class="icon top" aria-hidden="true">
+        <use xlink:href="#icon-square-up"></use>
+    </svg>
+    <svg class="icon bottom" aria-hidden="true">
+        <use xlink:href="#icon-square-down"></use>
+    </svg>
+</a>

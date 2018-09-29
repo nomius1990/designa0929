@@ -1,0 +1,86 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<section class="website">
+    <ul class="list" data-bind="scope: 'inside'" data-role="inside">
+        <li>
+            <a href="<?= $this->getUrl("checkout/cart") ?>" class="minicart">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shippingcart"></use>
+                </svg>
+                <!-- ko if: getCartParam('summary_count') -->
+                    <span class="num" data-bind="text: getCartParam('summary_count')"></span>
+                <!-- /ko -->
+                <span class="tab"><?= __('Shopping Cart') ?></span>
+                <span class="msg"><?= __('Adding cart successfully') ?></span>
+            </a>
+        </li>
+        <li>
+            <a href="<?= $this->getUrl("wishlist") ?>" class="wishlist">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-wishlist"></use>
+                </svg>
+                <!-- ko if: wishlist().counter -->
+                    <span class="num" data-bind="text: parseInt(wishlist().counter)"></span>
+                <!-- /ko -->
+                <span class="tab"><?= __('Wish List') ?></span>
+            </a>
+        </li>
+        <li>
+            <a href="tel: 18009550402">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tel"></use>
+                </svg>
+                <span class="tab"><?= __('Hotline') ?></span>
+            </a>
+        </li>
+        <li>
+            <a href="<?= $this->getUrl("catalog/product_compare/index") ?>" class="compare">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-jump"></use>
+                </svg>
+                <!-- ko if: compare().count -->
+                    <span class="num" data-bind="text: parseInt(compare().count)"></span>
+                <!-- /ko -->
+                <span class="tab"><?= __('Compare List') ?></span>
+            </a>
+        </li>
+        <li>
+            <a href="<?= $this->getUrl("blog") ?>">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-blog"></use>
+                </svg>
+                <span class="tab"><?= __('Blog') ?></span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" data-bind="click: scroll">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-scroll"></use>
+                </svg>
+                <span class="tab"><?= __('Return Top') ?></span>
+            </a>
+        </li>
+    </ul>
+    <a href="javascript:;" class="show-all" title="<?= __('Show All') ?>">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-all"></use>
+        </svg>
+    </a>
+</section>
+<script type="text/x-magento-init">
+    {
+        "[data-role=inside]": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "inside": {
+                        "component": "Magento_Theme/js/inside"
+                    }
+                }
+            }
+        }
+    }
+</script>

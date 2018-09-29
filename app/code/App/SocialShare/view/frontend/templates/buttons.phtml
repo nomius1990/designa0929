@@ -1,0 +1,71 @@
+<?php
+/* @var App\SocialShare\Block\SocialButtons $block */
+?>
+
+<?php
+    $currentUrl = $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+    $productName = $block->getProductName();
+    $facebook_share = ($block->showFacebookShare() > 0 ? 'true' : 'false');
+    $facebook_count = $block->getFacebookCount();
+    $google_count = $block->getGPlusCount();
+?>
+<?php if (!$block->isLocal()):?>
+    <?php if ($block->showFacebook()):?>
+        <a href="javascript:;" title="<?= __('Facebook') ?>" data-href="<?php echo $block->escapeUrl($currentUrl); ?>" data-layout="button<?php echo ($facebook_count>0 ? '_count' : ''); ?>" data-action="like" data-show-faces="true" data-share="<?php echo $facebook_share; ?>">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-facebook"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+    <?php if ($block->showTwitter()):?>
+        <a href="https://twitter.com/share" title="<?= __('Twitter') ?>" data-show-count="false">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-twitter"></use>
+            </svg>
+        </a>
+        <script async src="//platform.twitter.com/widgets.js"></script>
+    <?php endif ?>
+    <?php if ($block->showPinterest()):?>
+        <a href="https://www.pinterest.com/pin/create/button/" title="<?= __('Pinterest') ?>" data-pin-do="buttonBookmark">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-pinter"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+    <?php if ($block->showGPlus()):?>
+        <a href="javascript:;" title="<?= __('Google') ?>" data-size="medium" <?= ($google_count >0 ? '' : 'data-annotation="none"'); ?> >">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-google"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+<?php else: ?>
+    <?php if ($block->showFacebook()):?>
+        <a href="javascript:;" title="<?= __('Facebook') ?>" onclick="window.open('http://www.facebook.com/sharer.php?u=<?= urlencode($block->escapeUrl($currentUrl)) ?>', 'newwindow', 'width=600, height=450');">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-facebook"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+    <?php if ($block->showTwitter()):?>
+        <a href="javascript:;" title="<?= __('Twitter') ?>" onclick="window.open('https://twitter.com/share?url=<?= urlencode($block->escapeUrl($currentUrl)) ?>&text=<?php echo $block->escapeHtml($productName); ?>', 'newwindow', 'width=600, height=450');">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-twitter"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+    <?php if ($block->showPinterest()):?>
+        <a href="javascript:;" title="<?= __('Pinterest') ?>" onclick="window.open('http://pinterest.com/pin/create/button/?url=<?= urlencode($block->escapeUrl($currentUrl)); ?>&description=<?= $productName; ?>', 'newwindow', 'width=600, height=450');">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-pinter"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+    <?php if ($block->showGPlus()):?>
+        <a href="javascript:;" title="<?= __('Google') ?>" onclick="window.open('https://plus.google.com/share?url=<?= urlencode($block->escapeUrl($currentUrl)); ?>', 'newwindow', 'width=600, height=450');">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-google"></use>
+            </svg>
+        </a>
+    <?php endif ?>
+<?php endif ?>

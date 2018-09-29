@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Silk_Import::customize" title="Customize" translate="title" module="Silk_Import" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Silk_Import" resource="Silk_Import::customize"/>
+        <add id="Silk_Import::customize_import" title="Import" translate="title" module="Silk_Import" parent="Silk_Import::customize" sortOrder="10" dependsOnModule="Silk_Import" action="silks/import/index" resource="Silk_Import::customize"/>
+    </menu>
+</config>

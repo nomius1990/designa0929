@@ -1,0 +1,361 @@
+//
+//  Variables
+//  _____________________________________________
+
+$active-nav-indent: 54px　!default;
+$screen__ipad: 961px;
+$screen__md: 768px;
+
+.panel.header {
+    .links,
+    .switcher {
+        display: none;
+    }
+}
+
+.nav-toggle {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    left: .15rem;
+    position: absolute;
+    top: .2rem;
+    z-index: 14;
+
+    .icon {
+        @include lib-css(width, .26rem);
+        @include lib-css(height, .26rem);
+    }
+}
+
+.cms-index-index {
+    .nav-toggle {
+        @include lib-css(color, $color-white);
+    }
+
+    .page-header {
+        &.active {
+            .nav-toggle {
+                @include lib-css(color, $color-black);
+            }
+        }
+    }
+}
+
+.nav-sections-item-content {
+    .ui-content {
+        @include lib-css(display, none);
+
+        > li {
+            a {
+                font-size: .14rem;
+                font-family: $font-family_light;
+                display: block;
+                padding: .1rem .2rem;
+                text-transform: uppercase;
+                -moz-transition: all .3s linear;
+                -webkit-transition: all .3s linear;
+                -ms-transition: all .3s linear;
+                transition: all .3s linear;
+            }
+        }
+    }
+}
+
+//
+//  Ipad
+//  _____________________________________________
+
+@include min-screen($screen__ipad) {
+    .navigation {
+        .level0 {
+            > .submenu {
+                @include lib-css(background-color, $color-white);
+            }
+        }       
+    }
+
+    .nav-sections-item-content {
+        display: block !important;
+    }
+}
+
+@include max-screen($screen__ipad) {
+    .nav-sections-items {
+        @include lib-clearfix();
+        position: relative;
+        z-index: 1;
+    }
+
+    .sections {
+        .ui-content {
+            @include lib-css(border-bottom, 1px solid $color-gray82);
+
+            > li {
+                @include lib-css(padding, .1rem .2rem);
+                @include lib-css(border-top, 1px solid $color-gray82);
+            }
+        }
+    }
+
+    .nav-sections-item-title {
+        background: darken($navigation__background, 5%);
+        border: solid darken($navigation__background, 10%);
+        border-width: 0 0 1px 1px;
+        float: left;
+        padding-top: 24px;
+        text-align: center;
+        width: 33.33%;
+
+        &.active {
+            background: transparent;
+            border-bottom: 0;
+        }
+
+        .nav-sections-item-switch {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .nav-sections-item-content {
+        @include lib-clearfix();
+        width: 100%;
+        float: right;
+        display: none;
+        margin-left: -100%;
+        margin-top: .52rem;
+
+        &.active {
+            display: block;
+        }
+
+        .ui-content {
+            @include lib-css(display, block);
+        }
+    }
+
+    .nav-sections {
+        .link-toggle {
+            .down {
+                @include lib-css(display, block);
+            }
+    
+        }
+        
+        .close {
+            .icon {
+                @include lib-css(display, block);
+            }
+        }
+
+        .on {
+            .top {
+                @include lib-css(display, block);
+            }
+
+            .down {
+                @include lib-css(display, none);
+            }
+        }
+    }
+
+    @include lib-main-navigation();
+
+    .nav-sections-item-content {
+        > .navigation {
+            display: block;
+        }
+    }
+
+    .submenu {
+        .level {
+            p {
+                @include lib-css(display, flex);
+                @include lib-css(justify-content, space-between);
+            }
+        }
+
+        .submenu {
+            @include lib-css(padding-left, .1rem);
+        }
+    }
+
+    .navigation {
+        .level0 {
+            > .submenu {
+                @include lib-css(margin-bottom, .1rem);
+                @include lib-css(padding, 0 .2rem);
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__m) {
+    .navigation {
+        padding: 0;
+
+        .parent {
+            .level-top {
+                position: relative;
+            }
+        }
+    }
+
+    .nav-sections {
+        -webkit-overflow-scrolling: touch;
+        @include lib-css(transition, left 0.3s, 1);
+        height: 100%;
+        left: -80%;
+        left: calc(-1 * (100% - #{$active-nav-indent}));
+        overflow: auto;
+        position: fixed;
+        top: 0;
+        width: 80%;
+        width: calc(100% - #{$active-nav-indent});
+
+        .switcher {
+            border-top: 1px solid $color-gray82;
+            font-size: .16rem;
+            font-weight: 700;
+            margin: 0;
+            padding: 0.08rem .35rem 0.08rem .2rem;
+
+            .label {
+                display: block;
+                margin-bottom: $indent__xs;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid $color-gray82;
+            }
+        }
+
+        .switcher-trigger {
+            strong {
+                position: relative;
+                @include lib-icon-font(
+                    $_icon-font-content  : $icon-down,
+                    $_icon-font-size     : 42px,
+                    $_icon-font-position : after,
+                    $_icon-font-display  : block
+                );
+
+                &:after {
+                    position: absolute;
+                    right: -40px;
+                    top: -16px;
+                }
+            }
+
+            &.active strong {
+                @include lib-icon-font-symbol(
+                    $_icon-font-content  : $icon-up,
+                    $_icon-font-position : after
+                );
+            }
+        }
+
+        .switcher-dropdown {
+            @include lib-list-reset-styles();
+            padding: $indent__s 0;
+        }
+
+        .header.links {
+            @include lib-list-reset-styles();
+            border-bottom: 1px solid $color-gray82;
+
+            li {
+                font-size: .16rem;
+                margin: 0;
+
+                &.greet.welcome {
+                    border-top: 1px solid $color-gray82;
+                    font-weight: 700;
+                    padding: 0.08rem $indent__base;
+                }
+
+                > a {
+                    border-top: 1px solid $color-gray82;
+                }
+            }
+
+            a,
+            a:hover {
+                @include lib-css(color, $navigation-level0-item__color);
+                @include lib-css(text-decoration, $navigation-level0-item__text-decoration);
+                display: block;
+                font-weight: 700;
+                padding: 0.08rem $indent__base;
+            }
+
+            .header.links {
+                border: 0;
+            }
+        }
+    }
+
+    .nav-before-open {
+        height: 100%;
+        overflow-x: hidden;
+        width: 100%;
+
+        .page-wrapper {
+            @include lib-css(transition, left 0.3s, 1);
+            height: 100%;
+            left: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .nav-open {
+        .page-wrapper {
+            left: 80%;
+            left: calc(100% - #{$active-nav-indent});
+        }
+
+        .nav-sections {
+            $_shadow: 0 0 5px 0 rgba(50, 50, 50, 0.75);
+
+            @include lib-css(box-shadow, $_shadow, 1);
+            left: 0;
+            z-index: 99;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-sections-item-title {
+        display: none;
+    }
+
+    @include lib-main-navigation-desktop();
+
+    .panel.header {
+        .links,
+        .switcher {
+            display: inline-block;
+        }
+    }
+}

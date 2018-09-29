@@ -1,0 +1,107 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\Compare\ListCompare */
+?>
+<?php 
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $imgManager = $objectManager->get('Silk\Catalog\Block\Product\AbstractProduct');
+    $_total = $block->getItems()->getSize();
+?>
+<?php if ($_total): ?>
+    <a href="javascript:;" class="action stamp" title="<?= /* @escapeNotVerified */ __('Print Details') ?>">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-print"></use>
+        </svg>
+        <span><?= /* @escapeNotVerified */ __('Print Details') ?></span>
+    </a>
+
+    <div class="table-wrapper comparison">
+        <div class="owl-carousel owl-comparison">
+            <?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+            <?php foreach ($block->getItems() as $_item): ?>
+                <div class="item">
+                    <div class="prod-img">
+                        <a class="product-item-photo" href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>" title="<?= /* @escapeNotVerified */ $block->stripTags($_item->getName(), null, true) ?>">
+                            <?= $imgManager->inventImage($_item, 'product_comparison_list')->toHtml() ?>
+                            <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');?>
+                        </a>
+                        <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()) : ?>
+                            <a href="javascript:;" data-post='<?= /* @escapeNotVerified */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-wishlist"></use>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
+                        <a href="javascript:;" data-post='<?= /* @escapeNotVerified */ $compareHelper->getPostDataRemove($_item) ?>'
+                            class="action delete" title="<?= /* @escapeNotVerified */ __('Remove Product') ?>">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-delete"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="prod-info">
+                        <strong class="product-item-name">
+                            <a href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>" class="link" title="<?= /* @escapeNotVerified */ $block->stripTags($_item->getName(), null, true) ?>">
+                                <?= /* @escapeNotVerified */ $_helper->productAttribute($_item, $_item->getName(), 'name') ?>
+                            </a>
+                        </strong>
+                        <div class="product-item-row">
+                            <?= /* @escapeNotVerified */ $block->getProductPrice($_item, '-compare-list-top') ?>
+                        </div>
+                    </div>
+                    <div class="prod-attribute">
+                        <?php foreach ($block->getAttributes() as $_attribute): ?>
+                            <?php $_code = $block->escapeHtml($_attribute->getStoreLabel() ? $_attribute->getStoreLabel() : __($_attribute->getFrontendLabel())); ?> 
+                            <?php if ($_code !== 'Description'): ?>
+                                <p class="attribute">
+                                    <?= $_code ?>:&nbsp;
+                                    <?php switch ($_attribute->getAttributeCode()) {
+                                        case "price": ?>
+                                            <?php echo $block->getProductPrice($_item, '-compare-list-' . $_attribute->getCode()) ?>
+                                            <?php break;
+                                        case "small_image": ?>
+                                            <?php $block->getImage($_item, 'product_small_image')->toHtml(); ?>
+                                            <?php break;
+                                        default: ?>
+                                        <?= $_helper->productAttribute($_item, $block->getProductAttributeValue($_item, $_attribute), $_attribute->getAttributeCode()) ?>
+                                        <?php break;
+                                    } ?>
+                                </p>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="prod-review">
+                        <?= $block->getReviewsSummaryHtml($_item, 'short') ?>
+                    </div>
+                    <div class="product-item-actions">
+                        <?php if ($_item->isSaleable()): ?>
+                            <form data-role="tocart-form" action="<?= /* @escapeNotVerified */ $this->helper('Magento\Catalog\Helper\Product\Compare')->getAddToCartUrl($_item) ?>" method="post">
+                                <?= $block->getBlockHtml('formkey') ?>
+                                <button type="submit" class="action tocart">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-shippingcart"></use>
+                                    </svg>
+                                    <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                                </button>
+                            </form>
+                        <?php else: ?>
+                            <?php if ($_item->getIsSalable()): ?>
+                                <div class="stock available"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div>
+                            <?php else: ?>
+                                <div class="stock unavailable"><span><?= /* @escapeNotVerified */ __('Out of stock') ?></span></div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php else: ?>
+    <div class="message info empty"><div><?= /* @escapeNotVerified */ __('You have no items to compare.') ?></div></div>
+<?php endif; ?>

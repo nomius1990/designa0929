@@ -1,0 +1,1 @@
+Silk_Cms module consists of installation.

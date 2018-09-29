@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_remove_blocks"/>
+    <body>
+        <referenceContainer name="root">
+            <block name="require" class="Magento\Framework\View\Element\Template" before="page.wrapper" template="Magento_Theme::page/require-js.phtml" />
+            <block name="require.config" class="Magento\Framework\View\Element\Template" before="page.wrapper" template="Magento_Theme::page/require-config.phtml">
+                <block class="Magento\RequireJs\Block\Html\Head\Config" name="requirejs-config" />
+                <block class="Magento\Framework\View\Element\Js\Cookie" name="js_cookies" template="Magento_Theme::js/cookie.phtml" />
+            </block>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper" htmlClass="page-wrapper fixed">
+            <block class="Magento\Framework\View\Element\Template" name="designa.sidebar" after="footer-container" template="Magento_Theme::html/sidebar.phtml" />
+            <container name="page.bottom" label="Page Content Bottom" before="footer-container" />
+        </referenceContainer>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_img_width" xsi:type="number">225</argument>
+                <argument name="logo_img_height" xsi:type="number">40</argument>
+            </arguments>
+        </referenceBlock>
+        <move element="navigation.sections" destination="header-wrapper" after="logo" />
+        <referenceBlock name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="user_login" as="user_login" before="minicart" template="Magento_Theme::customer/user-login.phtml" />
+        </referenceBlock>
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="footer.links" as="footer.links" before="-" template="Magento_Theme::html/footer-link.phtml" />
+        </referenceContainer>
+        <move element="form.subscribe" destination="footer.links" />
+        <referenceContainer name="header.container">
+            <container name="header.wrapper" htmlTag="div" htmlClass="inner-wrapper" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="sales.banner" template="Magento_Theme::banner/sales-banner.phtml" />
+            </container>
+        </referenceContainer>
+        <move element="header-wrapper" destination="header.wrapper" after="sales.banner" />
+        <move element="copyright" destination="footer-container" after="-" />
+    </body>
+</page>

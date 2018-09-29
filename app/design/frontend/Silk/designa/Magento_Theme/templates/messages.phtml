@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div data-bind="scope: 'messages'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "messages": {
+                        "component": "Magento_Theme/js/inside",
+                        "template": "Magento_Theme/messages"
+                    } 
+                }
+            }
+        }
+    }
+</script>

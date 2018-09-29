@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magefan. All rights reserved.
+ * See LICENSE.txt for license details.
+ *
+ * @var $block \Magefan\Blog\Block\Post\PostList
+ */
+?>
+
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+
+<section class="blog">
+    <?php if ($_postCollection->count() > 0): ?>
+        <?php echo $block->getAdditionalHtml() ?>
+        <div class="slides">
+            <?php $iterator = 1; ?>
+            <ul class="owl-carousel owl-blog">
+                <?php foreach ($_postCollection as $_post): ?>
+                    <?php echo $block->getPostHtml($_post) ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+</section>

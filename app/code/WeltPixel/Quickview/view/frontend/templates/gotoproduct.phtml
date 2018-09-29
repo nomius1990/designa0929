@@ -1,0 +1,11 @@
+<?php $product = $this->getProduct(); ?>
+<?php $buttonTitle = __('Details'); ?>
+
+<?php if ($product->getTypeId() != 'bundle'): ?>
+    <a target="_parent" href="<?php /* @escapeNotVerified */ echo $product->getProductUrl() ?>" title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>" class="action primary">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-checkout"></use>
+        </svg>
+        <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+    </a>
+<?php endif; ?>

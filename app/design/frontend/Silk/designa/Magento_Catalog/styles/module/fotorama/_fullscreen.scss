@@ -1,0 +1,8 @@
+.fotorama__fullscreen {
+    overflow: hidden;
+    position: relative;
+
+    .fotorama__stage {
+        max-height: inherit;
+    }
+}

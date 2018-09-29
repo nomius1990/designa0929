@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="require.js" remove="true" />
+        <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="logger" remove="true" />
+        <referenceBlock name="cookie_notices" remove="true" />
+        <referenceBlock name="translate-config" remove="true" />
+        <referenceBlock name="translate" remove="true" />
+        <referenceBlock name="head.polyfill" remove="true" />
+        <referenceBlock name="head.components" remove="true" />
+        <referenceBlock name="head.calendar" remove="true" />
+        <referenceBlock name="product.tooltip" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
+        <referenceBlock name="absolute_footer" remove="true" />
+        <referenceBlock name="customer.data.invalidation.rules" remove="true" />
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceBlock name="report.bugs" remove="true" />
+        <referenceBlock name="store_switcher" remove="true" />
+        <referenceBlock name="store.links" remove="true" />
+        <referenceBlock name="frontend-storage-manager" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="skip_to_content.target" remove="true" />
+        <referenceBlock name="social-login-popup" remove="true" />
+        <referenceContainer name="html_calendar" remove="true" />
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="newsletter_head_components" remove="true" />
+        <referenceContainer name="main.content" htmlId="" />
+    </body>
+</page>

@@ -1,0 +1,27 @@
+<!-- ko if: (visible()) -->
+    <p class="ln">
+        <span data-bind="text: address().firstname + '&nbsp;' + address().lastname"></span>
+        <a data-bind="text: address().telephone, attr: {'href': 'tel:' + address().telephone}"></a>
+    </p>
+    <p>
+        <span data-bind="text: address().street"></span>
+        <span data-bind="text: address().city"></span>
+        <span data-bind="html: address().region"></span>
+    </p>
+    <p class="ln">
+        <span data-bind="text: address().postcode"></span>
+        <span data-bind="text: getCountryName(address().countryId)"></span>
+    </p>
+    <!-- ko if: (address().telephone) -->
+    <!-- /ko -->
+    <!-- ko foreach: { data: address().customAttributes, as: 'element' } -->
+        <!-- ko foreach: { data: Object.keys(element), as: 'attribute' } -->
+            <!-- ko if: (typeof element[attribute] === "object") -->
+                <!-- ko text: element[attribute].value --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: (typeof element[attribute] === "string") -->
+                <!-- ko text: element[attribute] --><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+    <!-- /ko -->
+<!-- /ko -->

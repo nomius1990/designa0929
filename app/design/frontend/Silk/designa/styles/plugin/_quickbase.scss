@@ -1,0 +1,71 @@
+//
+//  QuickBase
+//  ---------------------------------------------
+
+.weltpixel-quickview-catalog-product-view {
+	.box-tocart .action.tocart {
+		width: 100%;
+	}
+
+	.page-wrapper .page-main {
+		padding: 20px;
+		min-height: inherit;
+	}
+
+	.reviews-actions .add {
+		display: none;
+	}
+
+	&.page-product-downloadable {
+		.product-options-wrapper,
+		.product-options-bottom {
+			float: none;
+			width: 100%;
+		}
+
+		.product-options-bottom {
+			.price-box {
+				display: none;
+			}
+		}
+	}
+}
+
+.box-gotoproduct #product-gotoproduct-button {
+	width: 100%;
+	padding: 14px 17px;
+	font-size: .18rem;
+	text-align: center;
+	border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+	.weltpixel-quickview-catalog-product-view {
+		&.catalog-product-view .breadcrumbs,
+		&.catalog-product-view .columns,
+		&.catalog-product-view .page.messages,
+		&.catalog-product-view .page-title-wrapper {
+			max-width: 100%;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+
+@media (min-width: 640px) {
+	.product-item-info {
+		.weltpixel-quickview {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			color: $color-white;
+			width: 100%;
+			display: none;
+			padding: .09rem 0;
+			opacity: .85;
+			z-index: 20;
+			text-align: center;
+			background-color: #484848;
+		}
+	}
+}

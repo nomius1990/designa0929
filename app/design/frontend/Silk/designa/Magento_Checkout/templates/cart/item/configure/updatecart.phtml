@@ -1,0 +1,73 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+
+<?php 
+    $_product = $block->getProduct();
+    $buttonTitle = __('UPDATE TO CART');
+    $checkoutTitle = __('Buy Now');
+?>
+<?php if ($_product->isSaleable()): ?>
+<div class="prod-form">
+    <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <button type="button" class="cart-add">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-add"></use> 
+                </svg>
+            </button>
+            <input type="number"
+                    name="qty"
+                    id="qty"
+                    value=""
+                    title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                    class="input-text qty"
+                    data-validate="{'required-number':true,digits:true}" />
+            <button type="button" class="cart-minus">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-minus"></use>
+                </svg>
+            </button>
+            <?= $block->getChildHtml('product.price.render.bundle.customization') ?>
+        </div>
+        <?= $block->getChildHtml('bundle.button') ?>
+    <?php endif; ?>
+    <div class="btn-group">
+        <button type="submit"
+                title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                class="action tocart"
+                id="product-updatecart-button">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shippingcart"></use>
+            </svg>
+            <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+        </button>
+        <button type="button"
+                title="<?= /* @escapeNotVerified */ $checkoutTitle ?>"
+                class="action tocheckout">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-bag"></use>
+            </svg>
+            <span><?= /* @escapeNotVerified */ $checkoutTitle ?></span>
+        </button>
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "validation": {},
+                "addToCart": {
+                    "cartButtonId": "#product-updatecart-button",
+                    "cartForm": "#product_addtocart_form"
+                }
+            }
+        }
+    </script>
+</div>
+<?php endif; ?>

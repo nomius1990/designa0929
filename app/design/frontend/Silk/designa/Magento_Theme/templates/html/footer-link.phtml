@@ -1,0 +1,224 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<?php 
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $categoryFactory = $objectManager->create('\Silk\Theme\Block\Category');
+?>
+
+<div class="row footer-links">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="item">
+            <h5>
+                <span><?= __('My Account') ?></span>
+                <a href="javascript:;" class="open-link">
+                    <svg class="icon top" aria-hidden="true">
+                        <use xlink:href="#icon-top"></use>
+                    </svg>
+                    <svg class="icon down" aria-hidden="true">
+                        <use xlink:href="#icon-down"></use>
+                    </svg>
+                </a>
+            </h5>
+            <ul class="list">
+                <li>
+                    <a href="<?= $this->getUrl("customer/account/login") ?>" title="<?= __('Login') ?>">
+                        <span><?= __('Login') ?></span>
+                    </a>  
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("sales/order/history") ?>" title="<?= __('Order History') ?>">
+                        <span><?= __('Order History') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("wishlist") ?>" title="<?= __('Wish List') ?>">
+                        <span><?= __('Wish List') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("privacy-policy") ?>" title="<?= __('Privacy Policy') ?>">
+                        <span><?= __('Privacy Policy') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("terms-conditions") ?>" title="<?= __('Terms &amp; Conditions') ?>">
+                        <span><?= __('Terms &amp; Conditions') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <div class="content">
+                        <p class="contact">
+                            <a href="https://www.facebook.com/eurekaergonomic" title="<?= __('Facebook') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-facebook-circle"></use>
+                                </svg>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCoWVJunP-iwGhX7CplBfC8A" title="<?= __('Youtube') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-youtube"></use>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/eurekaergonomic" title="<?= __('Twitter') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-twitter-circle"></use>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company-beta/18191840/" title="<?= __('LinkedIn') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-linkedIn"></use>
+                                </svg>
+                            </a>
+                            <a href="http://instagram.com/eurekaergonomic" title="<?= __('Instagram') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-instagram"></use>
+                                </svg>
+                            </a>
+                            <a href="https://www.pinterest.com/eurekaergonomic/" title="<?= __('Pinterest') ?>" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-pinterest"></use>
+                                </svg>
+                            </a>
+                        </p>
+                        <p class="payment">
+                            <img class="lazy" data-src="<?= $block->getViewFileUrl('images/payment.png') ?>" />
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="item">
+            <h5>
+                <span><?= __('Shop') ?></span>
+                <a href="javascript:;" class="open-link">
+                    <svg class="icon top" aria-hidden="true">
+                        <use xlink:href="#icon-top"></use>
+                    </svg>
+                    <svg class="icon down" aria-hidden="true">
+                        <use xlink:href="#icon-down"></use>
+                    </svg>
+                </a>
+            </h5>
+            <ul class="list">
+                <?php foreach($categoryFactory->getNavCategory() as $category): ?>
+                    <li>
+                        <a href="<?= $category->getUrl() ?>" title="<?= $category->getName() ?>">
+                            <span><?= $category->getName() ?></span>
+                        </a> 
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="item">
+            <h5>
+                <a href="<?= $this->getUrl("bulk-discounts") ?>" title="<?= __('Bulk Discounts') ?>">
+                    <span><?= __('Bulk Discounts') ?></span>
+                </a> 
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="item">
+            <h5>
+                <span><?= __('Why EUREKA?') ?></span>
+                <a href="javascript:;" class="open-link">
+                    <svg class="icon top" aria-hidden="true">
+                        <use xlink:href="#icon-top"></use>
+                    </svg>
+                    <svg class="icon down" aria-hidden="true">
+                        <use xlink:href="#icon-down"></use>
+                    </svg>
+                </a>
+            </h5>
+            <ul class="list">
+                <li>
+                    <a href="<?= $this->getUrl("blog") ?>" title="<?= __('Blog') ?>">
+                        <span><?= __('Blog') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("about") ?>" title="<?= __('About Us') ?>">
+                        <span><?= __('About Us') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("customer-order") ?>" title="<?= __('Customer Order') ?>">
+                        <span><?= __('Customer Order') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("eureka-advantages") ?>" title="<?= __('Eureka Advantages') ?>">
+                        <span><?= __('Eureka Advantages') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("complete-office-design") ?>" title="<?= __('Complete Office Design') ?>">
+                        <span><?= __('Complete Office Design') ?></span>
+                    </a> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="item">
+            <h5>
+                <span><?= __('Support') ?></span>
+                <a href="javascript:;" class="open-link">
+                    <svg class="icon top" aria-hidden="true">
+                        <use xlink:href="#icon-top"></use>
+                    </svg>
+                    <svg class="icon down" aria-hidden="true">
+                        <use xlink:href="#icon-down"></use>
+                    </svg>
+                </a>
+            </h5>
+            <ul class="list">
+                <li>
+                    <a href="<?= $this->getUrl("desk-size") ?>" title="<?= __('Desk Sizing') ?>">
+                        <span><?= __('Desk Sizing') ?></span>
+                    </a> 
+                <li>
+                    <a href="<?= $this->getUrl("shipping-returns") ?>" title="<?= __('Shipping &amp; Returns') ?>">
+                        <span><?= __('Shipping &amp; Returns') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("warranty") ?>" title="<?= __('Eureka Warranty') ?>">
+                        <span><?= __('Eureka Warranty') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("faqs") ?>" title="<?= __('Eureka FAQ\'s') ?>">
+                        <span><?= __('Eureka FAQ\'s') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("user-guides") ?>" title="<?= __('User Guides') ?>">
+                        <span><?= __('User Guides') ?></span>
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("contact-us") ?>" title="<?= __('Contact Us') ?>">
+                        <span><?= __('Contact Us') ?></span>
+                    </a> 
+                </li>
+            </ul>
+        </div>
+        <div class="item">
+            <h5>
+                <span><?= __('Stay Informed') ?></span>
+            </h5>
+            <?= $block->getChildHtml() ?>
+        </div>
+    </div>
+</div>

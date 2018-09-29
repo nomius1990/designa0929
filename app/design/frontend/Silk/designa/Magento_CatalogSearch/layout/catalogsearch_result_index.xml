@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value=""/>
+        <referenceContainer name="sidebar.additional">
+            <block class="Magento\Framework\View\Element\Template" name="category.close" after="-" template="Magento_Catalog::category/close.phtml" />
+        </referenceContainer>
+        <move element="sidebar.additional" destination="div.sidebar.main" after="-" />
+    </body>
+</page>

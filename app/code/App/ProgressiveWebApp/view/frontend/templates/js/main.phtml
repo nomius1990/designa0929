@@ -1,0 +1,25 @@
+<?php
+/**
+ * @copyright Copyright
+ */
+?>
+
+<?php if($block->isEnabled()) :?>
+    <head>
+        <meta name="theme-color" content="<?php echo $block->getThemeColor() ?>"/>
+    </head>
+    <script src="https://www.gstatic.com/firebasejs/<?php echo $block->getFcmVersion() ?>/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/<?php echo $block->getFcmVersion() ?>/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/<?php echo $block->getFcmVersion() ?>/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/<?php echo $block->getFcmVersion() ?>/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/<?php echo $block->getFcmVersion() ?>/firebase-messaging.js"></script>
+    <?php echo $block->getFirebaseScript(); ?>
+<?php endif; ?>
+
+<script>
+    window.pwa = <?php echo \Zend_Json::encode([
+        'enabled' => $block->isEnabled(),
+        'baseUrl' => $block->getBaseUrl(),
+        'ajaxUrl' => $block->getUrl('pwa/index/subscribeTopic')
+    ]); ?>;
+</script> 

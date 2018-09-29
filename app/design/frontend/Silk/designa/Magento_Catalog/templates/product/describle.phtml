@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php $url = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]); ?>
+<div class="prod-describle">
+    <ul>
+        <li>
+            <i class="dcon dcon-shipping"></i>
+            <span><?= __('Free Standard Shipping') ?></span>
+        </li>
+        <li>
+            <i class="dcon dcon-return"></i>
+            <span><?= __('30-Day No Hassle Return') ?></span>
+        </li>
+        <li>
+            <i class="dcon dcon-warranty"></i>
+            <span><?= __('12-Year Wrranty') ?></span>
+        </li>
+        <li>
+            <i class="dcon dcon-install"></i>
+            <span><?= __('No installation Required') ?></span>
+        </li>
+    </ul>
+    <div class="share clearfix">
+        <div class="fr">
+            <a href="javascript:;" title="<?= __('Share Desk') ?>">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-share"></use>
+                </svg>
+                <span><?= __('Share Desk') ?></span>
+            </a>
+            <div class="hide">
+                <?= $block->getChildHtml('socialshare') ?>
+            </div>
+        </div>
+    </div>
+</div>

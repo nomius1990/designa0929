@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+?>
+<div class="block block-info">
+    <h2 class="title"><?= $block->escapeHtml(__('My Dashboard')) ?></h2>
+    <div class="content">
+        <ul class="list">
+            <li>
+                <a href="<?= $this->getUrl("sales/order/history")?>" title="<?= __('My Orders') ?>">
+                    <i class="dcon dcon-orders"></i>
+                    <span><?= __('My Orders') ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $this->getUrl("wishlist")?>" title="<?= __('My Wish List') ?>">
+                    <i class="dcon dcon-wishlist"></i>
+                    <span><?= __('My Wish List') ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $this->getUrl("review/customer")?>" title="<?= __('My Review') ?>">
+                    <i class="dcon dcon-review"></i>
+                    <span><?= __('My Review') ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $this->getUrl("customer/address")?>" title="<?= __('Address Book') ?>">
+                    <i class="dcon dcon-address"></i>
+                    <span><?= __('Address Book') ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $this->getUrl("newsletter/manage")?>" title="<?= __('Newsletter Subscribe') ?>">
+                    <i class="dcon dcon-newsletter"></i>
+                    <span><?= __('Newsletter Subscribe') ?></span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $this->getUrl("customer/account/edit")?>" title="<?= __('My Account') ?>">
+                    <i class="dcon dcon-account"></i>
+                    <span><?= __('My Account') ?></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

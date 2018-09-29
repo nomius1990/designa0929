@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<add id="Lof_All::lof_all" title="LandCoder" module="Lof_All" sortOrder="12" resource="Lof_All::lof_all"/> 
+	</menu> 
+</config>

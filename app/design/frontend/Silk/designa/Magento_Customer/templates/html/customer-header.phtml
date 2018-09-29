@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Silk\Customer\Block\Account */
+?>
+
+<div class="customer-header">
+    <div class="container">
+        <div class="row">
+            <div class="dl">
+                <p><?= $block->escapeHtml($block->getName()) ?></p>
+                <span><?= $block->escapeHtml($block->getCustomer()->getEmail()) ?></span>
+            </div>
+            <ul class="dr">
+                <li>
+                    <a href="<?= $this->getUrl("sales/order/history")?>" class="link">
+                        <i class="dcon dcon-car"></i>
+                        <span><?= $block->getShippingCount() . __(' Shipping') ?></span>
+                    </a>
+                    <p><?= __('To Be Tracked') ?></p>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("sales/order/history")?>" class="link">
+                        <i class="dcon dcon-history"></i>
+                        <span><?= $block->getHistoryCount() . __(' History') ?></span>
+                    </a>
+                    <p><?= __('In Total') ?></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

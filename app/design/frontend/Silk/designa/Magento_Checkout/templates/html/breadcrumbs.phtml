@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<section class="page-crumbs">
+    <div class="breadcrumbs">
+        <ul class="items">
+            <li class="item">
+                <a href="<?= $this->getUrl("/")?>" title="<?= __('Home') ?>"><?= __('Home') ?></a>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="item">
+                <strong><?= __('Checkout') ?></strong>
+            </li>
+        </ul>
+    </div>
+</section>

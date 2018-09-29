@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+<?php $_product = $block->getProduct(); ?>
+
+<form data-product-sku="<?= /* @NoEscape */ $_product->getSku() ?>"
+    <?php if ($_product->getTypeId() == 'simple'): ?>
+        class="<?= $_product->getTypeId() ?>"
+    <?php endif; ?>
+    action="<?= /* @NoEscape */ $block->getSubmitUrl($_product) ?>" method="post"
+    id="quick_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+    <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $_product->getId() ?>" />
+    <input type="hidden" name="selected_configurable_option" value="" />
+    <input type="hidden" name="related_product" id="related-products-field" value="" />
+    <?= $block->getBlockHtml('formkey') ?>
+    <?= $block->getChildHtml('quick.name') ?>
+    <?= $block->getChildHtml('quick.price') ?>
+    <?php if ($block->hasOptions()): ?>
+        <?php if ($_product->isSaleable() && $block->hasOptions() && $block->getOptionsContainer() == 'container2'):?>
+            <?= $block->getChildChildHtml('options_container') ?>
+        <?php endif;?>
+    <?php else: ?>
+        <?= $block->getChildHtml('form_top') ?>
+        <?php if (!$block->hasOptions()):?>
+            <?= $block->getChildHtml('quick.info.form.content') ?>
+        <?php else:?>
+            <?php if ($_product->isSaleable() && $block->getOptionsContainer() == 'container1'):?>
+                <?= $block->getChildChildHtml('options_container') ?>
+            <?php endif;?>
+        <?php endif; ?>
+    <?php endif; ?>
+    <?= $block->getChildHtml('form_bottom') ?>
+</form>
+<script>
+    require([
+        'jquery',
+        'priceBox'
+    ], function($){
+        var dataPriceBoxSelector = '[data-role=priceBox]',
+            dataProductIdSelector = '[data-product-id=<?= $block->escapeHtml($_product->getId()) ?>]',
+            priceBoxes = $(dataPriceBoxSelector + dataProductIdSelector);
+
+        priceBoxes = priceBoxes.filter(function(index, elem){
+            return !$(elem).find('.price-from').length;
+        });
+
+        priceBoxes.priceBox({'priceConfig': <?= /* @escapeNotVerified */ $block->getJsonConfig() ?>});
+    });
+</script>

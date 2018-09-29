@@ -1,0 +1,1 @@
+Silk_Catalog module consists of installation.

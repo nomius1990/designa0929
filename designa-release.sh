@@ -1,0 +1,2 @@
+#! /bin/sh
+sudo rm -rf generated/* && rm -rf var/* && rm -rf pub/static/frontend/Silk/designa/ && sudo php bin/magento cache:clean && sudo php bin/magento setup:static-content:deploy -f && sudo chmod -R 777 ./ && sudo npm run release

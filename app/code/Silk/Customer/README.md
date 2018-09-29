@@ -1,0 +1,1 @@
+Silk_Customer module consists of installation.

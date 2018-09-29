@@ -1,0 +1,23 @@
+.opc-wrapper {
+    .form-discount {
+        .field {
+            @include lib-css(display, flex);
+            @include lib-css(margin, .4rem 0);
+            @include lib-css(justify-content, space-between);
+
+            .label {
+                @extend .abs-visually-hidden;
+            }
+
+            .group {
+                @include lib-css(flex, 0 1 85%);
+            }
+
+            .action {
+                @include lib-css(height, .42rem);
+                @include lib-css(flex, 0 1 10%);
+                @include lib-css(border, 2px solid);
+            }
+        }
+    }
+}

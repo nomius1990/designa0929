@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<?php
+    $objManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$session = $objManager->create('Magento\Customer\Model\Session');
+	$customerSession = $objManager->create('Magento\Customer\Model\Customer');
+    $customer = $customerSession->load($session->getCustomerId());
+?>
+
+<div class="block-account" data-block="account">
+    <a href="javascript:;" class="action" title="<?= __('Account') ?>">
+        <?php if($session->isLoggedIn()):?>
+            <span><?= $customer->getFirstname() ?></span>
+        <?php else: ?>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-account"></use>
+            </svg>
+        <?php endif; ?>
+    </a>
+    <div class="block-login" 
+        data-role="dropdownDialog"
+        data-mage-init='{"dropdownDialog":{
+            "appendTo": "[data-block=account]",
+            "triggerTarget": ".block-account .action",
+            "timeout": "2000",
+            "closeOnMouseLeave": false,
+            "closeOnClickOutside": true,
+            "closeOnEscape": true,
+            "triggerClass": "active",
+            "parentClass": "active",
+            "buttons": []}}'>
+        <ul class="dropdown ui-dialog-content">
+            <?php if($session->isLoggedIn()):?>
+                <li>
+                    <a href="<?= $this->getUrl("customer/account")?>" title="<?= __("My Account"); ?>"><?= __("My Account"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("sales/order/history")?>" title="<?= __("My Orders"); ?>"><?= __("My Orders"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("wishlist")?>" title="<?= __("My Wish List"); ?>"><?= __("My Wish List"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("customer/account/logout")?>" title="<?= __("Log Out"); ?>"><?= __("Log Out"); ?></a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="<?= $this->getUrl("customer/account/login")?>" title="<?= __("Log In"); ?>"><?= __("Log In"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("customer/account/create")?>" title="<?= __("Register"); ?>"><?= __("Register"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("catalog/product_compare")?>" title="<?= __("My Compare"); ?>"><?= __("My Compare"); ?></a>
+                </li>
+                <li>
+                    <a href="<?= $this->getUrl("wishlist")?>" title="<?= __("My Wish List"); ?>"><?= __("My Wish List"); ?></a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>

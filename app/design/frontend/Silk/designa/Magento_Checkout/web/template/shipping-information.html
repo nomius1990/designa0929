@@ -1,0 +1,34 @@
+<!-- ko if: (isVisible()) -->
+<div class="shipping-information">
+    <div class="ship-to">
+        <div class="shipping-information-title">
+            <span data-bind="i18n: 'Ship To'"></span>
+            <a href="javascript:;" class="action-edit" data-bind="click: back">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-edit"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="shipping-information-content">
+            <!-- ko foreach: getRegion('ship-to') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+    </div>
+    <div class="ship-via">
+        <div class="shipping-information-title">
+            <span data-bind="i18n: 'Shipping Method'"></span>
+            <a href="javascript:;" class="action-edit" data-bind="click: backToShippingMethod">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-edit"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="shipping-information-content">
+            <span class="value" data-bind="text: getShippingMethodTitle()"></span>
+            <span class="price" data-bind="text: getShippingMethodPrice()"></span>
+        </div>
+    </div>
+</div>
+<!--/ko-->
+    

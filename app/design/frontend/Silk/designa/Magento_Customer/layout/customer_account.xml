@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <body>
+        <referenceContainer name="div.sidebar.additional" remove="true" />
+        <referenceContainer name="columns">
+            <block class="Magento\Framework\View\Element\Template" name="customer-account" template="Magento_Customer::html/customer-account.phtml">
+                <block class="Silk\Customer\Block\Account" name="customer-header" template="Magento_Customer::html/customer-header.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="customer-info" template="Magento_Customer::html/customer-info.phtml" />
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.main" htmlClass="sidebar" />
+        <referenceContainer name="main" htmlClass="wrapper" />
+        <move element="div.sidebar.main" destination="customer-info" before="-" />
+        <move element="main" destination="customer-info" after="-" />
+        <move element="page.messages" destination="customer-account" before="-" />
+        <referenceBlock name="customer-account-navigation-account-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">My Dashboard</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="customer-account-navigation-account-edit-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                <argument name="sortOrder" xsi:type="number">10</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="customer-account-navigation-delimiter-1" remove="true" />
+        <referenceBlock name="customer-account-navigation-delimiter-2" remove="true" />
+    </body>
+</page>

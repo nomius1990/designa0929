@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /* @var $block \Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Radio */ ?>
+<?php 
+    $object  = \Magento\Framework\App\ObjectManager::getInstance();
+    $image   = $object->get('\Magento\Catalog\Helper\ImageFactory');
+    $productManager = $object->get('\Magento\Catalog\Model\Product');
+    $_option = $block->getOption();
+    $_selections  = $_option->getSelections();
+    $_default     = $_option->getDefaultSelection();
+    list($_defaultQty, $_canChangeQty) = $block->getDefaultValues();
+?>
+<div class="field option <?= ($_option->getRequired()) ? ' required': '' ?>">
+    <?php if ($block->showSingle()): ?>
+        <?= /* @escapeNotVerified */ $block->getSelectionTitlePrice($_selections[0]) ?>
+        <input type="hidden"
+            class="bundle-option-<?= (int)$_option->getId() ?> option"
+            name="bundle_option[<?= (int)$_option->getId() ?>]"
+            value="<?= (int)$_selections[0]->getSelectionId() ?>"
+            id="bundle-option-<?= (int)$_option->getId() ?>-<?= (int)$_selections[0]->getSelectionId() ?>"
+            checked="checked"
+        />
+    <?php else:?>
+        <?php if (!$_option->getRequired()): ?>
+            <input type="radio"
+                class="radio bundle option"
+                id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>"
+                name="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                data-selector="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                <?= ($_default && $_default->isSalable())?'':' checked="checked" ' ?>
+                value=""/>
+        <?php endif; ?>
+        <input type="checkbox" name="bundle_check[<?= /* @escapeNotVerified */ $_option->getId() ?>]" class="input-checkbox" />
+        <?php foreach ($_selections as $_selection): ?>
+            <input type="radio"
+                class="radio bundle option"
+                id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>"
+                <?php if ($_option->getRequired()) echo 'data-validate="{\'validate-one-required-by-name\':true}"'?>
+                name="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                data-selector="bundle_option[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                <?php if ($block->isSelected($_selection)) echo ' checked="checked"' ?>
+                <?php if (!$_selection->isSaleable()) echo ' disabled="disabled"' ?>
+                value="<?= /* @escapeNotVerified */ $_selection->getSelectionId() ?>"/>
+            <?php
+                $product = $productManager->load($_selection->getProductId()); 
+                $imageUrl  = $image->create()->init($product, 'product_thumbnail_image')->setImageFile($product->getFile())->getUrl(); ?>
+            <img src="<?php echo $imageUrl; ?>" />
+            <?= /* @escapeNotVerified */ $block->getSelectionTitlePrice($_selection) ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <div class="field qty">
+        <button type="button" class="cart-add">
+            <svg class="icon" aria-hidden="true"> 
+                <use xlink:href="#icon-add"></use>
+            </svg>
+        </button>
+        <input id="bundle-option-<?= /* @escapeNotVerified */ $_option->getId() ?>-qty-input"
+            class="input-text qty"
+            type="number"
+            name="bundle_option_qty[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+            data-selector="bundle_option_qty[<?= /* @escapeNotVerified */ $_option->getId() ?>]"
+                value="<?= /* @escapeNotVerified */ $_defaultQty ?>"/>
+        <button type="button" class="cart-minus">
+            <svg class="icon" aria-hidden="true"> 
+                <use xlink:href="#icon-minus"></use>
+            </svg>
+        </button>
+    </div>
+</div>

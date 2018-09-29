@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+<?php
+    $helper = $this->helper('Lof\LazyLoad\Helper\Data');
+    $loadingIcon = $helper->getConfig('general/loadingIcon');
+    if ($block->getInfo()) {
+        $imgUrl = $this->getUrl('pub/media') . 'catalog/product' . $block->getInfo();
+    } else {
+        $imgUrl = '';
+    }
+?>
+<span class="product-image-container"
+      style="width:<?php echo $block->getWidth()?>px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: <?php echo ($block->getRatio() * 100); ?>%;">
+        <?php if ($helper->isEnable()): ?>
+            <img class="lazy product-image-photo"
+                <?php echo $block->getCustomAttributes(); ?>
+                src="<?php echo $block->getViewFileUrl('images/loader.gif') ?>"
+                data-src="<?php echo $block->getImageUrl(); ?>"
+                data-hover="<?php echo $imgUrl ?>"
+                data-init="<?php echo $block->getImageUrl(); ?>"
+                data-loader="<?php echo $block->getViewFileUrl('images/loader.gif') ?>"
+                width="<?php echo $block->getResizedImageWidth(); ?>"
+                height="<?php echo $block->getResizedImageHeight(); ?>"
+                title="<?php echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+        <?php else: ?>
+            <img class="product-image-photo"
+                <?php echo $block->getCustomAttributes(); ?>
+                src="<?php echo $block->getImageUrl(); ?>"
+                data-hover="<?php echo $imgUrl . $block->getInfo(); ?>"
+                width="<?php echo $block->getResizedImageWidth(); ?>"
+                height="<?php echo $block->getResizedImageHeight(); ?>"
+                title="<?php echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+        <?php endif; ?>
+    </span>
+</span>

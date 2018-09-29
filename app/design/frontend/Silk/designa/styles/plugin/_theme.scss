@@ -1,0 +1,65 @@
+.owl-theme, .owl-review {
+	.owl-nav {
+		margin-top: 10px;
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+
+		[class*='owl-'] {
+			color: $cms-color;
+			margin: $owl-nav-margin;
+			display: inline-block;
+			cursor: pointer;
+			opacity: .85;
+			border-radius: 3px;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.icon {
+				width: .3rem;
+				height: .3rem;
+			}
+		}
+
+		.disabled {
+			opacity: $owl-nav-disabled-opacity;
+			cursor: not-allowed;
+		}
+	}
+
+	.owl-nav.disabled + .owl-dots {
+		margin-top: 10px;
+	}
+
+	.owl-dots {
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+
+		.owl-dot {
+			display: inline-block;
+			zoom: 1;
+			box-shadow: inherit;
+			*display: inline;
+
+			span {
+				width: $owl-dot-width;
+				height: $owl-dot-height;
+				margin: $owl-dot-margin;
+				background: $owl-dot-background;
+				display: block;
+				-webkit-backface-visibility: visible;
+				backface-visibility: visible;
+				transition: opacity 200ms ease;
+				border-radius: $dot-rounded;
+			}
+
+			&.active,
+			&:hover {
+				span {
+					background: $owl-dot-background-active;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+//
+//  Variables
+//  _____________________________________________
+
+$checkout-sidebar-shipping-information__padding                : $indent__l !default;
+$checkout-sidebar-shipping-information__line-height            : $checkout-billing-address-details__line-height !default;
+
+$checkout-sidebar-shipping-information-edit-icon__color        : $minicart-icons-color !default;
+$checkout-sidebar-shipping-information-edit-icon__content      : $icon-settings !default;
+$checkout-sidebar-shipping-information-edit-icon__font-size    : 28px !default;
+$checkout-sidebar-shipping-information-edit-icon__line-height  : 28px !default;
+$checkout-sidebar-shipping-information-edit-icon__top          : 2px !default;
+$checkout-sidebar-shipping-information-edit-icon__hover__color : $primary__color !default;
+
+//
+//  Shipping Information
+//  ---------------------------------------------
+
+.opc-block-shipping-information {
+    .shipping-information-title {
+        @extend .abs-checkout-title;
+        @include lib-css(border-bottom, $checkout-step-title__border);
+        margin: 0 0 $indent__base;
+        position: relative;
+
+        .action-edit {
+            @include lib-css(color, $color-black);
+            @extend .abs-action-button-as-link;
+            @include lib-css(top, $checkout-sidebar-shipping-information-edit-icon__top);
+            margin: 0;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .ship-to,
+    .ship-via {
+        margin: 0 0 $indent__base;
+    }
+}
+
+.shipping-information-content {
+    > p {
+        span {
+            @include lib-css(display, inline-block);
+            @include lib-css(margin-right, .2rem);
+
+            &:last-child {
+                @include lib-css(margin-right, 0);
+            }
+        }
+    }
+
+    .ln {
+        span {
+            @include lib-css(margin-right, .5rem);
+
+            &:last-child {
+                @include lib-css(margin-right, 0);
+            }
+        }
+    }
+}
+
+.ship-via {
+    .shipping-information-content {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+    }
+}

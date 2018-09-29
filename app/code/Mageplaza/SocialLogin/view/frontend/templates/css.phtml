@@ -1,0 +1,19 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * 
+ */
+
+/** @var \Mageplaza\SocialLogin\Block\Css $block */
+?>
+<?php
+/** @var \Mageplaza\SocialLogin\Helper\Data $helper */
+$helper = $block->helper();
+$color  = $helper->getStyleManagement();
+?>
+
+<?php echo $helper->getCustomCss() ?>
+</style>
+
+<?php echo $block->getChildHtml() ?>

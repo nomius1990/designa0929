@@ -1,0 +1,31 @@
+.product.data.items {
+    @include lib-data-accordion();
+    margin-bottom: $indent__base;
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .product.data.items {
+        @include lib-data-tabs(
+            $_tab-content-border-top-status: true
+        );
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__m) {
+    .product.data.items {
+        @include lib-data-accordion();
+        border-bottom: 1px solid $color-gray80;
+
+        .data.item {
+            display: block;
+        }
+    }
+}

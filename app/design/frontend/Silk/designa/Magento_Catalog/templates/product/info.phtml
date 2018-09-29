@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$product = $block->getProduct();
+$object  = \Magento\Framework\App\ObjectManager::getInstance();
+$info    = $object->get('\Magento\Catalog\Model\Product')->load($product->getId());
+// @codingStandardsIgnoreFile
+?>
+<div class="prod-info">
+    <?php if ($info->getBrand()) {?>
+    <p>
+        <label><?= __('Brand') ?>:</label>
+        <span><?= $info->getAttributeText('brand') ?></span>
+    </p>
+    <?php }?>
+    <?php if ($info->getSku()) {?>
+    <p>
+        <label><?= __('SKU') ?>:</label>
+        <span><?= $info->getSku() ?></span>
+    </p>
+    <?php }?>
+    <?php if ($info->getUpc()) {?>
+    <p>
+        <label><?= __('UPC') ?>:</label>
+        <span><?= $info->getAttributeText('upc') ?></span>
+    </p>
+    <?php }?>
+    <?php if ($info->getSize()) {?>
+    <p>
+        <label><?= __('Size') ?>:</label>
+        <span><?= $info->getAttributeText('size') ?></span>
+    </p>
+    <?php }?>
+    <p>
+        <label><?= __('Avaliability') ?>:</label>
+        <span><?= __('Usually ships within 24 hours.') ?></span>
+    </p>
+</div>

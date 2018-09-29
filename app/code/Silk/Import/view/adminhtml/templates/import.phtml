@@ -1,0 +1,10 @@
+<?php
+echo 'closed,now';die;
+?>
+<form action="<?php echo  $this->getUrl('*/*/save')?>" method="post" enctype="multipart/form-data">
+    <?php echo $block->getBlockHtml('formkey'); ?>
+    <p>Customer Import<input name="customer" type="file"/></p>
+    <p>Order Import<input name="order" type="file"/></p>
+    <p><input type="submit" value="Import"/></p>
+</form>
+

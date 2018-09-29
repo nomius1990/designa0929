@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php 
+  if ($block->getInfo()) {
+      $imgUrl = $this->getUrl('pub/media') . 'catalog/product' . $block->getInfo();
+  } else {
+      $imgUrl = '';
+  }
+?>
+
+<span class="product-image-container"
+      style="width:<?= $block->getWidth()?>px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: <?= ($block->getRatio() * 100); ?>%;">
+        <img class="product-image-photo owl-lazy"
+            <?= $block->getCustomAttributes(); ?>
+            src="<?= $block->getViewFileUrl('images/loader.gif') ?>"
+            data-src="<?= $block->getImageUrl(); ?>"
+            data-hover="<?php echo $imgUrl ?>"
+            data-init="<?= $block->getImageUrl(); ?>"
+            data-loader="<?php echo $block->getViewFileUrl('images/loader.gif') ?>"
+            width="<?= $block->getResizedImageWidth(); ?>"
+            height="<?= $block->getResizedImageHeight(); ?>"
+            title="<?= $block->stripTags($block->getLabel(), null, true); ?>" />
+    </span>
+</span>

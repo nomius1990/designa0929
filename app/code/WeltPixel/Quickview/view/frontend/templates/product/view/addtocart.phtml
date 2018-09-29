@@ -1,0 +1,124 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $_wishlist = $objectManager->get('Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist'); 
+    $_product = $block->getProduct();
+    $buttonTitle = __('Add to Cart');
+    $checkoutTitle = __('CHECK OUT');
+?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="prod-form">
+        <?php if ($block->shouldRenderQuantity()): ?>
+            <div class="field qty">
+                <button type="button" class="cart-add">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-add"></use> 
+                    </svg>
+                </button>
+                <input type="number"
+                    name="qty"
+                    id="qty"
+                    value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                    title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                    class="input-text qty"
+                    data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                    />
+                <button type="button" class="cart-minus">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-minus"></use>
+                    </svg>
+                </button>
+                <?= $block->getChildHtml('product.price.render.bundle.customization') ?>
+            </div>
+        <?php endif; ?>
+        <div class="d-flex">
+            <button type="submit"
+                    title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                    class="action tocart primary"
+                    id="product-addtocart-button">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shippingcart"></use>
+                </svg>
+                <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+            </button>
+            <?php if ($_wishlist->isWishListAllowed()) : ?>
+                <a href="javascript:;"
+                class="action towishlist"
+                data-param='<?= /* @noEscape */ $_wishlist->getWishlistParams() ?>'
+                data-role="wishlist">
+                    <svg class="icon wishlist" aria-hidden="true">
+                        <use xlink:href="#icon-wishlist"></use>
+                    </svg>
+                </a>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($block->isRedirectToCartEnabled()) : ?>
+        <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "Magento_Catalog/product/view/validation": {
+                    "radioCheckboxClosest": ".nested"
+                }
+            }
+        }
+    </script>
+    <?php else : ?>
+    <script>
+        require([
+            'jquery',
+            'mage/mage',
+            'Magento_Catalog/product/view/validation',
+            'Magento_Catalog/js/catalog-add-to-cart'
+        ], function ($) {
+            'use strict';
+
+            $('#product_addtocart_form').mage('validation', {
+                radioCheckboxClosest: '.nested',
+                submitHandler: function (form) {
+                    var widget = $(form).catalogAddToCart({
+                        bindSubmit: false
+                    });
+
+                    widget.catalogAddToCart('submitForm', $(form));
+                    return false;
+                }
+            });
+
+            $('[data-role="wishlist"]').on('click', function (event) {
+                var element, params, form, action;
+                event.stopPropagation();
+                event.preventDefault();
+                element = $(event.currentTarget);
+                params = element.data('param');
+                form = element.closest('form').clone();
+                action = params.action;
+
+                if (params.data.id) {
+                    $('<input>', {
+                        type: 'hidden',
+                        name: 'id',
+                        value: params.data.id
+                    }).appendTo(form);
+                }
+
+                if (params.data.uenc) {
+                    action += 'uenc/' + params.data.uenc;
+                }
+
+                $(form).attr('class', 'quick-to-wishlist');
+                $(form).attr('action', action);
+                $(form).removeAttr('id');
+
+                $('.page-wrapper', window.parent.document.body).append(form);
+                $('.quick-to-wishlist', window.parent.document.body).submit();
+            });
+        });
+    </script>
+</div>
+<?php endif; ?>

@@ -1,0 +1,454 @@
+//
+//  Variables
+//  _____________________________________________
+
+$checkout-wrapper__margin              : $indent__base;
+$checkout-wrapper__columns             : 8;
+
+$checkout-step-title__border           : $border-width__base solid $color-gray80;
+$checkout-step-title__font-size        : 26px;
+$checkout-step-title__font-weight      : $font-weight__light;
+$checkout-step-title__padding          : $indent__s;
+
+$checkout-step-title-mobile__font-size : 18px;
+
+.checkout-index-index {
+    .page-title-wrapper {
+        @extend .abs-visually-hidden;
+    }
+}
+
+.action.payment {
+    @include lib-css(display, none);
+}
+
+.billing-block {
+    @include lib-css(display, flex);
+    @include lib-css(padding-bottom, .3rem);
+    @include lib-css(justify-content, space-between);
+    @include lib-css(align-items, center);
+    @include lib-css(border-bottom, 1px solid $color-gray80);
+
+    .icon {
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+    }
+
+    .down {
+        @include lib-css(display, none);
+    }
+
+    &.active {
+        .top {
+            @include lib-css(display, none);
+        }
+
+        .down {
+            @include lib-css(display, block);
+        }
+    }
+}
+
+.billing-check {
+    input {
+        @include lib-css(vertical-align, middle);
+    }
+
+    label {
+        @include lib-css(margin-left, .1rem);
+        @include lib-css(vertical-align, middle);
+    }
+}
+
+.checkout-billing-address {
+    > .fieldset {
+        @include lib-css(margin-top, .3rem);
+    }
+}
+
+.billing-address-details {
+    .title {
+        @include lib-css(font-size, .2rem);
+        @include lib-css(margin-top, .3rem);
+    }
+
+    .step-content {
+        p {
+            @include lib-css(max-width, 50%);
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+        }
+    }
+}
+
+.billing-address-form {
+    form {
+        @include lib-css(margin-top, .3rem);
+    }
+}
+
+.checkout-success, .checkout-failure {
+    @include lib-css(margin, .6rem 0);
+}
+
+.checkout-box {
+    @include lib-css(max-width, 5.2rem);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(text-align, center);
+
+    .con {
+        @include lib-css(margin, .3rem 0);
+
+        a {
+            @include lib-css(width, .55rem);
+            @include lib-css(display, block);
+            @include lib-css(margin, 0 auto);
+            @include lib-css(padding, .09rem 0);
+            @include lib-css(border, 1px solid $color-black);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .icon {
+            @include lib-css(width, .35rem);
+            @include lib-css(height, .35rem);
+        }
+    }
+
+    h2 {
+        @include lib-css(font-size, .3rem);
+        @include lib-css(margin-bottom, .15rem);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .text {
+        @include lib-css(font-family, $font-family_light);
+        @include lib-css(font-size, .16rem);
+
+        span {
+            @include lib-css(display, block);
+
+            a {
+                @include lib-css(color, $basic-color);
+            }
+        }
+    }
+
+    .actions-toolbar {
+        @include lib-css(margin, .4rem 0);
+
+        a {
+            @include lib-css(display, block);
+            @include lib-css(float, none);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        .link {
+            @include lib-css(color, $basic-color);
+            @include lib-css(font-size, .16rem);
+            @include lib-css(margin, .4rem 0);
+            @include lib-css(text-decoration, underline);
+        }
+
+        .continue {
+            @include lib-css(font-size, .18rem);
+            @include lib-css(width, 3rem);
+            @include lib-css(margin, 0 auto);
+            @include lib-css(padding, .1rem 0);
+            @include lib-css(background-color, $basic-color);
+            @include lib-css(border-color, $basic-color);
+            -webkit-border-radius: inherit;
+            -moz-border-radius: inherit;
+            border-radius: inherit;
+
+            &:hover {
+                @include lib-css(color, $basic-color);
+                @include lib-css(background-color, transparent);
+            }
+        }
+    }
+}
+
+.show-detail {
+    span {
+        @include lib-css(display, inline-block);
+        @include lib-css(vertical-align, middle);
+    }
+    
+    .icon {
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+        @include lib-css(margin-left, .05rem);
+    }
+
+    .down {
+        @include lib-css(display, none);
+    }
+
+    &.active {
+        .top {
+            @include lib-css(display, none);
+        }
+
+        .down {
+            @include lib-css(display, inline-block);
+        }
+    }
+}
+
+.checkout-detail {
+    .checkout-head {
+        @include lib-css(font-size, .18rem);
+        @include lib-css(position, relative);
+        @include lib-css(text-align, center);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .checkout-body {
+        @include lib-css(margin-top, .4rem);
+        @include lib-css(padding, 0 .7rem);
+        @include lib-css(border-top, 1px solid $color-gray-middle2);
+        @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+
+        .row {
+            @include lib-css(margin, 0);
+            @include lib-css(padding, .4rem 0);
+            @include lib-css(justify-content, space-between);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+
+            &:last-child {
+                @include lib-css(border-bottom, 0);
+            }
+
+            p {
+                &:last-child {
+                    @include lib-css(margin-bottom, 0);
+                }
+            }
+        }
+
+        .l {
+            @include lib-css(text-align, left);
+        }
+
+        .r {
+            @include lib-css(text-align, right);
+        }
+
+        p {
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(font-size, .15rem);
+        }
+
+        h5 {
+            @include lib-css(font-size, .15rem);
+            @include lib-css(margin-bottom, .4rem);
+        }
+
+        dl {
+            @include lib-css(width, 100%);
+            @include lib-css(display, flex);
+            @include lib-css(padding, .1rem 0);
+
+            dt, dd {
+                &:first-child {
+                    @include lib-css(flex, 0  1 60%);
+                    @include lib-css(justify-content, flex-start);
+                }
+            }
+        }
+
+        .lb {
+            @include lib-css(margin-bottom, .2rem);
+            @include lib-css(padding, 0 0 .3rem);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+        }
+
+        dl.total {
+            @include lib-css(padding-bottom, 0);
+
+            dt {
+                @include lib-css(flex, 0  1 90%);
+                @include lib-css(margin-bottom, 0);
+            }
+
+            dd {
+                @include lib-css(margin-bottom, 0);
+            }
+        }
+
+        dt, dd {
+            @include lib-css(display, flex);
+            @include lib-css(flex, 0  1 10%);
+            @include lib-css(justify-content, center);
+        }
+
+        .img {
+            @include lib-css(display, inline-block);
+            @include lib-css(margin-left, .2rem);
+            @include lib-css(padding, .1rem);
+            @include lib-css(background-color, $footer-bg);
+
+            img {
+                @include lib-css(max-width, 1.6rem);
+            }
+        }
+
+        .prod {
+            @include lib-css(margin-left, .3rem);
+        }
+    }
+}
+
+.table-checkout-shipping-method {
+    .row {
+        @include lib-css(margin, 0);
+    }
+}
+
+.checkout-container {
+    @extend .abs-add-clearfix;
+    @include lib-css(margin, 0 0 $checkout-wrapper__margin);
+}
+
+.opc-wrapper {
+    @include lib-css(margin, 0 0 $checkout-wrapper__margin);
+
+    .opc {
+        @extend .abs-reset-list;
+    }
+
+    .step-title {
+        @extend .abs-checkout-title;
+    }
+
+    .step-content {
+        margin: 0 0 .2rem;
+    }
+
+    .billing-address-details {
+        .step-content {
+            @include lib-css(margin-top, .3rem);
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    .form-login {
+        .field {
+            @include lib-css(width, 50%);
+            @include lib-css(min-height, 1.05rem);
+            @include lib-css(float, left);
+            @include lib-css(margin-bottom, 0);
+
+            &:first-child {
+                @include lib-css(padding-right, .1rem);
+            }
+        }
+
+        .actions-toolbar {
+            @include lib-css(width, 50%);
+            @include lib-css(float, left);
+            @include lib-css(padding-left, 0);
+            @include lib-css(padding-right, .1rem);
+        }
+
+        .hidden-fields {
+            @include lib-css(padding-left, .1rem);
+        }
+    }
+}
+
+.checkout-index-index {
+    .logo {
+        margin-left: 0;
+    }
+
+    .page-wrapper {
+        .columns {
+            @include lib-css(padding-top, 0);
+        }
+    }
+}
+
+.cart-totals {
+    .table {
+        img {
+            @include lib-css(max-width, 1.8rem);
+        }
+    }
+}
+
+.checkout-onepage-success {
+    @extend .abs-add-clearfix;
+}
+
+.form-shipping-address, .billing-address-form {
+    .fieldset {
+        margin: 0 -10px;
+        overflow: hidden;
+        _zoom: 1;
+
+        &:after {
+            content: '.';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        >  .field {
+            @include lib-css(float, left);
+            @include lib-css(padding, 0 10px);
+
+            &.country_id, &.region_id, &.region, &.city, &.postcode {
+                @include lib-css(width, 25%);
+            }
+    
+            &.firstname, &.lastname, &.company, &.telephone {
+                @include lib-css(width, 50%);
+            }
+    
+            &.street, &.learn {
+                @include lib-css(width, 100%);
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__s) {
+    .opc-wrapper {
+        .step-title {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(padding, .2rem 0);
+            @include lib-css(text-align, center);
+            @include lib-css(text-transform, uppercase);
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .opc-wrapper {
+        @extend .abs-add-box-sizing-desktop-m;
+        @include lib-css(width, 65%);
+        @include lib-css(float, left);
+        @include lib-css(order, 2);
+    }
+
+    .checkout-onepage-success {
+        .print {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 20;
+        }
+    }
+}

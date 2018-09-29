@@ -1,0 +1,58 @@
+<?php
+    /** @var \Magestore\Bannerslider\Block\SliderItem $block */
+    $styleSlide = intval($block->getSlider()->getStyleSlide());
+    $slider = $block->getSlider();
+    $htmlId = $block->getFlexsliderHtmlId();
+    $bannerCollection = null;
+    $bannerCollection = $block->getBannerCollection();
+?>
+
+<div class="flexslider <?php echo $htmlId ?>">
+    <ul class="slides">
+        <?php foreach ($bannerCollection as $banner):
+            ?>
+            <?php if ($styleSlide == \Magestore\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_TWO) : ?>
+            <li data-thumb="<?php echo $block->getBannerImageUrl($banner) ?>">
+                <a href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>">
+                    <img alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>"/>
+                </a>
+                <?php if($banner->getCaption()): ?><div class="flex-caption"><?php echo $banner->getCaption(); ?></div><?php endif; ?>
+            </li>
+        <?php else: ?>
+            <li>
+                <a href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>">
+                    <img alt="<?php echo $banner->getImageAlt() ?>" class="banner-img" src="<?php echo $block->getBannerImageUrl($banner) ?>" data-pc="<?php echo $block->getBannerImageUrl($banner) ?>" data-pad="<?php echo $block->getBannerImagePadUrl($banner)?>" data-mobile="<?php echo $block->getBannerImageMobileUrl($banner)?>"/>
+                </a>
+                <?php if($banner->getCaption()): ?><div class="flex-caption"><?php echo $banner->getCaption(); ?></div><?php endif; ?>
+            </li>
+        <?php endif; ?>
+        <?php endforeach ?>
+    </ul>
+</div>
+
+<?php if ($styleSlide ==  \Magestore\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_THREE) :
+?>
+<div class="flexslider flexslider-carousel <?php echo $htmlId ?>-carousel">
+    <ul class="slides">
+        <?php foreach ($bannerCollection as $banner) :
+        ?>
+            <li>
+                <img  alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>" />
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+<?php endif; ?>
+
+<script>
+    window.flexSlider = window.flexSlider || [];
+    window.flexSlider.push(<?= \Zend_Json::encode([
+		'htmlId' => $htmlId,
+		'flex_one' => \Magestore\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_ONE,
+        'flex_two' => \Magestore\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_TWO,
+        'flex_three' => \Magestore\Bannerslider\Model\Slider::STYLESLIDE_FLEXSLIDER_THREE,
+		'style' => $styleSlide,
+        'animation' => $slider->getData("animationB"),
+        'speed' => $slider->getSliderSpeed()
+	]); ?>);
+</script>

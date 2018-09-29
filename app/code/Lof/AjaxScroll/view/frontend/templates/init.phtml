@@ -1,0 +1,24 @@
+<?php  
+	$helper = $this->helper('Lof\AjaxScroll\Helper\Data'); 
+	$productListMode = $block->getProductListMode();
+	$enable = $block->isEnable(); 
+?> 
+
+<?php if ($enable) { ?>
+<script>			
+	window.ajaxscroll = <?php echo \Zend_Json::encode([
+		'item' =>  $productListMode == 'grid' ? $helper->getConfig('lofajaxscroll/selectors/grid_mode') : $helper->getConfig('lofajaxscroll/selectors/list_mode'),
+		'container' => $helper->getConfig('lofajaxscroll/selectors/content'),
+		'next' => $helper->getConfig('lofajaxscroll/selectors/next'),
+		'pagination' => $helper->getConfig('lofajaxscroll/selectors/pagination'),
+		'parameter' => $helper->getConfig('lofajaxscroll/instances/enable_parameter'),
+		'negativeMargin' => (int)$helper->getConfig('lofajaxscroll/design/buffer'),
+		'noneText' => $helper->jsQuoteEscape(__($helper->getConfigData('lofajaxscroll/design/done_text'))),
+		'loaderSrc' => $block->getLoaderImage(),
+		'loaderHtml' => $helper->jsQuoteEscape(__($helper->getConfigData('lofajaxscroll/design/loading_text'))),
+		'triggerText' => $helper->jsQuoteEscape(__($helper->getConfigData('lofajaxscroll/design/load_more_text'))),
+		'textPrev' => $helper->jsQuoteEscape(__($helper->getConfigData('lofajaxscroll/design/load_more_text'))),
+		'offset' => (int) $helper->getConfigData('lofajaxscroll/design/load_more')
+	]); ?>;
+</script>
+<?php } ?>

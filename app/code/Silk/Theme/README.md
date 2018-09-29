@@ -1,0 +1,1 @@
+Silk_Theme module consists of installation.

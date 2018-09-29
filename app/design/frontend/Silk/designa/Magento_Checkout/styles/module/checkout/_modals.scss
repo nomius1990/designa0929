@@ -1,0 +1,50 @@
+//
+//  Variables
+//  _____________________________________________
+
+$checkout-modal-popup__width: 800px !default;
+
+.checkout-index-index {
+    .modal-popup {
+        .field-tooltip {
+            .field-tooltip-content {
+                @extend .abs-checkout-tooltip-content-position-top;
+            }
+        }
+    }
+}
+
+.form-shipping-address {
+    .fieldset >.field >.label, 
+    .fieldset >.fields >.field >.label {
+        @include lib-css(font-weight, normal);
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .checkout-index-index {
+        .modal-popup {
+            .modal-footer {
+                .action-save-address {
+                    margin: 0 .1rem 0 0;
+                }
+            }
+        }
+    }
+}
+
+@include min-screen($screen__l) {
+    .checkout-index-index {
+        .modal-popup {
+            .modal-inner-wrap {
+                @include lib-css(margin-left, -($checkout-modal-popup__width/2));
+                @include lib-css(width, $checkout-modal-popup__width);
+                left: 50%;
+            }
+        }
+    }
+}

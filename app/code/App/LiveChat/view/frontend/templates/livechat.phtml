@@ -1,0 +1,23 @@
+<script>
+	<?php if (null !== $block->getLicenseId()): ?>
+		window.__lc = window.__lc || {};
+		window.__lc.license = <?php echo $block->getLicenseId() ?>;
+		window.__lc.url = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		<?php if (!empty($block->getCustomerDetails())): ?>
+			__lc.visitor = {
+				<?php foreach ($block->getCustomerDetails() as $record): ?>
+					<?php echo $record['key']?>: "<?php echo $record['value'] ?>",
+				<?php endforeach ?>
+			};
+		<?php endif ?>
+		<?php if (!empty($block->getCustomVariables())): ?>
+			window.__lc.params = [
+				<?php foreach ($block->getCustomVariables() as $record): ?>
+					{ name: '<?php echo $record['name'] ?>', value: '<?php echo $record['value']?>'},
+				<?php endforeach ?>
+			];
+		<?php endif ?>
+	<?php else: ?>
+		console.log('Please configure your LiveChat account.');
+	<?php endif; ?>
+</script>

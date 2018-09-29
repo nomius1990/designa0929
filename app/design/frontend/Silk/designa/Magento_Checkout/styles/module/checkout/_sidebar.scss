@@ -1,0 +1,11 @@
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .opc-sidebar {
+        @include lib-css(width, 30%);
+        @include lib-css(float, right);
+        @include lib-css(order, 2);
+    }
+}

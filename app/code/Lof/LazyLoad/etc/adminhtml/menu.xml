@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<add id="Lof_LazyLoad::lazyload" title="Lazy Load" module="Lof_LazyLoad"  sortOrder="25" resource="Lof_LazyLoad::lazyload" parent="Lof_All::lof_all"/>  
+		<add id="Lof_LazyLoad::lazyload_settings" title="Configuration" module="Lof_LazyLoad" sortOrder="10" action="adminhtml/system_config/edit/section/loflazyload" resource="Lof_LazyLoad::settings" parent="Lof_LazyLoad::lazyload"/>
+	</menu>
+</config>

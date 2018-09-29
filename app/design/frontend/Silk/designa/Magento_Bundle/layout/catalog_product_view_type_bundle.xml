@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="" />
+        <referenceContainer name="product.info.addtocart.bundle">
+            <block class="Magento\Framework\View\Element\Template" name="bundle.button" before="-" template="Magento_Bundle::catalog/product/view/button.phtml" />
+        </referenceContainer>
+        <referenceBlock name="customize.button" remove="true" />
+        <referenceBlock name="bundle.product.view.options.notice" remove="true" />
+        <referenceBlock name="quick.info.form.options" remove="true" />
+        <move element="bundle.options.container" destination="product.info.main" />
+        <move element="product.info.options.wrapper" destination="bundle.button" />
+        <move element="product.price.render.bundle.customization" destination="product.info.addtocart.bundle" />
+        <referenceBlock name="product.quickAdd">
+            <block class="Magento\Framework\View\Element\Template" name="quick.bundle.button" after="-" template="Magento_Catalog::product/quick-button.phtml" />
+        </referenceBlock>
+        <referenceBlock name="quick.info">
+            <block class="Magento\Catalog\Block\Product\View" name="quick.summary" as="form_bottom" template="Magento_Bundle::catalog/product/view/summary.phtml">
+                <block class="Magento\Catalog\Pricing\Render" name="quick.price.render.bundle.customization">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">configured_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View" name="quick.info.addtocart.bundle" as="addtocart" template="Magento_Catalog::product/view/quick-addtocart.phtml">
+                    <block class="Magento\Framework\View\Element\Template" name="quick.button" before="-" template="Magento_Bundle::catalog/product/view/quick-button.phtml">
+                        <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle" name="quick.info.bundle.options" as="type_bundle_options" template="Magento_Bundle::catalog/product/view/type/bundle/quick-options.phtml" before="-">
+                            <container name="quick.info.bundle.options.top" as="product_info_bundle_options_top">
+                                <block class="Magento\Catalog\Block\Product\View" name="quick.back.button" as="backButton" before="-" template="Magento_Bundle::catalog/product/view/backbutton.phtml"/>
+                            </container>
+                            <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Select" name="quick.info.bundle.options.select" as="select"/>
+                            <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Multi" name="quick.info.bundle.options.multi" as="multi"/>
+                            <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Radio" name="quick.info.bundle.options.radio" as="radio"/>
+                            <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Checkbox" name="quick.info.bundle.options.checkbox" as="checkbox"/>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+        <move element="quick.price.render.bundle.customization" destination="quick.info.addtocart.bundle" />
+    </body>
+</page>

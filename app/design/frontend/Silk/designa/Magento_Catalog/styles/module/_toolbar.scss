@@ -1,0 +1,194 @@
+$toolbar-mode-icon-font-size: 24px !default;
+$toolbar-element-background : $panel__background-color !default;
+$gray-basic: #dee2e6 !default;
+
+.catalog-category-view,
+.catalogsearch-result-index {
+    .main {
+        .toolbar-products:last-child {
+            display: none;
+        }
+    }
+}
+
+.toolbar-amount {
+    font-family: $font-family_light;
+    font-size: .15rem;
+    display: block;
+    margin: 0;
+    padding: .1rem 0 0;
+    text-transform: uppercase;
+}
+
+.toolbar-products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .pages {
+        @include lib-css(display, none);
+    }
+}
+
+.sorter {
+    font-family: $font-family_light;
+    font-size: .15rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.toolbar {
+    .filter {
+        font-family: $font-family_light;
+        font-size: .15rem;
+        text-transform: uppercase;
+    }
+}
+
+.sorter-options {
+    @include lib-css(display, none);
+}
+
+.sorter-options, .sorter-filter {
+    width: 180px;
+    height: .44rem;
+    margin: 0 .1rem;
+    padding: .1rem .2rem;
+    border-width: 0 0 1px;
+    text-transform: uppercase;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='10' width='16'><line x1='0' y1='0' x2='8' y2='8' style='stroke:rgb(69,69,69);stroke-width:2' /><line x1='16' y1='0' x2='8' y2='8' style='stroke:rgb(69,69,69);stroke-width:2' /></svg>") no-repeat 90% 50% #fff;
+	background-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+.sorter-simulate {
+    @include lib-css(display, inline-block);
+    @include lib-css(position, relative);
+    @include lib-css(border-bottom, 1px solid $gray-basic);
+    
+    ul {
+        @include lib-css(position, absolute);
+        @include lib-css(top, .44rem);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(display, none);
+        @include lib-css(z-index, 80);
+        @include lib-css(background-color, transparent);
+        @include lib-css(border, 1px solid $basic-color);
+
+        > li {
+            @include lib-css(padding, 0 .2rem);
+            
+            &.selected {
+                @include lib-css(background-color, $basic-color);
+            }
+
+            &:hover {
+                @include lib-css(background-color, $basic-color);
+            }
+        }
+
+        p {
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(cursor, pointer);
+        }
+    }
+}
+
+.sorter-filter {
+    display: none;
+    border-top: 1px solid $gray-basic;
+    border-bottom: 1px solid $gray-basic;
+    vertical-align: baseline;
+}
+
+.sorter-label {
+    margin-bottom: 0;
+}
+
+.sorter.sort-desc {
+    &:before {
+        content: $icon-arrow-down;
+    }
+}
+
+.modes {
+    display: none;
+}
+
+.limiter-options {
+    margin: 0 5px 0 7px;
+    width: auto;
+}
+
+.limiter-label {
+    font-weight: 400;
+}
+
+.limiter {
+    .catalog-category-view .toolbar & {
+        display: none;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .catalog-category-view {
+        .columns {
+            position: relative;
+        }
+    }
+
+    .modes {
+        display: block;
+        margin-right: $indent__base;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .modes-label {
+        @extend .abs-visually-hidden-desktop;
+    }
+
+    .modes-mode {
+        color: $text__color__muted;
+        border: 1px solid $border-color__base;
+        border-right: 0;
+        display: inline-block;
+        font-weight: $font-weight__regular;
+        line-height: 1;
+        padding: 7px 10px;
+        text-align: center;
+        @include lib-icon-font(
+            $icon-grid,
+            $_icon-font-size       : $toolbar-mode-icon-font-size,
+            $_icon-font-text-hide  : true,
+            $_icon-font-color      : $text__color__muted,
+            $_icon-font-color-hover: $text__color__muted,
+            $_icon-font-display    : block
+        );
+
+        &:not(.active) {
+            &:hover {
+                color: $text__color__muted;
+                background: darken($toolbar-element-background, 7%);
+            }
+        }
+
+        &:last-child {
+            border-right: 1px solid $border-color__base;
+        }
+
+        &.active {
+            color: $primary__color__light;
+        }
+    }
+}

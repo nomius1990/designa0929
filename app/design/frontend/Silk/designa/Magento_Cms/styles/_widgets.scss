@@ -1,0 +1,744 @@
+$widgets-indent__bottom: $indent__base;
+$widgets-basic_width: 1400px;
+$screen__ipad: 960px;
+$water-fall_width: .3rem;
+$owl-color-gray: #e6e6e6 !default;
+
+.block-static-block,
+.block-cms-link {
+    &.widget {
+        @include lib-css(margin-bottom, $widgets-indent__bottom);
+        .links & {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.block-cms-link-inline {
+    &.widget {
+        margin: 0;
+    }
+}
+
+.cms-index-index {
+    .page-main {
+        @include lib-css(max-width, inherit);
+        @include lib-css(padding, 0);
+    }
+}
+
+.shop-solutions {
+    .title {
+        @include lib-css(font-size, .36rem);
+        @include lib-css(margin-top, .2rem);
+        @include lib-css(text-align, center);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .wrapper {
+        @include lib-css(margin-top, .5rem);
+        @include lib-css(padding, 0 .3rem);
+    }
+}
+
+.waterfall {
+    @include lib-css(position, relative);
+
+    .grid {
+        width: calc((100% - #{$water-fall_width} * 2) / 3);
+        @include lib-css(margin-bottom, .3rem);
+        @include lib-css(opacity, 0);
+
+        .top, .bottom {
+            @include lib-css(padding-top, 66.67%);
+        }
+
+        .middle {
+            @include lib-css(padding-top, 138%);
+        }
+
+        .content {
+            @include lib-css(position, relative);
+            @include lib-css(background-repeat, no-repeat);
+            @include lib-css(background-size, cover);
+            @include lib-css(background-position, center);
+
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: 20;
+                background-color: rgba(0,0,0,.5);
+                width: 100%;
+                height: 0;
+                left: 0;
+                bottom: 50%;
+                -moz-transition: all .3s linear;
+                -webkit-transition: all .3s linear;
+                transition: all .3s linear;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: 20;
+                background-color: rgba(0,0,0,.5);
+                width: 100%;
+                height: 0;
+                left: 0;
+                top: 50%;
+                -moz-transition: all .3s linear;
+                -webkit-transition: all .3s linear;
+                transition: all .3s linear;
+            }
+
+            &:hover {
+                .tier {
+                    @include lib-css(opacity, 1);
+                }
+
+                &:before, &:after {
+                    height: 50%;
+                }
+            }
+        }
+    }
+
+    .name {
+        @include lib-css(color, $color-white);
+        @include lib-css(font-family, $font-family_light);
+        @include lib-css(font-size, .18rem);
+        @include lib-css(position, absolute);
+        @include lib-css(bottom, 0);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(display, block);
+        @include lib-css(padding, .15rem);
+        @include lib-css(z-index, 50);
+    }
+
+    .layer {
+        @include lib-css(position, absolute);
+        @include lib-css(bottom, 0);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(height, .57rem);
+        @include lib-css(background-color, rgba(0,0,0,.5));
+        @include lib-css(z-index, 10);
+    }
+
+    .tier {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 50%);
+        @include lib-css(left, 50%);
+        @include lib-css(width, 2rem);
+        @include lib-css(opacity, 0);
+        @include lib-css(z-index, 40);
+        @include lib-css(text-align, center);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -moz-transition: all .3s linear;
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+
+
+        .view-more {
+            @include lib-css(color, $color-white);
+            @include lib-css(font-size, .16rem);
+            @include lib-css(display, block);
+            @include lib-css(padding, .1rem 0);
+            @include lib-css(text-transform, uppercase);
+            @include lib-css(border, 2px solid $basic-color);
+            @include lib-css(background-color, $basic-color);
+            -moz-transition: all .3s linear;
+            -webkit-transition: all .3s linear;
+            transition: all .3s linear;
+            
+            &:hover {
+                @include lib-css(color, $basic-color);
+                @include lib-css(background-color, transparent);
+            }
+        }
+    }
+}
+
+.blog {
+    @include lib-css(padding, .3rem 0);
+
+    .slides {
+        @include lib-css(margin, 0 .3rem);
+
+        .owl-stage-outer {
+            @include lib-css(overflow, hidden);
+        }
+
+        .owl-prev {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            opacity: 0;
+            transition: all .3s linear;
+        }
+
+        .owl-next {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            opacity: 0;
+            transition: all .3s linear;
+        }
+
+        .owl-blog {
+            &:hover {
+                .owl-prev {
+                    left: -.3rem;
+                    opacity: .85;
+                }
+        
+                .owl-next {
+                    right: -.3rem;
+                    opacity: .85;
+                }
+            }
+        }
+
+        .icon {
+            @include lib-css(width, .3rem);
+            @include lib-css(height, .3rem);
+        }
+
+        li {
+            @include lib-css(position, relative);
+            @include lib-css(list-style-type, none);
+
+            .post-title {
+                @include lib-css(position, absolute);
+                @include lib-css(bottom, 0);
+                @include lib-css(left, 0);
+                @include lib-css(width, 100%);
+                @include lib-css(z-index, 20);
+                -moz-transition: all .5s ease;
+                -webkit-transition: all .5s ease;
+                transition: all .5s ease;
+
+                h2 {
+                    @include lib-css(font-family, 'Opensans-Light');
+                    @include lib-css(font-size, $font-size-18);
+                    @include lib-css(height, .65rem);
+                    @include lib-css(padding, 0 .15rem);
+                    position: relative;
+                    
+                    .post-item-link {
+                        @include lib-css(color, $color-white);
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        max-height: .38rem;
+                        display: block;
+                        padding: 0 .15rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        -webkit-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            .layer {
+                @include lib-css(position, absolute);
+                @include lib-css(bottom, 0);
+                @include lib-css(left, 0);
+                @include lib-css(width, 100%);
+                @include lib-css(height, .65rem);
+                @include lib-css(background-color, rgba(0,0,0,.5));
+                @include lib-css(z-index, 10);
+                -moz-transition: all .5s ease;
+                -webkit-transition: all .5s ease;
+                transition: all .5s ease;
+            }
+
+            .post-img {
+                a {
+                    @include lib-css(display, block);
+                    @include lib-css(position, relative);
+                    @include lib-css(overflow, hidden);
+                }
+
+                img {
+                    @include lib-css(width, 100%);
+                    -webkit-transition: 2s;
+                    -moz-transition: 2s;
+                    -ms-transition: 2s;
+                    -o-transition: 2s;
+                    transition: 2s;
+                }
+            }
+            
+            &:hover {
+                .post-img {
+                    img {
+                        -webkit-transform: scale(1.1) translateZ(0);
+                        -moz-transform: scale(1.1) translateZ(0);
+                        -ms-transform: scale(1.1) translateZ(0);
+                        -o-transform: scale(1.1) translateZ(0);
+                        transform: scale(1.1) translateZ(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cms_block {
+    @include lib-css(background-color, $color-white-smoke);
+
+    .container-fluid {
+        @include lib-css(padding, 0 .15rem);
+    }
+
+    .item {
+        @include lib-css(margin, .15rem 0);
+    }
+
+    .col-md-4 {
+        @include lib-css(overflow, hidden);
+    }
+
+    .club {
+        @include lib-css(display, flex);
+        @include lib-css(margin-bottom, 0);
+        @include lib-css(align-items, center);
+        @include lib-css(justify-content, center);
+        @include lib-css(flex-wrap, wrap);
+
+        span {
+            @include lib-css(color, $color-gray20);
+            @include lib-css(font-size, $font-size-16);
+            @include lib-css(display, inline-block);
+            @include lib-css(margin-left, .3rem);
+        }
+    }
+}
+
+.core-values {
+    @include lib-css(margin, 0 0 .9rem);
+
+    .title {
+        @include lib-css(font-size, .36rem);
+        @include lib-css(text-align, center);
+    }
+
+    .row {
+        &:last-child {
+            @include lib-css(margin-top, .9rem);
+        }
+
+        .col-md-3 {
+            @include lib-css(border-right, 1px solid $border-color);
+
+            &:last-child {
+                @include lib-css(border-right, 0);
+            }
+        }
+    }
+
+    .values {
+        @include lib-css(margin, 0 .2rem);
+
+        .lb {
+            @include lib-css(font-size, .18rem);
+            @include lib-css(display, block);
+            @include lib-css(margin, .25rem 0);
+            @include lib-css(text-align, center);
+        }
+
+        .para {
+            @include lib-css(font-family, 'Opensans-Light');
+            @include lib-css(font-size, .15rem);
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(line-height, 25px);
+            @include lib-css(word-break, break-all);
+        }
+    }
+
+    .icon {
+        @include lib-css(display, none);
+    }
+
+    .dcon {
+        @include lib-css(display, block);
+    }
+}
+
+.cms-table {
+    @include lib-css(margin, .2rem 0);
+
+    .cirlcle {
+        @include lib-css(width, .15rem);
+        @include lib-css(height, .15rem);
+        @include lib-css(display, block);
+        @include lib-css(margin, 0 auto);
+        @include lib-css(background-color, $color-black);
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    thead {
+        th {
+            @include lib-css(padding, .15rem);
+            @include lib-css(border-right, 1px solid $color-gray-middle2);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+        }
+
+        tr:first-child {
+            th {
+                @include lib-css(border-top, 1px solid $color-gray-middle2);
+            }
+        }
+
+        tr {
+            @include lib-css(border-left, 1px solid $color-gray-middle2);
+        }
+    }
+
+    tbody {
+        th {
+            @include lib-css(padding, .15rem);
+            @include lib-css(text-align, left);
+            @include lib-css(vertical-align, middle);
+            @include lib-css(border-right, 1px solid $color-gray-middle2);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+            @include lib-css(border-left, 1px solid $color-gray-middle2);
+        }
+
+        td {
+            @include lib-css(padding, .15rem);
+            @include lib-css(text-align, center);
+            @include lib-css(border-right, 1px solid $color-gray-middle2);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+        }
+    }
+}
+
+.cms-page-view {
+    .columns {
+        .content {
+            @include lib-css(padding-bottom, .6rem);
+
+            iframe {
+                @include lib-css(background-color, $color-gray-darken0);
+            }
+        }
+    }
+}
+
+.cms-reviews {
+    @include lib-css(margin-bottom, .8rem);
+    @include lib-css(background-color, $color-gray-light01);
+
+    .title {
+        @include lib-css(display, flex);
+        @include lib-css(padding, .3rem 0);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-items, center);
+        @include lib-css(flex-wrap, wrap);
+        @include lib-css(border-bottom, 1px solid $owl-color-gray);
+
+        .product-reviews {
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+            @include lib-css(align-items, center);
+            @include lib-css(margin-right, 1rem);
+        }
+
+        .rating-summary {
+            @include lib-css(margin-right, .1rem);
+        }
+    }
+
+    .wrapper {
+        @include lib-css(padding, .5rem 0);
+    }
+
+    .flex {
+        @include lib-css(display, flex);
+        @include lib-css(align-items, flex-start);
+    }
+
+    .link {
+        @include lib-css(display, flex);
+        @include lib-css(flex-basis, 20%);
+        @include lib-css(padding, .1rem);
+        @include lib-css(border, 1px solid $color-gray80);
+        @include lib-css(background-color, $color-white);
+        border-radius: 5px;
+    }
+
+    .info {
+        @include lib-css(flex-basis, 80%);
+        @include lib-css(padding, 0 .2rem);
+        @include lib-css(position, relative);
+    }
+
+    .detail {
+        @include lib-css(color, $color-gray60);
+        @include lib-css(max-height, .63rem);
+        @include lib-css(margin-bottom, .05rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .read-more {
+        @include lib-css(color, $basic-color);
+    }
+
+    .tooltip {
+        @include lib-css(color, $color-gray60);
+        @include lib-css(font-size, .13rem);
+        @include lib-css(position, absolute);
+        @include lib-css(bottom, .35rem);
+        @include lib-css(left, .2rem);
+        @include lib-css(width, 3rem);
+        @include lib-css(padding, .15rem);
+        @include lib-css(border, 1px solid $color-gray89);
+        @include lib-css(background-color, $color-white-fog);
+        z-index: 30;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        transition: all .3s linear;
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        -o-transition: all .3s linear;
+
+        &.show {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+        }
+    }
+
+    .owl-carousel {
+        .owl-nav {
+            position: absolute;
+            top: -1.15rem;
+            right: .05rem;
+            margin-top: 0;
+            z-index: 20;
+        }
+    }
+}
+
+.cms-page-view, .category-view {
+    .title {
+        @include lib-css(font-size, .4rem);
+        @include lib-css(margin-bottom, .6rem);
+        @include lib-css(text-align, center);
+    }
+
+    .form-orders-search {
+        @include lib-css(max-width, 50%);
+        @include lib-css(margin-bottom, .6rem);    
+    }
+
+    .contact.form {
+        @include lib-css(max-width, 50%);
+        @include lib-css(margin-bottom, .6rem);
+    }
+}
+
+.cms-page-view {
+    .columns {
+        .content {
+            h3 {
+                @include lib-css(font-size, .24rem);
+                @include lib-css(margin, .4rem 0);
+                @include lib-css(text-transform, uppercase);
+            }
+    
+            h4 {
+                @include lib-css(color, $basic-color);
+                @include lib-css(font-size, .24rem);
+                @include lib-css(font-weight, normal);
+                @include lib-css(margin, .4rem 0);
+                @include lib-css(text-transform, uppercase);
+            }
+    
+            h5 {
+                @include lib-css(font-size, .2rem);
+                @include lib-css(margin, .3rem 0);
+                @include lib-css(text-transform, uppercase);
+            }
+    
+            p {
+                @include lib-css(font-size, .15rem);
+                @include lib-css(line-height, 25px);
+                @include lib-css(margin, .15rem 0);
+    
+                > a {
+                    @include lib-css(color, $basic-color);
+                    @include lib-css(display, inline-block);
+                    @include lib-css(padding, 0 5px);
+                }
+            }
+    
+            ol {
+                @include lib-css(padding-left, .15rem);
+                
+                > li {
+                    @include lib-css(margin-bottom, .15rem);
+                    @include lib-css(text-indent, .1rem);
+                }
+            }
+    
+            ul {
+                @include lib-css(margin-left, .5rem);
+                
+                > li {
+                    @include lib-css(margin-bottom, .15rem);
+                }
+            }
+        }
+        
+        .img {
+            @include lib-css(text-align, center);
+    
+            img {
+                @include lib-css(min-height, .5rem);
+            }
+        }
+    
+        img {
+            @include lib-css(margin, 0 auto);
+        }
+    
+        .center {
+            @include lib-css(font-size, .32rem);
+            @include lib-css(margin, .5rem 0);
+            @include lib-css(text-transform, uppercase);
+        }
+    
+        .auto {
+            @include lib-css(text-align, center);
+    
+            .row {
+                @include lib-css(max-width, 85%);
+                @include lib-css(margin, 0 auto);
+    
+                p {
+                    @include lib-css(text-align, left);
+                }
+            }
+        }
+    
+        .page-wrapper {
+            .columns {
+                @include lib-css(padding-top, 0);
+            }
+        }
+    }
+}
+
+.category-view {
+    .content {
+        h1 {
+            @include lib-css(font-size, .26rem);
+            @include lib-css(margin-top, .3rem);
+        }
+
+        h3 {
+            @include lib-css(font-size, .24rem);
+            @include lib-css(margin, .4rem 0);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        h4 {
+            @include lib-css(color, $basic-color);
+            @include lib-css(font-size, .24rem);
+            @include lib-css(margin, .4rem 0);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        h5 {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(margin, .3rem 0);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        p {
+            @include lib-css(font-size, .15rem);
+            @include lib-css(line-height, 25px);
+            @include lib-css(margin, .15rem 0);
+
+            > a {
+                @include lib-css(color, $basic-color);
+                @include lib-css(display, inline-block);
+                @include lib-css(padding, 0 5px);
+            }
+        }
+
+        ol {
+            @include lib-css(padding-left, .15rem);
+            
+            > li {
+                @include lib-css(margin-bottom, .15rem);
+                @include lib-css(text-indent, .1rem);
+            }
+        }
+
+        ul {
+            @include lib-css(margin-left, .5rem);
+            
+            > li {
+                @include lib-css(margin-bottom, .15rem);
+                @include lib-css(list-style-type, circle);
+            }
+        }
+    }
+    
+    .img {
+        @include lib-css(text-align, center);
+
+        img {
+            @include lib-css(min-height, .5rem);
+        }
+    }
+
+    img {
+        @include lib-css(margin, 0 auto);
+    }
+
+    .center {
+        @include lib-css(font-size, .32rem);
+        @include lib-css(margin, .5rem 0);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .auto {
+        @include lib-css(text-align, center);
+
+        .row {
+            @include lib-css(max-width, 85%);
+            @include lib-css(margin, 0 auto);
+
+            p {
+                @include lib-css(text-align, left);
+            }
+        }
+    }
+}
+
+@-moz-document url-prefix() {
+    .product-items {
+        .product-item-inner {
+            &:after {
+                @include lib-css(top, -15px);
+                @include lib-css(height, 15px);
+            }
+        }
+    }
+}

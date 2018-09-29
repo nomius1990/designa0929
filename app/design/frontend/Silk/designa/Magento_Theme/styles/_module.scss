@@ -1,0 +1,1016 @@
+//
+//  Theme variables
+//  _____________________________________________
+
+//  Messages
+$message-global-note__background           : $color-yellow-light2;
+$message-global-note__border-color         : $color-yellow-light3;
+$message-global-note__color                : $text__color;
+
+$message-global-note-link__color           : $link__color;
+$message-global-note-link__color-hover     : $link__hover__color;
+$message-global-note-link__color-active    : $link__active__color;
+
+$message-global-caution__background        : $color-red9;
+$message-global-caution__border-color      : none;
+$message-global-caution__color             : $color-white;
+
+$message-global-caution-link__color        : $link__color;
+$message-global-caution-link__color-hover  : $link__hover__color;
+$message-global-caution-link__color-active : $link__active__color;
+
+//  Header
+$header__background-color                  : false;
+$header-icons-color                        : $color-gray56;
+$header-icons-color-hover                  : $color-gray20;
+
+$addto-color                               : $text__color__muted;
+$addto-hover-color                         : $primary__color;
+
+$minicart-icons-color                      : $header-icons-color;
+$minicart-icons-color-hover                : $header-icons-color-hover;
+
+$button__shadow                            : inset 0 2px 1px rgba(0, 0, 0, 0.12);
+
+$h1__margin-bottom__desktop                : $indent__xl;
+
+//  Footer
+$footer__background-color                  : false;
+
+//
+//  Header
+//  ---------------------------------------------
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+    @include lib-css(background-color, $color-white);
+
+    &:before {
+        content: '';
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(height, 0);
+        @include lib-css(z-index, 20);
+        @include lib-css(background-color, $color-white);
+        -moz-transition: all .5s linear;
+        -webkit-transition: all .5s linear;
+        -ms-transition: all .5s linear;
+        transition: all .5s linear;
+    }
+
+    .inner-wrapper {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(z-index, 60);
+        @include lib-css(background-color, $color-white);
+        -moz-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+        box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+    }
+}
+
+.cms-index-index {
+    .page-header {
+        &.active {
+            .navigation {
+                .level0 {
+                    .color {
+                        @include lib-css(color, $color-black);
+                    }
+                }
+            }
+    
+            .header {
+                a.action {
+                    @include lib-css(color, $color-black);
+                }
+            }
+        }
+    }
+
+    .block-search {
+        .search {
+            @include lib-css(color, $color-white);
+        }
+    }
+
+    .minicart-wrapper {
+        .showcart {
+            @include lib-css(color, $color-white);
+        }
+    }
+
+    .block-account {
+        .action {
+            @include lib-css(color, $color-white);
+        }
+    }
+}
+
+.nav-sections {
+    @include lib-css(float, left);
+    @include lib-css(margin-left, 1.8rem);
+
+    .close {
+        @include lib-css(position, absolute);
+        @include lib-css(top, .15rem);
+        @include lib-css(right, .15rem);
+        @include lib-css(display, none);
+        @include lib-css(z-index, 999);
+    }
+}
+
+.navigation {
+    .icon {
+        @include lib-css(display, none);
+    }
+}
+
+.page-wrapper {
+    .page-crumbs {
+        @include lib-css(margin-top, .72rem);
+        @include lib-css(background-color, $basic-color);
+    }
+
+    .breadcrumbs {
+        @include lib-css(margin-bottom, 0);
+        @include lib-css(padding, .15rem 0);
+    }
+
+    &.fixed {
+        .page-crumbs {
+            @include lib-css(margin-top, 1.24rem);
+        }
+    }
+}
+
+.header {
+    &.content {
+        @extend .abs-add-clearfix;
+    }
+}
+
+.ias-spinner {
+    @include lib-css(text-align, center);
+}
+
+.website {
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+    display: none;
+    z-index: 99;
+    background-color: transparent;
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    transform: translateY(50%);
+
+    .list {
+        > li {
+            @include lib-css(margin-bottom, .05rem);
+
+            a {
+                @include lib-css(color, $color-white);
+                @include lib-css(display, block);
+                @include lib-css(padding, .1rem);
+                @include lib-css(position, relative);
+                background-color: rgba(0,0,0,.5);
+                -moz-border-top-left-radius: 6%;
+                -webkit-border-top-left-radius: 6%;
+                border-top-left-radius: 6%;
+                -moz-border-bottom-left-radius: 6%;
+                -webkit-border-bottom-left-radius: 6%;
+                border-bottom-left-radius: 6%;
+
+                &:hover {
+                    background-color: $basic-color;
+                    -moz-border-top-left-radius: 0;
+                    -webkit-border-top-left-radius: 0;
+                    border-top-left-radius: 0;
+                    -moz-border-bottom-left-radius: 0;
+                    -webkit-border-bottom-left-radius: 0;
+                    border-bottom-left-radius: 0;
+
+                    .tab {
+                        left: -1rem;
+                    }
+                }
+            }
+
+            .tab {
+                width: 1rem;
+                position: absolute;
+                top: 0;
+                left: .42rem;
+                color: $color-white;
+                font-size: .12rem;
+                height: .42rem;
+                line-height: .42rem;
+                text-align: center;
+                background-color: $basic-color;
+                -moz-border-top-left-radius: 4%;
+                -webkit-border-top-left-radius: 4%;
+                border-top-left-radius: 4%;
+                -moz-border-bottom-left-radius: 4%;
+                -webkit-border-bottom-left-radius: 4%;
+                border-bottom-left-radius: 4%;
+                -webkit-transition: left .3s ease-in-out .1s;
+                -moz-transition: left .3s ease-in-out .1s;
+                transition: left .3s ease-in-out .1s;
+            }
+
+            .num {
+                color: $orange-color;
+                font-weight: 600;
+                position: absolute;
+                top: 0;
+                left: 16px;
+            }
+
+            .msg {
+                width: 1.6rem;
+                position: absolute;
+                top: 0;
+                left: .42rem;
+                color: $color-white;
+                font-size: .12rem;
+                height: .42rem;
+                line-height: .42rem;
+                text-align: center;
+                background-color: $basic-color;
+                -moz-border-top-left-radius: 4%;
+                -webkit-border-top-left-radius: 4%;
+                border-top-left-radius: 4%;
+                -moz-border-bottom-left-radius: 4%;
+                -webkit-border-bottom-left-radius: 4%;
+                border-bottom-left-radius: 4%;
+                -webkit-transition: left .3s ease-in-out .1s;
+                -moz-transition: left .3s ease-in-out .1s;
+                transition: left .3s ease-in-out .1s;
+
+                &.show {
+                    left: -1.6rem;
+                }
+            }
+
+            &:last-child {
+                @include lib-css(margin-bottom, 0);
+            }
+        }
+    }
+
+    .show-all {
+        @include lib-css(color, $color-white);
+        @include lib-css(display, none);
+        @include lib-css(margin-top, .05rem);
+        @include lib-css(padding, .1rem);
+        @include lib-css(position, relative);
+        background-color: rgba(0,0,0,.5);
+        -moz-border-top-left-radius: 6%;
+        -webkit-border-top-left-radius: 6%;
+        border-top-left-radius: 6%;
+        -moz-border-bottom-left-radius: 6%;
+        -webkit-border-bottom-left-radius: 6%;
+        border-bottom-left-radius: 6%;
+
+        &:hover {
+            background-color: $basic-color;
+        }
+    }
+}
+
+.logo {
+    float: left;
+    max-width: 50%;
+    padding: .1rem 0;
+    position: relative;
+    z-index: 5;
+
+    img {
+        display: block;
+    }
+
+    .page-print & {
+        float: none;
+    }
+}
+
+.page-main {
+    > .page-title-wrapper {
+        .page-title + .action {
+            margin-top: $indent__l;
+        }
+    }
+}
+
+.action.skip {
+    &:not(:focus) {
+        @extend .abs-visually-hidden;
+    }
+
+    &:focus {
+        @include lib-css(background, $color-gray94);
+        @include lib-css(padding, $indent__s);
+        box-sizing: border-box;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 15;
+    }
+}
+
+.action-skip-wrapper {
+    height: 0;
+    position: relative;
+}
+
+.block-info {
+    @include lib-css(margin-bottom, .2rem);
+}
+
+.form-newsletter-manage {
+    .actions-toolbar {
+        @include lib-css(margin-top, .4rem);
+    }
+}
+
+//
+//  Global notice
+//  ---------------------------------------------
+
+.message.global {
+    p {
+        margin: 0;
+    }
+
+    &.noscript,
+    &.cookie {
+        @include lib-message($_message-type: global-note);
+        margin: 0;
+    }
+
+    &.cookie {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        z-index: 3;
+
+        .actions {
+            margin-top: $indent__s;
+        }
+    }
+
+    &.demo {
+        @include lib-message($_message-type: global-caution);
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
+
+img.lof-lazy {
+	@include lib-css(width, auto);
+}
+
+.block-compare {
+    @include lib-css(margin-bottom, .3rem);
+}
+
+.open-filter, .close-filter {
+    @include lib-css(display, none);
+}
+
+.block-wishlist {
+    @include lib-css(margin-bottom, .3rem);
+
+    .block-title {
+        @include lib-css(display, flex);
+        @include lib-css(margin-bottom, .2rem);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-items, center);
+
+        strong {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(font-weight, 300);
+        }
+    }
+
+    .owl-wishlist {
+        @include lib-css(margin-top, .4rem);
+    }
+
+    .owl-nav {
+        @include lib-css(position, absolute);
+        @include lib-css(top, -.3rem);
+        @include lib-css(right, -.05rem);
+        @include lib-css(z-index, 20);
+    }
+
+    .owl-prev, .owl-next {
+        @include lib-css(color, $color-gray-middle2);
+        @include lib-css(margin, 0 5px);
+        @include lib-css(display, inline-block);
+        @include lib-css(cursor, pointer);
+        @include lib-css(opacity, .85);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .tocart {
+        @include lib-css(color, $color-white);
+        @include lib-css(font-family, $font-family_light);
+        @include lib-css(margin-top, .1rem);
+        @include lib-css(text-transform, uppercase);
+        @include lib-css(background-color, $basic-color);
+        @include lib-css(border, 2px solid $basic-color);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+}
+
+//
+//  Footer
+//  ---------------------------------------------
+
+.page-footer {
+    @include lib-css(background-color, $footer-bg);
+    margin-top: auto;
+}
+
+.copyright {
+    @include lib-css(display, block);
+    @include lib-css(padding, .15rem 0);
+    @include lib-css(text-align, center);
+    @include lib-css(background-color, $copyright-color);
+    @include lib-css(border-top, 1px solid $copy-color);
+
+    .container {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-items, center);
+        @include lib-css(flex-wrap, wrap);
+
+        > p {
+            @include lib-css(color, $button-color);
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    a {
+        @include lib-css(color, $button-color);
+        @include lib-css(display, inline-block);
+    }
+
+    .flex {
+        p {
+            @include lib-css(display, inline-block);
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(margin-left, .2rem);
+
+            a {
+                @include lib-css(padding-left, .1rem);
+            }
+        }
+
+        span {
+            @include lib-css(color, $button-color);
+            @include lib-css(line-height, .12rem);
+            @include lib-css(display, inline-block);
+            @include lib-css(padding, 0 .1rem);
+            @include lib-css(border-right, 1px solid $button-color);
+        }
+    }
+}
+
+.shop-solutions {
+    @include lib-css(margin-bottom, .5rem);
+}
+
+.footer {
+    &.content {
+        @include lib-css(padding, .5rem 0);
+
+        ul {
+            @extend .abs-reset-list;
+        }
+
+        .links {
+            > li {
+                margin: 0 0 8px;
+            }
+        }
+    }
+
+    .list {
+        > li {
+            > a {
+                @include lib-css(color, $gray-color);
+                @include lib-css(display, inline-block);
+                -webkit-transition: all .3s ease;
+                -moz-transition: all .3s ease;
+                -ms-transition: all .3s ease;
+                -o-transition: all .3s ease;
+                transition: all .3s ease;
+    
+                &:before {
+                    content: '';
+                    @include lib-css(position, relative);
+                    @include lib-css(left, 0);
+                    @include lib-css(top, -4px);
+                    @include lib-css(width, 0px);
+                    @include lib-css( display, inline-block);
+                    @include lib-css(border-bottom, 1px solid $basic-color);
+                    -webkit-transition: all 0.6s ease 0s;
+                    -moz-transition: all 0.6s ease 0s;
+                    -ms-transition: all 0.6s ease 0s;
+                    -o-transition: all 0.6s ease 0s;
+                    transition: all 0.6s ease 0s;
+                }
+    
+                &:hover {
+                    @include lib-css(color, $basic-color);
+    
+                    &:before {
+                        @include lib-css(width, .2rem);
+                        @include lib-css(margin-right, .07rem);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.messages {
+    p {
+        @include lib-css(color, $color-white);
+        @include lib-css(margin-top, .2rem);
+        @include lib-css(margin-bottom, 0);
+        @include lib-css(padding, .06rem .2rem);
+    }
+
+    .success {
+        @include lib-css(background-color, $success-color);
+    }
+
+    .error {
+        @include lib-css(background-color, $error-color);
+    }
+
+    .warning, .info {
+        @include lib-css(background-color, $warning-color);
+    }
+
+    .icon {
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+        @include lib-css(margin-right, .05rem);
+    }
+}
+
+.page-header,
+.page-footer {
+    .switcher {
+        margin-right: 10px;
+
+        .options {
+            @include lib-dropdown(
+                $_dropdown-actions-padding            : 0,
+                $_dropdown-list-item-padding          : 0,
+                $_dropdown-toggle-icon-content        : $icon-down,
+                $_dropdown-toggle-active-icon-content : $icon-up,
+                $_icon-font-text-hide                 : true,
+                $_icon-font-size                      : 22px,
+                $_icon-font-line-height               : 22px,
+                $_dropdown-list-min-width             : 160px
+            );
+
+            ul.dropdown {
+                a {
+                    display: block;
+                    padding: 8px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        li {
+            font-size: $font-size__s;
+            margin: 0;
+        }
+
+        .label {
+            @extend .abs-visually-hidden;
+        }
+
+        strong {
+            font-weight: $font-weight__regular;
+        }
+    }
+}
+
+//
+//  Widgets
+//  ---------------------------------------------
+.widget {
+    clear: both;
+
+    .block-title {
+        @extend .abs-block-title;
+    }
+}
+
+.page-header,
+.page-footer {
+    .widget.block {
+        @include lib-css(margin, $indent__base 0);
+    }
+}
+
+.no-display {
+    @extend .abs-no-display;
+}
+
+//
+//  Calendar
+//  ---------------------------------------------
+
+.ui-datepicker {
+    td {
+        padding: 0;
+    }
+}
+
+.page-footer {
+    .footer {
+        .footer_category {
+            @include lib-css(margin, .5rem 0);
+            @include lib-css(text-align, center);
+        
+            > li {
+                @include lib-css(display, inline-block);
+        
+                a {
+                    @include lib-css(font-size, .16rem);
+                    @include lib-css(display, block);
+                    @include lib-css(margin, 0 25px);
+                    @include lib-css(text-transform, uppercase);
+                }
+            }
+        }
+    }
+}
+
+.page-header {
+    .banner {
+        @include lib-css(padding, .15rem 0);
+        @include lib-css(position, relative);
+        @include lib-css(background-color, $copyright-color);
+        @include lib-css(background-size, cover);
+        @include lib-css(background-repeat, no-repeat);
+        @include lib-css(background-position, center center);
+
+        p {
+            @include lib-css(color, $color-white);
+            @include lib-css(font-size, .15rem);
+            @include lib-css(font-weight, 600);
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(text-align, center);
+            @include lib-css(text-transform, uppercase);
+            @include lib-css(letter-spacing, 1.5px);
+
+            span {
+                @include lib-css(color, $basic-color);
+                @include lib-css(margin-right, .1rem);
+            }
+        }
+
+        .close-banner {
+            @include lib-css(color, $basic-color);
+            @include lib-css(position, absolute);
+            @include lib-css(top, 0);
+            @include lib-css(right, .15rem);
+            @include lib-css(z-index, 99);
+        }
+    }
+}
+
+.hide {
+    @include lib-css(display, none);
+}
+
+.nav-layer,
+.mini-layer {
+    &.on {
+        @include lib-css(position, fixed);
+        @include lib-css(top, 0);
+        @include lib-css(left, 0);
+        @include lib-css(width, 100%);
+        @include lib-css(height, 100%);
+        @include lib-css(z-index, 500);
+        background: rgba(0, 0, 0, .6);
+    }
+}
+
+.cms-index-index {
+    .header {
+        a.action {
+            &:hover {
+                @include lib-css(color, $basic-color !important);
+            }
+        }
+    }
+
+    .page-header {
+        .inner-wrapper {
+            background-color: rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: inherit;
+            -webkit-box-shadow: inherit;
+            box-shadow: inherit;
+        }
+
+        &.active {
+            .inner-wrapper {
+                background: none;
+                -moz-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+                -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+                box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+            }
+
+            &:before {
+                @include lib-css(height, .72rem);
+            }
+        }
+
+        .level0 {
+            .level-top {
+                .color {
+                    @include lib-css(color, $color-white);
+                }
+            }
+        }
+    }
+
+    .page-wrapper {
+        &.fixed {
+            .page-header {
+                &.active {
+                    &:before {
+                        @include lib-css(height, 1.24rem);
+                        -moz-transition: inherit;
+                        -webkit-transition: inherit;
+                        -ms-transition: inherit;
+                        transition: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    html,
+    body {
+        height: 100%;
+    }
+
+    .page-wrapper {
+        min-height: 100%;
+
+        > .breadcrumbs,
+        > .top-container,
+        > .widget {
+            width: 100%;
+        }
+    }
+
+    .header {
+        &.panel {
+            > .header.links {
+                float: right;
+                font-size: 0;
+                @include lib-list-inline();
+                margin-left: auto;
+
+                > li {
+                    font-size: $font-size__base;
+                    margin: 0 0 0 15px;
+
+                    &.welcome,
+                    a {
+                        line-height: 1.4;
+                    }
+
+                    &.welcome {
+                        a {
+                            @include lib-css(padding-left, $indent__xs);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.content {
+            @extend .abs-add-clearfix-desktop;
+        }
+    }
+
+    .page-header {
+        margin-bottom: 0; 
+        
+        .panel.wrapper {
+            border-bottom: 1px solid $secondary__color;
+        }
+
+        .header.panel {
+            @extend .abs-add-clearfix-desktop;
+            padding-bottom: $indent__s;
+            padding-top: $indent__s;
+        }
+        
+        .switcher {
+            display: inline-block;
+        }
+    }
+
+    .page-main {
+        > .page-title-wrapper {
+            .page-title {
+                display: inline-block;
+            }
+
+            .page-title + .action {
+                float: right;
+                margin-top: $indent__base;
+            }
+        }
+    }
+
+    .logo {
+        img {
+            max-height: inherit;
+        }
+    }
+
+    .footer {
+        &.content {
+            .block {
+                float: right;
+            }
+
+            .links {
+                display: inline-block;
+                margin-bottom: .2rem;
+                padding: 0 .5rem 0 0;
+                vertical-align: top;
+            }
+
+            .switcher.store {
+                display: inline-block;
+                padding-right: .5rem;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .copyright {
+        @extend .abs-add-clearfix-desktop;
+    }
+}
+
+.icon {
+    width: .2rem; 
+    height: .2rem;
+    vertical-align: middle;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.footer-links {
+    h5 {
+        @include lib-css(color, $title-color);
+        @include lib-css(font-size, $font-size-18);
+        @include lib-css(display, flex);
+        @include lib-css(margin, 0);
+        @include lib-css(padding, .3rem 0);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .open-link {
+        @include lib-css(display, none);
+    }
+
+    .list {
+        > li {
+            @include lib-css(padding-bottom, .1rem);
+        }
+    }
+
+    .content {
+        .bottom {
+            @include lib-css(margin-top, .3rem);
+        }
+
+        p {
+            @include lib-css(margin-bottom, 0);
+        }
+
+        .info {
+            @include lib-css(color, $gray-color);
+            @include lib-css(font-family, 'Opensans-Light');
+            @include lib-css(font-size, .15rem);
+        }
+
+        .contact {
+            @include lib-css(margin-top, .3rem);
+
+            a {
+                @include lib-css(display, inline-block);
+                @include lib-css(margin-right, .1rem);
+                @include lib-css(padding, .05rem);
+                @include lib-css(background-color, $media-color);
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                
+                .icon {
+                    -webkit-transition: all 1s ease;
+                    -moz-transition: all 1s ease;
+                    -o-transition: all 1s ease;
+                    -ms-transition: all 1s ease;
+                    transition: all 1s ease;
+                }
+
+                &:last-child {
+                    @include lib-css(margin-right, 0);
+                }
+
+                &:hover {
+                    .icon {
+                        -webkit-transform: rotateY(180deg);
+                        -moz-transform: rotateY(180deg);
+                        -o-transform: rotateY(180deg);
+                        -ms-transform: rotateY(180deg);
+                        transform: rotateY(180deg);
+                    }
+                }
+            }
+        }
+
+        .payment {
+            @include lib-css(margin-top, .3rem);
+        }
+    }
+
+    .subscribe {
+        width: 100%;
+        display: flex;
+
+        input {
+            @include lib-css(color, $color-gray80);
+            @include lib-css(height, .37rem);
+            @include lib-css(border-color, $button-color);
+            @include lib-css(background-color, $color-white);
+
+            &::-webkit-input-placeholder {
+                color: $color-gray80;
+            }
+
+            &:-moz-placeholder {
+                color: $color-gray80;
+            }
+
+            &::-moz-placeholder{
+                color: $color-gray80;
+            }
+
+            &:-ms-input-placeholder {
+                color: $color-gray80;
+            }
+        }
+
+        .btn {
+            @include lib-css(font-size, $font-size-16);
+            @include lib-css(height, .37rem);
+            @include lib-css(padding, 0 .15rem);
+        }
+    }
+}

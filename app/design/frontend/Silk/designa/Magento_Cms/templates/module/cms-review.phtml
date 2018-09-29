@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block \Silk\Cms\Block\Reviews */
+?>
+
+<?php $reviews = $block->getReviewLists(); ?>
+
+<section class="cms-reviews">
+    <div class="container">
+        <div class="title">
+            <h3><?= __('Real Reviews From Real Customers') ?></h3>
+            <div class="product-reviews">
+                <div class="rating-summary">
+                    <div class="rating-result" title="100%">
+                        <span style="width:100%">
+                            <span>
+                                <span itemprop="ratingValue">100%</span>% of <span itemprop="bestRating">100</span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <span><?= $reviews['counts'] . __('reviews') ?></span>
+            </div>
+        </div>
+        <div class="wrapper">
+            <?php if (isset($reviews['reviews']) && count($reviews['reviews'])): ?>
+                <ol class="owl-carousel owl-review">
+                    <?php foreach ($reviews['reviews'] as $review): ?>
+                        <li>
+                            <div class="flex">
+                                <a href="<?= $review['product_link'] ?>" class="link">
+                                    <img class="owl-lazy" src="<?= $block->getViewFileUrl('images/loader.gif') ?>" data-src="<?= $review['product_image'] ?>" />
+                                </a>
+                                <div class="info">
+                                    <div class="product-reviews">
+                                        <div class="rating-summary">
+                                            <div class="rating-result" title="100%">
+                                                <span style="width:100%">
+                                                    <span>
+                                                        <span itemprop="ratingValue">100%</span>% of <span itemprop="bestRating">100</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span><?= $review['created_at'] ?></span>
+                                    </div>
+                                    <p class="tl"><?= $review['title'] ?></p>
+                                    <p class="detail"><?= $review['detail'] ?></p>
+                                    <a href="javascript:;" class="read-more"><?= __('Read More') ?></a>
+                                    <div class="tooltip"><?= $review['detail'] ?></div>
+                                    <p><?= $review['nickname'] ?></p>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ol>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>

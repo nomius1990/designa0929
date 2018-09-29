@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+
+$url = $block->getReviewsUrl() . '#review';
+$urlForm = $block->getReviewsUrl() . '#review';
+?>
+
+<?php 
+    $rating = $block->getRatingSummary();
+    $rating = $rating == null ? 0 : $rating;
+    $reviewsCount = $block->getReviewsCount();
+    $reviewsCount = $reviewsCount == null ? 0 :$reviewsCount; 
+?>
+<div class="rating-summary">
+    <div class="rating-result" title="<?= $block->escapeHtmlAttr($rating); ?>%">
+        <span style="width:<?= $block->escapeHtmlAttr($rating); ?>%">
+            <span>
+                <span itemprop="ratingValue"><?= $block->escapeHtml($rating); ?></span>% of <span itemprop="bestRating">100</span>
+            </span>
+        </span>
+    </div>
+</div>
+<div class="reviews-actions">
+    <span class="count">
+        <span itemprop="reviewCount"><?= $block->escapeHtml($reviewsCount) ?></span>
+        <span><?= ($reviewsCount == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></span>
+    </span>
+    <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>"><?= $block->escapeHtml(__('Write A Review')) ?></a>
+</div>

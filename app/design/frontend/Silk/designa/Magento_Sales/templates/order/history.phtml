@@ -1,0 +1,113 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_orders = $block->getOrders();
+?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)): ?>
+    <div class="table-wrapper orders-history">
+        <h2 class="title"><?= __('My Orders') ?></h2>
+
+        <?php foreach ($_orders as $_order): ?>
+            <div class="order-sheet-detail">
+                <div class="order-sheet-th">
+                    <span class="order-sheet-th-no">
+                        Order Number: <span><?= /* @escapeNotVerified */ $_order->getRealOrderId() ?></span>
+                    </span>
+                    <span class="order-sheet-th-date"><?= /* @escapeNotVerified */ $_order->getCreatedAt() ?></span>
+                </div>
+                <table class="data table table-order-items history">
+                    <tbody>
+                        <tr>
+                            <td  class="col pro-attr">
+                                <div class="table-order-single">
+                                    <?php
+                                    $items   = $_order->getAllItems();
+                                    foreach ($items as $item) {
+                                        $product['image'] = $block->getImage($item->getProductId());
+                                        $product['qty']   = $item->getQtyOrdered();
+                                        $product['name']  = $item->getName();
+                                        $product['price'] = $item->getPrice();?>
+
+                                        <div class="pro-deatil-wrapper">
+                                            <div class="pic">
+                                                <img src="<?php echo $product['image']?>">
+                                            </div>
+
+                                            <div class="pro-deatil-text">
+                                                <h4 class="title"><?php echo $product['name']?></h4>
+                                                <div class="number">x<?php echo intval($product['qty'])?></div>
+                                            </div>
+                                        </div>
+                                    <?php }?>
+                                </div>
+                            </td>
+                            <?php $extra = $block->getChildBlock('extra.container'); ?>
+                            <?php if ($extra): ?>
+                                <?php $extra->setOrder($_order); ?>
+                                <?= /* @noEscape */ $extra->getChildHtml() ?>
+                            <?php endif; ?>
+                            <td data-th="<?= $block->escapeHtml(__('Ship To')) ?>" class="col shipping">
+                                <div class="cols-layout-wrapper">
+                                    <div class="cols-layout-left">Ship To:</div>
+                                    <div class="cols-layout-right"><?= $_order->getShippingAddress() ? $block->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></div>
+                                </div>
+                            </td>
+                            <td data-th="<?= $block->escapeHtml(__('Order Total')) ?>" class="col total">
+                                <div class="cols-layout-wrapper">
+                                    <div class="cols-layout-left">Total:</div>
+                                    <div class="cols-layout-right"><?= /* @escapeNotVerified */ $_order->formatPrice($_order->getGrandTotal()) ?></div>
+                                </div>
+                            </td>
+                            <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions history-actions">
+                                <div class="cols-layout-wrapper actions-status-title">
+                                    <div class="cols-layout-left">Status:</div>
+                                    <div class="cols-layout-right"><?= /* @escapeNotVerified */ $_order->getStatusLabel() ?></div>
+                                </div>
+
+                                <div class="history-actions-contents">
+                                    <p><?= /* @escapeNotVerified */ $_order->getStatusLabel() ?></p>
+                                    <a href="<?= /* @escapeNotVerified */ $block->getViewUrl($_order) ?>" class="action view">
+                                        <span><?= /* @escapeNotVerified */ __('View Order') ?></span>
+                                    </a>
+                                    <?php if ($this->helper('Magento\Sales\Helper\Reorder')->canReorder($_order->getEntityId())) : ?>
+                                        <a href="#" data-post='<?php /* @escapeNotVerified */ echo
+                                        $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+                                            ->getPostData($block->getReorderUrl($_order))
+                                        ?>' class="action order">
+                                            <span><?= /* @escapeNotVerified */ __('Reorder') ?></span>
+                                        </a>
+                                    <?php endif ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="history-actions-mobile history-actions">
+                    <a href="<?= /* @escapeNotVerified */ $block->getViewUrl($_order) ?>" class="action view">
+                        <span><?= /* @escapeNotVerified */ __('View Order') ?></span>
+                    </a>
+                    <?php if ($this->helper('Magento\Sales\Helper\Reorder')->canReorder($_order->getEntityId())) : ?>
+                        <a href="#" data-post='<?php /* @escapeNotVerified */ echo
+                        $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+                            ->getPostData($block->getReorderUrl($_order))
+                        ?>' class="action order">
+                            <span><?= /* @escapeNotVerified */ __('Reorder') ?></span>
+                        </a>
+                    <?php endif ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?= /* @escapeNotVerified */ __('You have placed no orders.') ?></span></div>
+<?php endif ?>

@@ -1,0 +1,502 @@
+//
+//  Navigation
+//  _____________________________________________
+
+@mixin lib-main-navigation(
+    $_nav__indent-side                        : 15px,
+    $_nav-background-color                    : $navigation__background,
+    $_nav-border                              : $navigation__border,
+    $_nav-level0-font-size                    : $navigation-level0-item__font-size,
+    $_nav-level0-font-weight                  : $navigation-level0-item__font-weight,
+    $_nav-level0-item-line-height             : $navigation-level0-item__line-height,
+    $_nav-level0-item-margin                  : $navigation-level0-item__margin,
+    $_nav-level0-item-padding                 : $navigation-level0-item__padding,
+    $_nav-level0-text-transform               : $navigation-level0-item__text-transform,
+
+    $_nav-level0-item-background-color        : $navigation-level0-item__background,
+    $_nav-level0-item-border                  : $navigation-level0-item__border,
+    $_nav-level0-item-color                   : $navigation-level0-item__color,
+    $_nav-level0-item-text-decoration         : $navigation-level0-item__text-decoration,
+
+    $_nav-level0-item-background-color-active : $navigation-level0-item__active__background,
+    $_nav-level0-item__active__border-color   : $navigation-level0-item__active__border-color,
+    $_nav-level0-item__active__border-style   : $navigation-level0-item__active__border-style,
+    $_nav-level0-item__active__border-width   : $navigation-level0-item__active__border-width,
+    $_nav-level0-item-color-active            : $navigation-level0-item__active__color,
+    $_nav-level0-item-text-decoration-active  : $navigation-level0-item__active__text-decoration,
+
+    $_submenu-background-color                : $submenu__background,
+    $_submenu-border                          : $submenu__border,
+    $_submenu-font-size                       : $submenu__font-size,
+    $_submenu-font-weight                     : $submenu__font-weight,
+    $_submenu-line-height                     : $submenu-item__line-height,
+    $_submenu-item__padding-top               : $submenu__padding-top,
+    $_submenu-item__padding-right             : $submenu__padding-right,
+    $_submenu-item__padding-bottom            : $submenu__padding-bottom,
+    $_submenu-item__padding-left              : $submenu__padding-left,
+
+    $_submenu-item-background-color           : $submenu-item__background,
+    $_submenu-item-border                     : $submenu-item__border,
+    $_submenu-item-color                      : $submenu-item__color,
+    $_submenu-item-text-decoration            : $submenu-item__text-decoration,
+
+    $_submenu-item-background-color-active    : $submenu-item__active__background,
+    $_submenu-item__active__border            : $submenu-item__active__border,
+    $_submenu-item__active__border-color      : $submenu-item__active__border-color,
+    $_submenu-item__active__border-style      : $submenu-item__active__border-style,
+    $_submenu-item__active__border-width      : $submenu-item__active__border-width,
+    $_submenu-item-color-active               : $submenu-item__active__color,
+    $_submenu-item-text-decoration-active     : $submenu-item__active__text-decoration
+) {
+    .navigation {
+        @include lib-css(background, $_nav-background-color);
+        @include lib-css(border, $_nav-border);
+        box-sizing: border-box;
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            @include lib-css(padding, $_submenu-item__padding-top $_submenu-item__padding-right $_submenu-item__padding-bottom $_submenu-item__padding-left);
+        }
+
+        a,
+        a:hover {
+            @include lib-css(color, $_nav-level0-item-color);
+            @include lib-css(text-decoration, $_nav-level0-item-text-decoration);
+        }
+
+        .level0 {
+            @include lib-css(border-top, $_nav-level0-item-border);
+            @include lib-font-size($_nav-level0-font-size);
+
+            > .level-top {
+                @include lib-css(background, $_nav-level0-item-background-color);
+                @include lib-css(line-height, $_nav-level0-item-line-height);
+                @include lib-css(padding, $_nav-level0-item-padding);
+                @include lib-css(text-transform, $_nav-level0-text-transform);
+                word-wrap: break-word;
+            }
+
+            > .level1 {
+                @include lib-css(font-weight, $font-weight__semibold);
+            }
+        }
+
+        li.level0 {
+            &:last-child {
+                @include lib-css(border-bottom, $_nav-level0-item-border);
+            }
+        }
+
+        .submenu {
+            > li {
+                word-wrap: break-word;
+            }
+
+            &:not(:first-child) {
+                @include lib-css(background, $_submenu-background-color);
+                @include lib-css(border, $_submenu-border);
+                @include lib-css(font-size, $_submenu-font-size);
+                @include lib-css(font-weight, $_submenu-font-weight);
+                @include lib-css(line-height, $_submenu-line-height);
+                left: auto !important;
+                overflow-x: hidden;
+                padding: 0;
+                position: relative;
+                top: auto !important;
+                transition: left 0.3s ease-out;
+
+                > li {
+                    > a {
+                        @include lib-css(padding-left, $_nav__indent-side);
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                ul {
+                    display: block;
+                    @include lib-css(padding-left, .1rem);
+
+                    > li {
+                        margin: 0;
+
+                        a {
+                            @include lib-css(background, $_submenu-item-background-color);
+                            @include lib-css(border, $_submenu-item-border);
+                            @include lib-css(color, $_submenu-item-color);
+                            @include lib-css(text-decoration, $_submenu-item-text-decoration);
+                            display: block;
+                            line-height: normal;
+                        }
+                    }
+                }
+
+                &.expanded {
+                    display: block !important;
+                    padding-right: 0;
+                    top: 0 !important;
+                }
+
+                .active {
+                    > a {
+                        @include lib-css(background, $_submenu-item-background-color-active);
+                        @include lib-css(border-color, $_submenu-item__active__border-color);
+                        @include lib-css(border-style, $_submenu-item__active__border-style);
+                        @include lib-css(border-width, $_submenu-item__active__border-width);
+                        @include lib-css(color, $_submenu-item-color-active);
+                        @include lib-css(padding-left, $_nav__indent-side - $_submenu-item__active__border);
+                        @include lib-css(text-decoration, $_submenu-item-text-decoration-active);
+                    }
+                }
+
+                .level1 {
+                    &.active {
+                        > a {
+                            @include lib-css(padding-left, $_nav__indent-side - $_submenu-item__active__border);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@mixin lib-main-navigation-desktop(
+    $_nav-background-color                    : $navigation-desktop__background,
+    $_nav-border                              : $navigation-desktop__border,
+    $_nav-font-size                           : $navigation-desktop__font-size,
+    $_nav-font-weight                         : $navigation-desktop__font-weight,
+
+    $_nav-level0-item-line-height             : $navigation-desktop-level0-item__line-height,
+    $_nav-level0-item-margin                  : $navigation-desktop-level0-item__margin,
+    $_nav-level0-item-padding                 : $navigation-desktop-level0-item__padding,
+
+    $_nav-level0-item-background-color        : $navigation-desktop-level0-item__background,
+    $_nav-level0-item-border                  : $navigation-desktop-level0-item__border,
+    $_nav-level0-item-color                   : $navigation-desktop-level0-item__color,
+    $_nav-level0-item-text-decoration         : $navigation-desktop-level0-item__text-decoration,
+
+    $_nav-level0-item-background-color-hover  : $navigation-desktop-level0-item__hover__background,
+    $_nav-level0-item-border-hover            : $navigation-desktop-level0-item__hover__border,
+    $_nav-level0-item-color-hover             : $navigation-desktop-level0-item__hover__color,
+    $_nav-level0-item-text-decoration-hover   : $navigation-desktop-level0-item__hover__text-decoration,
+
+    $_nav-level0-item-background-color-active : $navigation-desktop-level0-item__active__background,
+    $_nav-level0-item__active__border-color   : $navigation-desktop-level0-item__active__border-color,
+    $_nav-level0-item__active__border-style   : $navigation-desktop-level0-item__active__border-style,
+    $_nav-level0-item__active__border-width   : $navigation-desktop-level0-item__active__border-width,
+    $_nav-level0-item-color-active            : $navigation-desktop-level0-item__active__color,
+    $_nav-level0-item-text-decoration-active  : $navigation-desktop-level0-item__active__text-decoration,
+
+    $_submenu-background-color                : $submenu-desktop__background,
+    $_submenu-border-width                    : $submenu-desktop__border-width,
+    $_submenu-border-style                    : $submenu-desktop__border-style,
+    $_submenu-border-color                    : $submenu-desktop__border-color,
+    $_submenu-box-shadow                      : $submenu-desktop__box-shadow,
+    $_submenu-font-size                       : $submenu-desktop__font-size,
+    $_submenu-font-weight                     : $submenu-desktop__font-weight,
+    $_submenu-min-width                       : $submenu-desktop__min-width,
+    $_submenu-padding                         : $submenu-desktop__padding,
+
+    $_submenu-arrow                           : $submenu-desktop-arrow,
+    $_submenu-arrow-size                      : $submenu-desktop-arrow__size,
+    $_submenu-arrow-left                      : $submenu-desktop-arrow__left,
+
+    $_submenu-item-padding                    : $submenu-desktop-item__padding,
+    $_submenu-item-background-color           : $submenu-desktop-item__background,
+    $_submenu-item-border                     : $submenu-desktop-item__border,
+    $_submenu-item-color                      : $submenu-desktop-item__color,
+    $_submenu-item-text-decoration            : $submenu-desktop-item__text-decoration,
+
+    $_submenu-item__hover__background-color   : $submenu-desktop-item__hover__background,
+    $_submenu-item-border-hover               : $submenu-desktop-item__hover__border,
+    $_submenu-item-color-hover                : $submenu-desktop-item__hover__color,
+    $_submenu-item-text-decoration-hover      : $submenu-desktop-item__hover__text-decoration,
+
+    $_submenu-item-background-color-active    : $submenu-desktop-item__active__background,
+    $_submenu-item__active__border-color      : $submenu-desktop-item__active__border-color,
+    $_submenu-item__active__border-style      : $submenu-desktop-item__active__border-style,
+    $_submenu-item__active__border-width      : $submenu-desktop-item__active__border-width,
+    $_submenu-item-color-active               : $submenu-desktop-item__active__color,
+    $_submenu-item-text-decoration-active     : $submenu-desktop-item__active__text-decoration
+) {
+
+    .navigation {
+        @include lib-css(border, $_nav-border);
+        @include lib-css(font-size, $_nav-font-size);
+        height: inherit;
+        left: auto;
+        overflow: inherit;
+        padding: 0;
+        top: 0;
+        width: 100%;
+        z-index: 3;
+
+        &:empty {
+            display: none;
+        }
+
+        .level0 {
+            display: inline-block;
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(position, relative);
+
+            &:last-child {
+                margin-right: 0;
+                padding-right: 0;
+            }
+
+            > .level-top {
+                @include lib-css(color, $color-black);
+                @include lib-css(font-family, $font-family_light);
+                @include lib-css(font-size, .15rem);
+                @include lib-css(display, block);
+                @include lib-css(margin, 0);
+                @include lib-css(padding, .25rem .4rem);
+                @include lib-css(text-transform, uppercase);
+                @include lib-css(background, $_nav-level0-item-background-color);
+                @include lib-css(border, $_nav-level0-item-border);
+                -moz-transition: all .3s linear;
+                -webkit-transition: all .3s linear;
+                -ms-transition: all .3s linear;
+                transition: all .3s linear;
+
+                a:hover,
+                a.ui-state-focus {
+                    @include lib-css(background, $_nav-level0-item-background-color-hover);
+                    @include lib-css(border, $_nav-level0-item-border-hover);
+                    @include lib-css(color, $basic-color !important);
+                    @include lib-css(text-decoration, $_nav-level0-item-text-decoration-hover);
+                }
+            }
+
+            &.parent:hover > .submenu {
+                overflow: visible !important;
+            }
+
+            p {
+                @include lib-css(max-width, 2.6rem);
+                @include lib-css(margin-bottom, 0);
+                @include lib-css(cursor, pointer);
+            }
+
+            &.first {
+                @include lib-css(position, inherit);
+
+                > .submenu {
+                    @include lib-css(width, 100%);
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: calc((100% - 1400px) / 2);
+                        height: 100%;
+                        background-color: $color-white;
+                    }
+                }
+            }
+
+            &:first-child {
+                > .submenu {
+                    > .level {
+                        > li {
+                            > p {
+                                &:after {
+                                    content: '';
+                                    float: right;
+                                    margin-top: .05rem;
+                                    border-width: .05rem;
+                                    border-style: solid;
+                                    border-color: transparent transparent transparent $color-gray60;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .submenu {
+                @include lib-css(font-size, $_submenu-font-size);
+                @include lib-css(position, absolute);
+                @include lib-css(top, 100%);
+                @include lib-css(left, 0);
+                @include lib-css(width, 2rem);
+                @include lib-css(z-index, 99);
+                @include lib-css(background-color, $color-white-smoke);
+                visibility: hidden;
+                -webkit-opacity: 0;
+                -moz-opacity: 0;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                -webkit-transform: translateY(20px);
+                -moz-transform: translateY(20px);
+                -o-transform: translateY(20px);
+                transform: translateY(20px);
+                -webkit-transition: opacity .4s ease,transform .4s ease,visibility .4s linear 0s;
+                -moz-transition: opacity .4s ease,transform .4s ease,visibility .4s linear 0s;
+                transition: opacity .4s ease,transform .4s ease,visibility .4s linear 0s;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, .15);
+                -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .15);
+                -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .15);
+                -o-box-shadow: 0 3px 5px rgba(0, 0, 0, .15);
+                -ms-box-shadow: 0 3px 5px rgba(0, 0, 0, .15);
+
+                a {
+                    @include lib-css(border, $_submenu-item-border);
+                    @include lib-css(color, $color-gray20);
+                    @include lib-css(text-decoration, $_submenu-item-text-decoration);
+                    
+                    strong {
+                        @include lib-css(font-weight, 600);
+                    }
+                }
+
+                .link-toggle {
+                    @include lib-css(display, none);
+                }
+
+                > .level {
+                    @include lib-css(max-width, 1400px);
+                    @include lib-css(position, relative);
+                    @include lib-css(display, flex);
+                    @include lib-css(margin, 0 auto);
+                    @include lib-css(flex-wrap, wrap);
+                    @include lib-css(justify-content, center);
+
+                    > li {
+                        @include lib-css(flex-basis, 100%);
+
+                        > p {
+                            @include lib-css(padding, .15rem);
+                            @include lib-css(background-color, $color-white);
+                        }
+                    }
+
+                    .thumbnail {
+                        @include lib-css(position, absolute);
+                        @include lib-css(top, 0);
+                        @include lib-css(right, 0);
+                        @include lib-css(width, 4.4rem);
+                        @include lib-css(z-index, 40);
+                        @include lib-css(text-align, right);
+                    }
+
+                    .first {
+                        .submenu {
+                            @include lib-css(display, flex);
+                        }
+                    }
+
+                    .active {
+                        .submenu {
+                            @include lib-css(display, flex);
+                        }
+
+                        > p {
+                            @include lib-css(background-color, $color-white-smoke);
+                        }
+                    }
+                }
+                
+                .level1 {
+                    > a {
+                        @include lib-css(color, $color-black);
+                        @include lib-css(font-size, $font-size-16);
+                        @include lib-css(min-height, .68rem);
+                    }
+                }
+
+                .submenu {
+                    @include lib-css(position, absolute);
+                    @include lib-css(display, none);
+                    @include lib-css(top, 0);
+                    @include lib-css(left, 2.6rem);
+                    width: calc(100% - 5.8rem);
+                    @include lib-css(padding, .1rem);
+                    @include lib-css(z-index, 80);
+
+                    ul {
+                        @include lib-css(display, flex);
+                        @include lib-css(flex-wrap, wrap);
+                        @include lib-css(flex-basis, 33.3%);
+
+                        .level2 {
+                            @include lib-css(flex-basis, 100%);
+
+                            p {
+                                @include lib-css(max-width, inherit);
+                                @include lib-css(padding, .1rem .15rem);
+                            }
+                        }
+                    }
+                    
+                    a {
+                        @include lib-css(color, $color-gray40);
+                        display: inline-block;
+                        -webkit-transition: all .3s ease;
+                        -moz-transition: all .3s ease;
+                        -ms-transition: all .3s ease;
+                        -o-transition: all .3s ease;
+                        transition: all .3s ease;
+
+                        &:before {
+                            content: '';
+                            @include lib-css(position, relative);
+                            @include lib-css(left, 0);
+                            @include lib-css(top, -.04rem);
+                            @include lib-css(width, .05rem);
+                            @include lib-css( display, inline-block);
+                            @include lib-css(margin-right, .05rem);
+                            @include lib-css(border-bottom, 1px solid $basic-color);
+                            -webkit-transition: all 0.6s ease 0s;
+                            -moz-transition: all 0.6s ease 0s;
+                            -ms-transition: all 0.6s ease 0s;
+                            -o-transition: all 0.6s ease 0s;
+                            transition: all 0.6s ease 0s;
+                        }
+
+                        &:hover {
+                            @include lib-css(color, $basic-color);
+
+                            &:before {
+                                @include lib-css(width, .2rem);
+                                @include lib-css(margin-right, .08rem);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.over {
+                > .submenu {
+                    -webkit-opacity: 1;
+                    -moz-opacity: 1;
+                    opacity: 1;
+                    filter: alpha(opacity=100);
+                    -moz-transform: translateY(0);
+                    -webkit-transform: translateY(0);
+                    -o-transform: translateY(0);
+                    transform: translateY(0);
+                    visibility: inherit;
+                }
+            }
+        }
+    }
+}

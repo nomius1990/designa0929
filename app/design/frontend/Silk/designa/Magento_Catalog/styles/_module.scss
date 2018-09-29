@@ -1,0 +1,1661 @@
+$product-grid-items-per-row-layout-default          : 2;
+
+$product-grid-items-per-row-layout-1-screen-s       : 3;
+$product-grid-items-per-row-layout-1-screen-m       : 4;
+$product-grid-items-per-row-layout-1-screen-l       : 5;
+
+$product-grid-items-per-row-layout-2-left-screen-s  : 3;
+$product-grid-items-per-row-layout-2-left-screen-m  : 4;
+$product-grid-items-per-row-layout-2-left-screen-l  : '';
+
+$product-grid-items-per-row-layout-2-right-screen-s : 3;
+$product-grid-items-per-row-layout-2-right-screen-m : 4;
+$product-grid-items-per-row-layout-2-right-screen-l : '';
+
+$product-grid-items-per-row-layout-3-screen-s       : 3;
+$product-grid-items-per-row-layout-3-screen-m       : '';
+$product-grid-items-per-row-layout-3-screen-l       : '';
+
+$product-grid-items-padding                         : 0 $indent__base $indent__base;
+$product-grid-items-margin                          : 0 0 $indent__s;
+
+$product-name-text-decoration                       : none;
+$product-name-text-decoration-hover                 : $link__hover__text-decoration;
+
+$toolbar-mode-icon-font-size                        : .26rem;
+$product-h1-margin-bottom-desktop                   : $indent__base;
+
+@import 'module/listings';
+@import 'module/toolbar';
+@import 'module/gallery';
+@import 'module/quickview';
+
+//
+//  Category view
+//  ---------------------------------------------
+.page.messages {
+    .message-success, .message-error {
+        @include lib-css(margin-bottom, .4rem);
+    }
+}
+
+.page-title {
+    @include lib-css(padding, .25rem 0);
+
+    h1 {
+        @include lib-css(font-size, $font-size-30);
+        @include lib-css(text-transform, uppercase);
+    }
+}
+
+.product-info-name {
+    @include lib-css(font-size, .26rem);
+    @include lib-css(margin-bottom, .1rem);
+}
+
+.prod-stock {
+    @include lib-css(padding, .15rem 0);
+    @include lib-css(border-bottom, 1px solid $color-gray80);
+
+    .product-info-stock-sku {
+        @include lib-css(float, right);
+    }
+
+    .price-box {
+        @include lib-css(float, left);
+    }
+
+    &:after {
+        content: ''; 
+        display: block; 
+        height: 0;
+        clear: both;
+        overflow: hidden;
+    }
+}
+
+.product-info-price {
+    @include lib-css(display, flex);
+    @include lib-css(padding-bottom, .1rem);
+    @include lib-css(align-items, center);
+
+    .count {
+        @include lib-css(margin, 0 .2rem);
+    }
+}
+
+.product-social-links {
+    @include lib-css(padding, .2rem 0 .1rem 0);
+}
+
+.widget {
+    .block-title {
+        @include lib-css(margin-bottom, .6rem);
+
+        > strong {
+            @include lib-css(font-size, .36rem);
+            @include lib-css(text-transform, uppercase);
+        }
+    }
+}
+
+.cms-index-index {
+    .widget {
+        .block-title {
+            @include lib-css(text-align, center);
+        }
+
+        .owl-dots {
+            @include lib-css(padding-bottom, .3rem);
+        }
+    }
+}
+
+.tab-content {
+    > .item {
+        &:not(:first-child) {
+            @include lib-css(display, none);
+        }
+    }
+}
+
+.converter {
+    @include lib-css(margin-top, .6rem);
+    @include lib-css(text-align, center);
+
+    .tl {
+        @include lib-css(font-size, .3rem);
+        @include lib-css(margin-bottom, .3rem);
+    }
+
+    p {
+        @include lib-css(font-family, $font-family_light);
+        @include lib-css(font-size, .18rem);
+    }
+
+    .stable {
+        @include lib-css(margin, .2rem 0);
+
+        dl {
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, center);
+            @include lib-css(border-bottom, 1px solid $box-color);
+
+            dd, dt {
+                @include lib-css(font-size, .16rem);
+                @include lib-css(flex, 0 1 33.333%);
+                @include lib-css(margin-bottom, 0);
+                @include lib-css(padding, .2rem 0);
+                @include lib-css(border-right, 1px solid $box-color);               
+            }
+
+            dt {
+                @include lib-css(background-color, $color-gray95);
+                @include lib-css(border-left, 1px solid $box-color);
+            }
+
+            &.head {
+                dt {
+                    @include lib-css(font-size, .18rem);
+                    @include lib-css(padding, .5rem 0);
+                    @include lib-css(background-color, transparent);
+                    @include lib-css(border-left, 0);
+                    @include lib-css(border-right, 0);
+                    @include lib-css(text-transform, uppercase);
+
+                    big {
+                        @include lib-css(color, $basic-color);
+                        @include lib-css(font-size, .22rem);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.prod-form {
+    .action {
+        @include lib-css(color, $color-white);
+        @include lib-css(width, 2.4rem);
+        @include lib-css(display, inline-block);
+        @include lib-css(padding, .07rem .15rem);
+        @include lib-css(cursor, pointer);
+        @include lib-css(text-transform, uppercase);
+        @include lib-css(transition-duration, .3s);
+        @include lib-css(transition-property, all);
+        @include lib-css(transition-timing-function, linear);
+
+        span {
+            @include lib-css(display, inline-block);
+            @include lib-css(margin-left, .05rem);
+            @include lib-css(vertical-align, middle);
+        }
+    }
+
+    .bundle {
+        @include lib-css(width, 5.15rem);
+    }
+
+    .qty.field {
+        @include lib-css(margin-bottom, .15rem);
+        @include lib-css(justify-content, flex-start);
+
+        button {
+            @include lib-css(padding, .09rem);
+            @include lib-css(background-color, $color-white);
+        }
+    }
+
+    .price-box {
+        @include lib-css(margin-left, .3rem);
+    }
+
+    .input-text {
+        @include lib-css(width, 1.2rem);
+        @include lib-css(height, inherit);
+        @include lib-css(padding, .09rem);
+        @include lib-css(text-align, center);
+    }
+
+    .tocart {
+        @include lib-css(background-color, $orange-color);
+        @include lib-css(border, 2px solid $orange-color);
+
+        &:hover {
+            @include lib-css(color, $orange-color);
+            @include lib-css(background-color, transparent);
+        }
+    }
+
+    .tocheckout {
+        @include lib-css(color, $color-white);
+        @include lib-css(margin-left, .3rem);
+        @include lib-css(background-color, $banner-color);
+        @include lib-css(border, 2px solid $banner-color);
+
+        &:hover {
+            @include lib-css(color, $banner-color);
+            @include lib-css(background-color, transparent);
+        }
+    }
+}
+
+.prod-info {
+    @include lib-css(font-family, $font-family_light);
+    @include lib-css(margin, .1rem 0);
+
+    label {
+        @include lib-css(margin-right, .1rem);
+    }
+}
+
+.prod-describle {
+    @include lib-css(margin-top, .2rem);
+
+    ul {
+        li {
+            @include lib-css(margin-bottom, .1rem);
+
+            span {
+                @include lib-css(font-size, .15rem);
+                @include lib-css(display, inline-block);
+                @include lib-css(vertical-align, middle);
+            }
+
+            &:last-child {
+                @include lib-css(margin-bottom, 0);
+            }
+        }
+    }
+
+    .icon {
+        @include lib-css(margin-right, .05rem);
+    }
+
+    .share {
+        .fr {
+            @include lib-css(width, 2.4rem);
+            @include lib-css(float, right);
+            @include lib-css(position, relative);
+            @include lib-css(text-align, right);
+
+            > a {
+                color: $font-color;
+                font-size: .15rem;
+                display: block;
+                text-transform: uppercase;
+            }
+        }
+
+        .hide {
+            @include lib-css(position, absolute);
+            @include lib-css(top, 0);
+            @include lib-css(display, block);
+            @include lib-css(z-index, 20);
+        }
+    }
+}
+
+.prod-care {
+    @include lib-css(max-width, 1400px);
+    @include lib-css(display, flex);
+    @include lib-css(margin, .5rem auto 0 auto);
+    @include lib-css(justify-content, center);
+    @include lib-css(flex-wrap, wrap);
+
+    .review-add {
+        @include lib-css(flex, 0 1 40%);
+    }
+
+    .product-review {
+        @include lib-css(flex, 0 1 60%);
+    }
+}
+
+.product-info-main {
+    .product-addto-links {
+        @include lib-css(display, flex);
+    
+        .action {
+            @include lib-css(font-size, .15rem);
+            @include lib-css(font-weight, normal);
+            @include lib-css(flex, 0 1 33.3%);
+            @include lib-css(padding, 0);
+            @include lib-css(background, transparent);
+            @include lib-css(text-transform, uppercase);
+
+            &:hover {
+                @include lib-css(color, $basic-color);
+            }
+        }
+
+        .icon {
+            @include lib-css(margin-right, .05rem);
+        }
+    
+        .tocompare {
+            @include lib-css(text-align, center);
+        }
+    
+        .toreview {
+            @include lib-css(text-align, right);
+        }
+    }
+}
+
+.page-category {
+    @include lib-css(padding-bottom, .2rem);
+    @include lib-css(position, relative);
+
+    h3 {
+        font-family: $font-family_light;
+        font-size: .24rem;
+        position: absolute;
+        top: .4rem;
+        right: .5rem;
+        z-index: 20;
+        text-transform: uppercase;
+    }
+
+    .poster {
+        @include lib-css(position, relative);
+        @include lib-css(overflow, hidden);
+        @include lib-css(text-align, center);
+
+        img {
+            @include lib-css(width, 100%);
+            @include lib-css(min-height, 1.2rem);
+        }
+
+        &::after {
+            @include lib-css(position, absolute);
+            @include lib-css(top, 0);
+            @include lib-css(left, -60%);
+            @include lib-css(display, block);
+            content: '';
+            @include lib-css(width, 50%);
+            @include lib-css(height, 100%);
+            @include lib-css(z-index, 2);
+            cursor: all-scroll;
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+            -moz-transform: skewX(-25deg);
+            -webkit-transform: skewX(-25deg);
+            transform: skewX(-25deg);
+            transition: left .5s ease-in;
+        }
+
+        &:hover {
+            &::after {
+                @include lib-css(left, 105%);
+            }
+        }
+
+        .tl {
+            @include lib-css(opacity, 0);
+            -webkit-transition: opacity .5s linear;
+            -moz-transition: opacity .5s linear;
+            -ms-transition: opacity .5s linear;
+            transition: opacity .5s linear;
+
+            &.loaded {
+                @include lib-css(opacity, 1);
+            }
+        }
+    }
+}
+
+.catalog-category-view {
+    .page-main {
+        .columns {
+            @include lib-css(padding-top, 0);
+        }
+    }
+}
+
+.catalog-product-view {
+    .page-wrapper {
+        .columns {
+            @include lib-css(padding, .7rem 0);
+        }
+    }
+
+    .page-quick {
+        .columns {
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .sku {
+        @include lib-css(display, none);
+    }
+
+    .page-quick {
+        .sku {
+            @include lib-css(display, block);
+        }
+    }
+}
+
+.video {
+    @include lib-css(background-color, $color-black);
+}
+
+.product-info-main {
+    .swatch-attribute-options {
+        @include lib-css(justify-content, flex-start);
+    }
+
+    .swatch-attribute-label {
+        @include lib-css(display, inline-block);
+        @include lib-css(margin-bottom, .1rem);
+    }
+
+    .swatch-option {
+        @include lib-css(margin-right, .1rem);
+    }
+
+    .swatch-opt {
+        @include lib-css(margin-top, 0);
+        @include lib-css(margin-bottom, .15rem);
+    }
+}
+
+.prod-price {
+    @include lib-css(margin-bottom, .15rem);
+}
+
+.pop {
+    @include lib-css(color, $basic-color);
+    @include lib-css(bottom, .88rem);
+    @include lib-css(right, 0);
+    @include lib-css(position, fixed);
+    @include lib-css(z-index, 740);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    transition: all .3s linear;
+    
+    .icon {
+        @include lib-css(width, .4rem);
+        @include lib-css(height, .4rem);
+    }
+
+    .top {
+        @include lib-css(display, none);
+    }
+
+    &.show {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    &.cl {
+        @include lib-css(bottom, 0);
+
+        .top {
+            @include lib-css(display, block);
+        }
+
+        .bottom {
+            @include lib-css(display, none);
+        }
+    }
+}
+
+.quick-add {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .25rem 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background-color: $basic-color;
+    z-index: 730;
+    -webkit-transition: opacity .3s linear;
+    -moz-transition: opacity .3s linear;
+    transition: opacity .3s linear;
+
+    &.active {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    .btn-quick {
+        @include lib-css(display, none);
+    }
+
+    .container {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(flex-wrap, wrap);
+        @include lib-css(align-items, center);
+    }
+
+    .product-info-name {
+        @include lib-css(font-size, .16rem);
+        @include lib-css(flex-basis, 20%);
+        display: -webkit-box;
+        @include lib-css(line-height, .2rem);
+        @include lib-css(margin-bottom, 0);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    form {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-items, center);
+        @include lib-css(flex, 0 1 100%);
+        @include lib-css(flex-wrap, wrap);
+
+        > .price-box {
+            @include lib-css(display, none);
+        }
+    }
+
+    .simple {
+        @include lib-css(justify-content, space-around);
+    }
+
+    .swatch-opt {
+        @include lib-css(margin, 0);
+    }
+
+    .swatch-option {
+        @include lib-css(margin, .1rem .05rem 0 .05rem);
+    }
+
+    .swatch-attribute-label, 
+    .swatch-attribute-selected-option {
+        @include lib-css(display, none);
+    }
+
+    .comfirm, .cancel {
+        @include lib-css(display, none);
+    }
+
+    .prod-form {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-items, center);
+
+        .action {
+            @include lib-css(width, 2rem);
+        }
+
+        .field.qty {
+            @include lib-css(margin-bottom, 0);
+        }
+
+        .tocart {
+            @include lib-css(margin-left, .3rem);
+        }
+    }
+
+    .bundle-wrapper {
+        @include lib-css(margin, 0);
+
+        .dropdown {
+            @include lib-css(top, inherit);
+            @include lib-css(bottom, .41rem);
+            @include lib-css(left, -.15rem);
+            @include lib-css(width, 3.2rem);
+        }
+    }
+
+    .action.bundle {
+        @include lib-css(width, 2.4rem);
+        @include lib-css(margin-left, .3rem);
+        @include lib-css(border-color, $quick-color);
+        @include lib-css(background-color, $quick-color);
+
+        &:hover {
+            @include lib-css(color, $quick-color);
+            @include lib-css(background-color, transparent);
+        }
+    }
+}
+
+.product-item-img {
+    .checkbox {
+        @include lib-css(position, absolute);
+        @include lib-css(right, .2rem);
+        @include lib-css(bottom, .5rem);
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+        @include lib-css(z-index, 20);
+    }
+}
+
+.block-actions {
+    @include lib-css(padding-left, .2rem);
+
+    .action {
+        @include lib-css(margin-left, .2rem);
+    }
+}
+
+.page-layout-2columns-left {
+    .sidebar-main {
+        flex-basis: 25%;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+    }
+
+    .sidebar-additional {
+        flex-basis: 25%;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+    }
+
+    .column.main {
+        flex-basis: 75%;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+    }
+}
+
+.page-layout-2columns-right {
+    .sidebar-main {
+        @include lib-css(flex-basis, 30%);
+    }
+
+    .sidebar-additional {
+        @include lib-css(flex-basis, 30%);
+    }
+
+    .column.main {
+        @include lib-css(flex-basis, 70%);
+    }
+}
+
+.old-price {
+    @include lib-css(margin-right, .1rem);
+
+    .price {
+        @include lib-css(text-decoration, line-through);
+    }  
+}
+
+.prices-tier {
+    .price-container {
+        .price-including-tax {
+            + .price-excluding-tax {
+                &:before {
+                    content: '(' attr(data-label) ': ';
+                }
+
+                &:last-child:after {
+                    content: ')';
+                }
+            }
+        }
+
+        .weee[data-label] {
+            display: inline;
+
+            .price {
+                @include lib-css(font-size, .11rem);
+            }
+
+            &:before {
+                content: ' +' attr(data-label) ': ';
+            }
+        }
+    }
+}
+
+.actual-price {
+    font-weight: $font-weight__bold;
+}
+
+.product.name a {
+    @extend .abs-product-link;
+}
+
+.category-image {
+    .image {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.category-description {
+    @include lib-css(margin-top, .3rem);
+    @include lib-css(padding, .2rem);
+    @include lib-css(border, 1px dashed $color-gray80);
+
+    p {
+        @include lib-css(color, $color-gray40);
+        @include lib-css(margin-bottom, 0);
+    }
+}
+
+//
+//  Product images general container
+//  ---------------------------------------------
+
+.product-image-container {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.product-image-wrapper {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.product-image-photo {
+    bottom: 0;
+    display: block;
+    height: auto;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+//
+//  Product view
+//  ---------------------------------------------
+
+.product.media {
+    .product.photo .photo.image {
+        @extend .abs-adaptive-images-centered;
+    }
+
+    .placeholder .photo.container {
+        max-width: 100%;
+    }
+
+    .notice {
+        @include lib-css(color, $text__color__muted);
+        @include lib-font-size($font-size__s);
+        margin: $indent__s 0;
+    }
+
+    .product.thumbs {
+        margin: $indent__base 0 $indent__l;
+    }
+
+    .items.thumbs {
+        @include lib-list-inline();
+
+        .active {
+            display: block;
+            line-height: 1;
+        }
+    }
+}
+
+.product.info.detailed {
+    clear: both;
+    margin-bottom: .3rem;
+
+    .additional-attributes {
+        width: auto;
+        @include lib-table-resize(
+            $_th-padding-left   : 0,
+            $_th-padding-right  : $indent__l,
+            $_th-padding-bottom : $indent__s,
+            $_td-padding-bottom : $indent__s
+        );
+    }
+}
+
+.product-info-main {
+    .page-title-wrapper {
+        .page-title {
+            line-height: $line-height__base;
+            margin-bottom: $indent__s;
+        }
+    }
+
+    .stock {
+        &.available,
+        &.unavailable {
+            font-size: .16rem;
+            display: inline-block;
+            text-transform: uppercase;
+            vertical-align: top;
+        }
+    }
+
+    .product {
+        &.attribute {
+            &.sku {
+                display: inline-block;
+                vertical-align: top;
+                @include lib-css(color, $text__color__muted);
+
+                > .value {
+                    display: inline-block;
+                    vertical-align: top;
+                    word-break: break-all;
+                }
+
+                .type {
+                    margin-right: $indent__xs;
+                }
+            }
+
+            &.overview {
+                margin: $indent__base 0;
+            }
+        }
+
+        &.alert {
+            margin: $indent__s 0;
+        }
+    }
+
+    .product-reviews-summary .reviews-actions {
+        @include lib-css(font-size, .128rem);
+    }
+}
+
+.product-options-wrapper {
+    .fieldset-product-options-inner {
+        .legend {
+            @include lib-css(font-size, .14rem);
+            @include lib-css(font-weight, $font-weight__bold);
+            @include lib-css(margin, 0 0 $indent__xs);
+            border: none;
+            display: inline-block;
+            float: none;
+            padding: 0;
+        }
+
+        //  Date & Time custom option (Affect Time that goes only after Date)
+        input.datetime-picker {
+            ~ select.datetime-picker {
+                margin-top: $indent__s;
+            }
+        }
+
+        &.required,
+        &._required {
+            .legend {
+                &:after {
+                    content: '*';
+                    @include lib-typography(
+                        $_font-size   : $form-field-label-asterisk__font-size,
+                        $_color       : $form-field-label-asterisk__color,
+                        $_font-family : $form-field-label-asterisk__font-family,
+                        $_font-weight : $form-field-label-asterisk__font-weight,
+                        $_line-height : $form-field-label-asterisk__line-height,
+                        $_font-style  : $form-field-label-asterisk__font-style
+                    );
+                    @include lib-css(margin, $form-field-label-asterisk__margin);
+                }
+            }
+        }
+    }
+
+    .field {
+        .note {
+            display: block;
+        }
+
+        .price-notice {
+            @extend .abs-adjustment-incl-excl-tax;
+        }
+    }
+}
+
+.category-cms {
+    @include lib-css(margin, .5rem 0);
+}
+
+.product-info-main,
+.product-options-bottom {
+    .price-box {
+        .price-including-tax + .price-excluding-tax,
+        .weee + .price-excluding-tax,
+        .weee {
+            .price {
+                @include lib-css(font-size, .12rem);
+                font-weight: $font-weight__bold;
+            }
+        }
+
+        .price-wrapper .price {
+            @include lib-css(color, $color-orange-red1);
+            @include lib-css(font-size, .27rem);
+            font-weight: normal;
+        }
+
+        .dash {
+            @include lib-css(color, $color-orange-red1);
+            @include lib-css(font-size, .27rem);
+        }
+
+        .price {
+            white-space: nowrap;
+        }
+    }
+
+    .box-tocart {
+        margin: $indent__base 0;
+
+        .field.qty {
+            padding-right: 0.75 * $indent__base;
+        }
+
+        .input-text.qty {
+            $tocart-input-size: $button__line-height__l + 30px;
+            height: $tocart-input-size;
+            text-align: center;
+            width: $tocart-input-size;
+        }
+
+        .actions {
+            text-align: center;
+        }
+    }
+
+    .action.tocompare {
+        @extend .abs-action-addto-product;
+        vertical-align: top;
+    }
+}
+
+.prices-tier {
+    @extend .abs-reset-list;
+    @include lib-css(background, $sidebar__background-color);
+    margin: $indent__s 0;
+    padding: $indent__s (0.75 * $indent__base);
+
+    .price-container {
+        display: inline-block;
+    }
+
+    .price-including-tax,
+    .price-excluding-tax,
+    .weee {
+        display: inline-block;
+
+        .price {
+            @include lib-css(font-size, .14rem);
+            font-weight: $font-weight__bold;
+        }
+    }
+}
+
+.ui-dialog-titlebar-close {
+    @include lib-button-as-link();
+}
+
+.block.related {
+    .action.select {
+        margin: 0 $indent__xs;
+    }
+}
+
+.prod-param {
+    @include lib-css(margin-bottom, .2rem);
+
+    .img {
+        @include lib-css(margin, .5rem 0);
+        @include lib-css(text-align, center);
+    }
+
+    .table {
+        @include lib-css(padding, .5rem);
+        @include lib-css(background-color, $color-white-smoke);
+
+        table {
+            @include lib-css(border-top, 2px solid $table-color);
+            @include lib-css(border-left, 1px solid $table-color);
+    
+            th, td {
+                @include lib-css(color, $prod-color);
+                @include lib-css(font-weight, normal);
+                @include lib-css(font-size, .16rem);
+                @include lib-css(width, 50%);
+                @include lib-css(padding, .1rem .4rem);
+                @include lib-css(text-align, left);
+                @include lib-css(border-bottom, 1px solid $table-color);
+                @include lib-css(border-right, 1px solid $table-color);
+            }
+        }
+    }
+}
+
+.flyer{
+    @include lib-css(position, fixed);
+    @include lib-css(width, .5rem);
+    @include lib-css(height, .5rem);
+    @include lib-css(display, block);
+    @include lib-css(z-index, 1000);
+    @include lib-css(background-color, $color-white);
+    -moz-box-shadow: 0 0 12px 1px $basic-color;
+    -webkit-box-shadow: 0 0 12px 1px $basic-color;
+    box-shadow: 0 0 12px 1px $basic-color;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+//
+//  Sidebar product view
+//  ---------------------------------------------
+
+.sidebar {
+    .product-items {
+        .product-item {
+            margin-bottom: $indent__base;
+            position: relative;
+        }
+
+        .product-item-info {
+            position: relative;
+            padding: 0;
+
+            .product-item-photo {
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        .product-item-name {
+            margin-top: 0;
+        }
+
+        .product-item-details {
+            margin: 0 0 0 .85rem;
+        }
+
+        .product-item-actions {
+            display: block;
+            margin-top: $indent__s;
+        }
+
+        .price-box {
+            display: block;
+            margin: 7px 0;
+        }
+
+        .text {
+            margin-right: 8px;
+        }
+
+        .counter {
+            @include lib-css(color, $primary__color__lighter);
+            @include lib-font-size(12);
+            white-space: nowrap;
+        }
+
+        .minilist {
+            .price {
+                display: inline;
+                padding: 0;
+            }
+
+            .weee:before {
+                display: inline-block;
+            }
+        }
+    }
+
+    .action {
+        &.delete {
+            @extend .abs-remove-button-for-blocks;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .subtitle {
+        @extend .abs-no-display;
+    }
+
+    //
+    //  Product images only
+    //  ---------------------------------------------
+
+    .product-items-images {
+        @extend .abs-add-clearfix;
+        margin-left: -$indent__xs;
+
+        .product-item {
+            @extend .abs-add-box-sizing;
+            float: left;
+            padding-left: $indent__xs;
+        }
+    }
+
+    //
+    //  Product names only
+    //  ---------------------------------------------
+
+    .product-items-names {
+        .product-item {
+            margin-bottom: $indent__s;
+        }
+
+        .product-item-name {
+            margin: 0;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__m) {
+    .catalog-product-view {
+        .column.main {
+            @include lib-vendor-prefix-display(flex);
+            @include lib-vendor-prefix-flex-direction(column);
+            @include lib-css(margin-top, .15rem);
+        }
+
+        .product.media {
+            @include lib-vendor-prefix-order(-1);
+        }
+    }
+
+    .product-info-main .box-tocart {
+        .actions {
+            .action.tocart {
+                @extend .abs-button-responsive-smaller;
+            }
+        }
+    }
+
+    .block.related {
+        .action.select {
+            display: block;
+            margin: $indent__xs 0;
+        }
+    }
+}
+
+.prod-faq {
+    @include lib-css(max-width, 1400px);
+    @include lib-css(margin, 0 auto);
+
+    h1 {
+        @include lib-css(font-size, .4rem);
+        @include lib-css(margin, .5rem 0);
+        @include lib-css(text-align, center);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .item {
+        h3 {
+            @include lib-css(font-size, .26rem);
+            @include lib-css(margin-bottom, .3rem);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        ul {
+            @include lib-css(margin-top, .3rem);
+
+            > li {
+                @include lib-css(margin-bottom, .15rem);
+                @include lib-css(padding, .15rem .3rem);
+                @include lib-css(background-color, $footer-bg);
+
+                &.open {
+                    .top {
+                        @include lib-css(display, block);
+                    }
+
+                    .down {
+                        @include lib-css(display, none);
+                    }
+                }
+
+                &:first-child {
+                    .menu {
+                        @include lib-css(display, block);
+                    }
+                }
+            }
+        }
+
+        .link-faq {
+            @include lib-css(font-size, .16rem);
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+        }
+
+        .top {
+            @include lib-css(display, none);
+        }
+
+        .menu {
+            @include lib-css(display, none);
+            @include lib-css(padding, .2rem 0);
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .product-info-main {
+        .page-title-wrapper {
+            .page-title {
+                margin-top: -13px;
+            }
+        }
+    }
+
+    .sidebar {
+        .product-items {
+            .product-item-info {
+                .product-item-photo {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    float: left;
+                    margin: 0 $indent__s $indent__s 0;
+                    padding: 0;
+                }
+            }
+
+            .product-item-details {
+                margin: 0;
+            }
+
+            .product-item-actions {
+                clear: left;
+            }
+        }
+    }
+
+    .product-add-form {
+        @extend .abs-revert-field-type-desktop;
+    }
+}
+
+//
+//  Desktop large
+//  _____________________________________________
+
+@include min-screen($screen__xl) {
+    .sidebar {
+        .product-items {
+            .product-item-info {
+                .product-item-photo {
+                    float: none;
+                    left: 0;
+                    margin: 0;
+                    position: absolute;
+                    top: 0;
+                }
+            }
+
+            .product-item-details {
+                margin-left: 85px;
+            }
+        }
+    }
+}
+
+//
+//  Category page layout
+//  ---------------------------------------------
+
+@include min-screen($screen__m) {
+    .product-info-main {
+        float: right;
+    }
+
+    .product.media {
+        float: left;
+    }
+
+    .page-layout-1column {
+        .product-info-main {
+            width: 48%;
+        }
+        .product.media {
+            width: 48%;
+        }
+    }
+
+    .page-layout-2columns-left,
+    .page-layout-2columns-right,
+    .page-layout-3columns {
+        .product-info-main {
+            width: 48%;
+        }
+
+        .product.media {
+            width: 50%;
+        }
+    }
+}
+
+//
+//  Compare Products Page
+//  ---------------------------------------------
+
+body.catalog-product-compare-index {
+    .action.stamp {
+        float: right;
+        margin: 15px 0;
+        text-transform: uppercase;
+    }
+}
+
+.table-wrapper.comparison {
+    clear: both;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table-comparison {
+    table-layout: fixed;
+
+    .cell.label.remove,
+    .cell.label.product {
+        span {
+            @extend .abs-visually-hidden;
+        }
+    }
+
+    .cell.label,
+    td:last-child {
+        border-right: $table__border-width $table__border-style $table__border-color;
+    }
+
+    .cell {
+        padding: 15px;
+        width: 140px;
+
+        .attribute.value {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        &.product.info,
+        &.product.label {
+            border-bottom: $table__border-width $table__border-style $table__border-color;
+        }
+
+        &.label {
+            .attribute.label {
+                display: block;
+                width: 100%;
+                word-wrap: break-word;
+            }
+        }
+
+        &.attribute {
+            @include lib-css(font-size, .13rem);
+            img {
+                height: auto;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .product-item-photo {
+        display: block;
+        margin: .15rem auto;
+    }
+
+    .product-image-photo {
+        margin-left: 0;
+    }
+
+    .product-item-actions,
+    .price-box,
+    .product.rating,
+    .product-item-name {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .product-addto-links {
+        margin-top: 15px;
+
+        .action.split,
+        .action.toggle {
+            @include lib-button-s();
+        }
+
+        .action.toggle {
+            padding: 0;
+        }
+    }
+
+    .cell.remove {
+        padding-bottom: 0;
+        padding-top: 0;
+        text-align: right;
+
+        .action.delete {
+            @extend .abs-remove-button-for-blocks;
+            padding: .1rem 0;
+
+            &:before {
+                font-size: .34rem;
+            }
+        }
+    }
+
+    .product-item-actions {
+        > .actions-primary {
+            + .actions-secondary {
+                margin-top: $indent__s;
+            }
+        }
+    }
+
+    .action {
+        &.tocart {
+            white-space: nowrap;
+        }
+    }
+}
+
+.comparison.headings {
+    @include lib-css(background, $page__background-color);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: auto;
+    z-index: 2;
+}
+
+.block-compare {
+    .block-title {
+        @extend .abs-block-title;
+    }
+
+    .product-item .product-item-name {
+        margin-left: 22px;
+    }
+
+    .action {
+        &.delete {
+            @extend .abs-remove-button-for-blocks;
+            left: -6px;
+            position: absolute;
+            top: 0;
+        }
+
+        &.compare {
+            color: $color-white;
+            background-color: $basic-color;
+            border: 2px solid $basic-color;
+
+            span {
+                font-size: .14rem;
+            }
+        }
+    }
+
+    .counter {
+        @extend .abs-block-items-counter;
+        margin-left: .2rem;
+    }
+
+    .actions-toolbar {
+        margin: 17px 0 0;
+    }
+}
+
+.product-overview {
+    .value {
+        @include lib-css(text-align, center);
+
+        img.lazy {
+            @include lib-css(min-height, 2rem);
+            @include lib-css(display, block);
+            @include lib-css(margin, 0 auto);
+        }
+    }
+}
+
+.catalog-product-compare-index {
+    .page-main {
+        @include lib-css(margin, .3rem auto);
+    }
+
+    .columns {
+        @include lib-css(padding, 0 !important);
+    }
+}
+
+.owl-comparison {
+    @include lib-css(padding-top, .3rem);
+
+    .item {
+        @include lib-css(margin, .08rem);
+        @include lib-css(padding, .1rem);
+    }
+
+    .owl-stage-outer {
+        @include lib-css(overflow, hidden);
+    }
+
+    .prod-img {
+        @include lib-css(position, relative);
+
+        &:hover {
+            .delete, .towishlist {
+                @include lib-css(opacity, 1);
+            }
+        }
+    }
+
+    .delete {
+        @include lib-css(position, absolute);
+        @include lib-css(top, .25rem);
+        @include lib-css(right, .2rem);
+        @include lib-css(z-index, 20);
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .towishlist {
+        @include lib-css(position, absolute);
+        @include lib-css(top, .25rem);
+        @include lib-css(left, .2rem);
+        @include lib-css(z-index, 20);
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    .owl-nav {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(right, .05rem);
+        @include lib-css(z-index, 20);
+
+        .owl-prev, .owl-next {
+            @include lib-css(color, $color-gray-middle2);
+            @include lib-css(margin, .05rem);
+            @include lib-css(display, inline-block);
+            @include lib-css(opacity, .85);
+            @include lib-css(border-radius, 3px);
+        }
+
+        .icon {
+            @include lib-css(width, .3rem);
+            @include lib-css(height, .3rem);
+        }
+    }
+
+    .link {
+        @include lib-css(font-size, .15rem);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .price-container {
+        .price {
+            @include lib-css(font-size, .15rem);
+            @include lib-css(font-weight, 600);
+            @include lib-css(white-space, nowrap);
+        }
+    }
+
+    .product-item-row {
+        @include lib-css(margin, .1rem 0);
+    }
+    
+    .attribute {
+        display: flex;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .prod-review {
+        @include lib-css(min-height, 28px);
+        @include lib-css(margin-bottom, .2rem);
+    }
+
+    .tocart {
+        @include lib-css(color, $color-white);
+        @include lib-css(width, 100%);
+        @include lib-css(display, block);
+        @include lib-css(padding, 8px 15px);
+        @include lib-css(background-color, $basic-color);
+        @include lib-css(border, 2px solid $basic-color);
+        @include lib-css(text-transform, uppercase);
+
+        &:hover {
+            @include lib-css(color, $basic-color);
+            @include lib-css(background-color, transparent);
+        }
+    }
+}

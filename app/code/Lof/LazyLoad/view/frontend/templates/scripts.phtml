@@ -1,0 +1,34 @@
+<?php
+	$helper         = $this->helper('\Lof\LazyLoad\Helper\Data');
+	$offset         = (int)$helper->getConfig('general/offset');
+	$offsetVertical = (int)$helper->getConfig('general/offsetVertical');
+	$offsetHorizontal = (int)$helper->getConfig('general/offsetHorizontal');
+	$offsetTop      = (int)$helper->getConfig('general/offsetTop');
+	$offsetBottom   = (int)$helper->getConfig('general/offsetBottom');
+	$offsetLeft     = (int)$helper->getConfig('general/offsetLeft');
+	$offsetRight    = (int)$helper->getConfig('general/offsetRight');
+	$throttle       = (int)$helper->getConfig('general/throttle');
+	$effect         = $helper->getConfig('general/effect');
+	$debounce       = (boolean)$helper->getConfig('general/debounce');
+	$unload         = (boolean)$helper->getConfig('general/unload');
+	$delay          = (int)$helper->getConfig('general/delay');
+?>
+
+<?php if ($helper->isEnable()) { ?>
+<script>
+	window.lazyLoad = <?php echo \Zend_Json::encode([
+		'offset' => $offset,
+		'offsetVertical' => $offsetVertical,
+		'offsetHorizontal' => $offsetHorizontal,
+		'offsetTop' => $offsetTop,
+		'offsetBottom' => $offsetBottom,
+		'offsetLeft' => $offsetLeft,
+		'offsetRight' => $offsetRight,
+		'throttle' => $throttle,
+		'effect' => $effect,
+		'debounce' => $debounce,
+		'unload' => $unload,
+		'delay' => $delay
+	]); ?>;
+</script>
+<?php } ?>

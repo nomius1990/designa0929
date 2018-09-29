@@ -1,0 +1,167 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+
+<?php 
+    $order = $block->getOrderInfo();
+    $allItems = $order->getAllItems();
+    $payment = $order->getPayment();
+    $title = $payment->getAdditionalInformation();
+    $shippingAddress = $order->getShippingAddress();
+    $billingAddress = $order->getBillingAddress();
+    $isVitual = $block->checkIsVitual();
+    $allTotal = '';
+?>
+
+<div class="checkout-success">
+    <div class="checkout-box">
+        <p class="con">
+            <a href="javascript:;">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-success"></use>
+                </svg>
+            </a>
+        </p>
+        <h2><?= __('Thank you for your order!') ?></h2>
+        <p class="text"><?= __('Your order number is: '), $block->escapeHtml($block->getOrderId()) ?> </p>
+        <p class="text">
+            <span><?= __('Your order is being processed, ') ?></span>
+            <span><?= __('will receive an e-mail confirmation of your order.') ?></span>
+        </p>
+        <p class="con">
+            <a href="javascript:;">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tel"></use>
+                </svg>
+            </a>
+        </p>
+        <p class="text">
+            <span><?= __('If you have any questions regarding your order,') ?></span>
+            <span><?= __('please contact customer service ') ?><a href="tel: 18009550402"><?= __('1-800-955-0402') ?>.</a></span>
+            <span><?= __('Daily 9:00-18:00.') ?></span>
+        </p>
+        <div class="actions-toolbar">
+            <a class="action primary continue" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a>
+            <?php if (!$block->getCustomerInfo()) {?>
+            <a class="link" href="<?= $this->getUrl("customer/account/create")?>"><?= __('Go to register') ?></a>
+            <?php }?>
+        </div>
+    </div>
+    <div class="checkout-detail">
+        <div class="checkout-head">
+            <a href="javascript:;" class="show-detail">
+                <span><?= __('Order Details') ?></span>
+                <svg class="icon top" aria-hidden="true">
+                    <use xlink:href="#icon-top"></use>
+                </svg>
+                <svg class="icon down" aria-hidden="true">
+                    <use xlink:href="#icon-down"></use>
+                </svg>
+            </a>
+            <a href="javascript:;" class="print">
+                <svg class="icon top" aria-hidden="true">
+                    <use xlink:href="#icon-print"></use>
+                </svg>
+                <span><?= __('Print details') ?></span>
+            </a>
+        </div>
+        <div class="checkout-body">
+            <div class="row">
+                <div class="l">
+                    <p>
+                        <span><?= __('Order Number') ?>:</span>
+                        <span><?= $block->getOrderId() ?></span>
+                    </p>
+                    <p>
+                        <span><?= __('Email') ?>:</span>
+                        <span><?= $order->getCustomerEmail(); ?></span>
+                    </p>
+                </div>
+                <div class="r">
+                    <p>
+                        <span><?= __('Shipping Methods') ?>:</span>
+                        <span><?= $order->getShippingDescription() ?></span>
+                    </p>
+                    <p>
+                        <span><?= __('Payment Methods') ?>:</span>
+                        <span><?= $title['method_title'] ?></span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <?php if($isVitual != 1){?>
+                <div class="l">
+                    <h5><?= __('Shipping Address') ?>:</h5>
+                    <p class="info">
+                        <span><?= $shippingAddress->getFirstName().' '.$shippingAddress->getLastName() ?></span>
+                        <span><?= $shippingAddress->getTelephone(); ?></span>
+                    </p>
+                    <p class="info">
+                        <span><?php  $street=$shippingAddress->getStreet();$strStreet=implode(' ',$street); echo $strStreet.','.$shippingAddress->getCity()
+                                ?></span>
+                    </p>
+                    <p class="info">
+                        <span><?php echo $block->getCountryName($shippingAddress->getCountryId()) ?></span>
+                        <span><?= $shippingAddress->getRegion() ?></span>
+                    </p>
+                </div>
+                <?php } ?>
+                <div class="r">
+                    <h5><?= __('Billing Address') ?>:</h5>
+                    <p class="info">
+                        <span><?= $billingAddress->getFirstName().' '.$billingAddress->getLastName() ?></span>
+                        <span><?= $billingAddress->getTelephone(); ?></span>
+                    </p>
+                    <p class="info">
+                        <span><?php  $street=$billingAddress->getStreet();$strStreet=implode(' ',$street); echo $strStreet.','.$billingAddress->getCity()
+                            ?></span>
+                    </p>
+                    <p class="info">
+                        <span><?php echo $block->getCountryName($billingAddress->getCountryId()) ?></span>
+                        <span><?= $billingAddress->getRegion() ?></span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <dl class="lb">
+                    <dt><?= __('Item') ?></dt>
+                    <dt><?= __('Price') ?></dt>
+                    <dt><?= __('Color') ?></dt>
+                    <dt><?= __('Qty') ?></dt>
+                    <dt><?= __('Subtotal') ?></dt>
+                </dl>
+                <?php foreach ($allItems as $item) {
+                    $data = $block->getItemImage($item->getProductId());
+                    ?>
+                <dl>
+                    <dd>
+                        <a href="javascript:;" class="img">
+                            <img class="lazy" src="<?= $block->getViewFileUrl('images/loader.gif') ?>" data-src="<?= $data['url'] ?>" />
+                        </a>
+                        <div class="prod">
+                            <p class="name"><?= $item->getName() ?></p>
+                        </div>
+                    </dd>
+                    <dd><?= $block->formateMoney($item->getPrice()) ?></dd>
+                    <dd><?= $data['color'] ?></dd>
+                    <dd><?= intval($item->getQtyOrdered()) ?></dd>
+                    <dd><?= $block->formateMoney($item->getRowTotal()) ?></dd>
+                    <?php $allTotal += $item->getRowTotal()?>
+                </dl>
+                <?php }?>
+                <dl class="total">
+                    <dt><?= __('Order Total') ?></dt>
+                    <dd><?= $block->formateMoney($allTotal); ?></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <?= $block->getAdditionalInfoHtml() ?>
+</div>

@@ -1,0 +1,6 @@
+<div class="magestore-bannerslider widget-bannerslider">
+    <?php
+    $sliderId = $block->getData('slider');
+    echo $this->getLayout()->createBlock("Magestore\Bannerslider\Block\SliderItem")->setSliderId($sliderId)->toHtml();
+    ?>
+</div>

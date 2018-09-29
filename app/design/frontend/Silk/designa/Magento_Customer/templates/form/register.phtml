@@ -1,0 +1,152 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$type = $this->getRequest()->getParam('type');
+/** @var \Magento\Customer\Block\Form\Register $block */
+?>
+
+<div class="customer-register">
+    <?= $block->getChildHtml('cutomer_logo') ?>
+    <h2 class="block-title">
+        <a href="javascript:;" class="tab-link active" data-toggle="individual"><?= __('Individual User') ?></a>
+        <a href="javascript:;" class="tab-link" data-toggle="enterprise"><?= __('Enterprise User') ?></a>
+    </h2>
+    <div class="block-content">
+        <div class="tab-page individual active">
+            <form class="form create-individual" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+                <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
+                <fieldset class="fieldset individual" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                    <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
+                    <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
+                    <input type="hidden" name="customer_type" value="<?php echo empty($type)?'':strtolower($type);?>">
+                    <div class="form-group required">
+                        <label for="email_address"><?= $block->escapeHtml(__('Email Address')) ?></label>
+                        <input type="email" name="email" autocomplete="email" id="email_address" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" placeholder="<?= $block->escapeHtmlAttr(__('Email Address')) ?>" class="form-control" data-validate="{required:true, 'validate-email':true}" />
+                    </div>
+
+                    <?= $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+
+                    <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
+                    <?php if ($_dob->isEnabled()): ?>
+                        <?= $_dob->setDate($block->getFormData()->getDob())->toHtml() ?>
+                    <?php endif ?>
+
+                    <div class="form-group required">
+                        <label for="password"><?= $block->escapeHtml(__('Password')) ?></label>
+                        <input type="password" name="password" id="password"
+                            placeholder="<?= $block->escapeHtmlAttr(__('Password')) ?>"
+                            class="form-control"
+                            data-password-min-length="<?= $block->escapeHtmlAttr($block->getMinimumPasswordLength()) ?>"
+                            data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
+                            data-validate="{required:true, 'validate-customer-password':true}"
+                            autocomplete="off" />
+                    </div>
+                    <div class="form-group required">
+                        <label for="password-confirmation"><?= $block->escapeHtml(__('Confirm Password')) ?></label>
+                        <input type="password" name="password_confirmation" placeholder="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="form-control" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
+                    </div>
+                    <?php if ($block->isNewsletterEnabled()): ?>
+                        <div class="form-check">
+                            <input type="checkbox" name="is_subscribed" id="is_subscribed" class="form-check-input" />
+                            <label class="form-check-label" for="is_subscribed"><?= __('Sign Up For Our Newsletter') ?></label>
+                        </div>
+                        <?= $block->getChildHtml('customer.form.register.newsletter') ?>
+                    <?php endif ?>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-dark">
+                            <span><?= $block->escapeHtml(__('Register')) ?></span>
+                        </button>
+                    </div>
+                    <div class="social">
+                        <div class="d-flex justify-content-between">
+                            <p class="methods"><?= __('Other Login Methods') ?></p>
+                            <p class="media">
+                                <?= $block->getChildHtml('social-login') ?>
+                            </p>
+                            <a href="<?= $this->getUrl("customer/account/login")?>" class="login"><?= __('Login') ?></a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="tab-page enterprise">
+            <form class="form create-enterprise" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+                <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
+                <fieldset class="fieldset enterprise" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                    <input type="hidden" name="is_enterprise" value="1" />
+                    <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
+                    <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
+                    <input type="hidden" name="customer_type" value="<?php echo empty($type)?'':strtolower($type);?>">
+                    <div class="form-group required">
+                        <label for="erp_email"><?= $block->escapeHtml(__('Email Address')) ?></label>
+                        <input type="email" name="email" autocomplete="erp_email" id="erp_email" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" placeholder="<?= $block->escapeHtmlAttr(__('Email Address')) ?>" class="form-control" data-validate="{required:true, 'validate-email':true}" />
+                    </div>
+
+                    <?= $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+
+                    <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
+                    <?php if ($_dob->isEnabled()): ?>
+                        <?= $_dob->setDate($block->getFormData()->getDob())->toHtml() ?>
+                    <?php endif ?>
+
+                    <div class="form-group required">
+                        <label for="erp_company"><?= $block->escapeHtml(__('Company')) ?></label>
+                        <input type="text" name="er_company" id="erp_company" value="<?= $block->escapeHtmlAttr($block->getFormData()->getCompany()) ?>" placeholder="<?= $block->escapeHtmlAttr(__('Company')) ?>" class="form-control" data-validate="{required:true}" />
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="erp_phone"><?= $block->escapeHtml(__('Phone')) ?></label>
+                        <input type="text" name="er_phone" id="erp_phone" value="<?= $block->escapeHtmlAttr($block->getFormData()->getPhone()) ?>" placeholder="<?= $block->escapeHtmlAttr(__('Phone')) ?>" class="form-control" data-validate="{required:true}" />
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="erp_password"><?= $block->escapeHtml(__('Password')) ?></label>
+                        <input type="password" name="password" id="erp_password"
+                            placeholder="<?= $block->escapeHtmlAttr(__('Password')) ?>"
+                            class="form-control"
+                            data-password-min-length="<?= $block->escapeHtmlAttr($block->getMinimumPasswordLength()) ?>"
+                            data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
+                            data-validate="{required:true, 'validate-customer-password':true}"
+                            autocomplete="off" />
+                    </div>
+                    <div class="form-group required">
+                        <label for="password-erp_password_confirmation"><?= $block->escapeHtml(__('Confirm Password')) ?></label>
+                        <input type="password" name="password_confirmation" placeholder="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="erp_password_confirmation" class="form-control" data-validate="{required:true, equalTo:'#erp_password'}" autocomplete="off">
+                    </div>
+                    <?php if ($block->isNewsletterEnabled()): ?>
+                        <div class="form-check">
+                            <input type="checkbox" name="is_subscribed" id="erp_is_subscribed" class="form-check-input" />
+                            <label class="form-check-label" for="erp_is_subscribed"><?= __('Sign Up For Our Newsletter') ?></label>
+                        </div>
+                        <?= $block->getChildHtml('customer.form.register.newsletter') ?>
+                    <?php endif ?>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-dark">
+                            <span><?= $block->escapeHtml(__('Register')) ?></span>
+                        </button>
+                    </div>
+                    <div class="social">
+                        <div class="d-flex justify-content-between">
+                            <p class="methods"><?= __('Other Login Methods') ?></p>
+                            <p class="media">
+                                <?= $block->getChildHtml('social-login') ?>
+                            </p>
+                            <a href="<?= $this->getUrl("customer/account/login")?>" class="login"><?= __('Login') ?></a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.validate = <?php /* @escapeNotVerified */ echo \Zend_Json::encode([
+        'enabled' => $_dob->isEnabled() ? true: false,
+        'ignore' => $_dob->isEnabled() ? '\'input[id$="full"]\'' : 'null'
+    ]); ?>;
+</script>

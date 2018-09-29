@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Silk\Customer\Block\Title $block */
+?>
+
+<div class="col-md-6 col-sm-6 col-sx-12">
+    <div class="customer-thumbnail">
+        <h1 class="title"><?= $block->getTitle() ?></h1>
+        <div class="boxes">
+            <div class="wrapper">
+                <?= $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('create_thumbnail')->toHtml(); ?>
+            </div>
+        </div>
+    </div>
+</div>

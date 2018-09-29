@@ -1,0 +1,30 @@
+<div if="isPaymentMethodsAvailable()"
+ class="items payment-methods">
+    <div repeat="foreach: paymentGroupsList, item: '$group'"
+        class="payment-group">
+        <div if="getRegion($group().displayArea)().length"
+            translate="getGroupTitle($group)"
+            class="step-title"
+            data-role="title">
+        </div>
+        <div class="payment-list">
+            <each args="data: getRegion($group().displayArea), as: 'method'" render=""/>
+        </div>
+        <p class="error" data-bind="text: errorMsg"></p>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="button"
+                        data-bind="
+                        attr: {title: $t('Place Order')},
+                        click: checkout"
+                        class="action primary">
+                    <span data-bind="i18n: 'Place Order'"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ifnot="isPaymentMethodsAvailable()"
+ class="no-payments-block"
+ translate="'No Payment Methods'">
+</div>

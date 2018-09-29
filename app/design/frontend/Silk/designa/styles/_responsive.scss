@@ -1,0 +1,3170 @@
+@media screen and (max-width: $width-huge) {
+    .waterfall {
+        .grid {
+            .middle {
+                @include lib-css(padding-top, 140%);
+            }
+        }
+    }
+
+    .nav-sections {
+        @include lib-css(margin-left, 1.4rem);
+    }
+
+    .action.primary {
+        span {
+            @include lib-css(font-size, .13rem);
+        }
+    }
+
+    .product-item-inner {
+        .tocheckout {
+            @include lib-css(font-size, .13rem);
+        }
+    }
+
+    .cms-index-index {
+        .product-item-inner {
+            .tocheckout {
+                @include lib-css(font-size, .13rem);
+            }
+        }
+    }
+
+    .navigation {
+        .level0 {
+            > .submenu {
+                > .level {
+                    @include lib-css(max-width, 1280px);
+                }
+            }
+
+            &.first {
+                > .submenu {
+                    &:before {
+                        width: calc((100% - 1280px) / 2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen__xl) {
+    .prod-care, .prod-faq {
+        @include lib-css(max-width, $screen__p);
+        @include lib-css(padding, 0 .15rem);
+    }
+
+    .prod-care {
+        .review-add {
+            @include lib-css(padding-right, .8rem);
+        }
+    }
+}
+
+@media screen and (max-width: $width-pc) {
+    .flex-direction-nav {
+        .flex-prev {
+            @include lib-css(left, .1rem);
+        }
+
+        .flex-next {
+            @include lib-css(right, .1rem);
+        }
+    }
+
+    .page-title {
+        .container {
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .navigation,
+    .breadcrumbs,
+    .page-header .header.panel,
+    .header.content,
+    .page-wrapper > .widget,
+    .page-wrapper > .page-bottom,
+    .block.category.event,
+    .top-container,
+    .page-main {
+        @include lib-css(padding, 0 .15rem);
+    }
+
+    .footer.content {
+        @include lib-css(padding, .3rem .15rem);
+    }
+
+    .container, .container-fluid {
+        @include lib-css(padding, 0 .15rem);
+    }
+
+    .shop-solutions {
+        .container {
+            @include lib-css(padding, .1rem);
+        }
+
+        .row, .waterfall {
+            @include lib-css(margin, 0);
+        }
+    }
+
+    .nav-sections {
+        @include lib-css(margin-left, 1rem);
+    }
+
+    .flex-control-thumbs {
+        @include lib-css(margin-top, .3rem);
+    }
+
+    .shop-solutions {
+        .title {
+            @include lib-css(font-size, .3rem);
+            @include lib-css(margin-top, .5rem);
+        }
+    }
+
+    .owl-blog {
+        .owl-nav.disabled {
+            @include lib-css(display, block);
+        }
+    }
+
+    .page-wrapper {
+        .breadcrumbs {
+            @include lib-css(padding, .15rem);
+        }
+    }
+
+    .waterfall {
+        .grid {
+            .middle {
+                @include lib-css(padding-top, 140%);
+            }
+        }
+    }
+
+
+}
+
+@media screen and (max-width: $width-prod) {
+    .blog {
+        @include lib-css(padding, .4rem 0);
+
+        .slides {
+            li {
+                .post-title {
+                    h2 {
+                        @include lib-css(font-size, .16rem);
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-sections {
+        @include lib-css(margin-left, 10%);
+    }
+
+    .quick-add {
+        .product-info-name {
+            @include lib-css(flex-basis, 15%);
+        }
+    }
+}
+
+@media screen and (max-width: $width-mac) {
+    .shop-solutions {
+        .container {
+            @include lib-css(max-width, inherit);
+            @include lib-css(padding, 0 .3rem);
+        }
+    }
+
+    .core-values {
+        .container {
+            @include lib-css(max-width, inherit);
+            @include lib-css(padding, 0 .3rem);
+        }
+    }
+
+    .cms-index-index {
+        .column.main {
+            @include lib-css(min-height, inherit);
+        }
+    }
+
+    .quick-add {
+        .container {
+            @include lib-css(max-width, 100%);
+        }
+    }
+
+    .nav-sections {
+        @include lib-css(margin-left, 0);
+    }
+}
+
+@media screen and (max-width: $width-big) {
+    .navigation {
+        .level0 {
+            > .level-top {
+                @include lib-css(padding, .25rem .3rem);
+            }
+        }
+    }
+
+    .prod-form {
+        .action {
+            @include lib-css(width, 50%);
+        }
+
+        .bundle {
+            @include lib-css(width, 100%);
+        }
+
+        .btn-group {
+            @include lib-css(display, flex);
+        }
+    }
+
+    .bundle-wrapper {
+        .dropdown {
+            @include lib-css(width, 100%);
+        }
+    }
+}
+ 
+@media screen and (max-width: $width-mini) {
+    .block.category.event, 
+    .breadcrumbs, 
+    .footer.content, 
+    .header.content, 
+    .navigation, 
+    .page-header 
+    .header.panel, 
+    .page-main, 
+    .page-wrapper>.page-bottom, 
+    .page-wrapper>.widget, 
+    .top-container,
+    .prod-care,
+    .prod-faq {
+        @include lib-css(max-width, 960px);
+    }
+
+    .prod-faq {
+        h1 {
+            @include lib-css(font-size, .3rem);
+        }
+    }
+
+    .sorter-options {
+        @include lib-css(display, inline-block);
+        -moz-text-align-last: center;
+        text-align-last: center;
+    }
+
+    .sorter-simulate {
+        @include lib-css(display, none);
+    }
+
+    .prod-form {
+        .input-text {
+            @include lib-css(width, .6rem);
+        }
+    }
+
+    .page-quick {
+        .prod-form {
+            .input-text {
+                @include lib-css(padding, .09rem);
+            }
+        }
+
+        .dropdown {
+            .input-text {
+                @include lib-css(padding, .04rem);
+            }
+        }
+    }
+
+    .bundle-info {
+        @include lib-css(flex, inherit);
+    }
+
+    .quick-add {
+        .prod-form {
+            .action {
+                @include lib-css(width, 1.6rem);
+            }
+
+            .bundle {
+                @include lib-css(width, 2.2rem);
+                @include lib-css(margin-left, .2rem);
+            }
+        }
+    }
+
+    .review-ratings {
+        ~.review-content, 
+        ~.review-details {
+            @include lib-css(margin-left, 1.8rem);
+        }
+    }
+    
+    .weltpixel-quickview {
+        @include lib-css(display, none);
+    }
+
+    .core-values {
+        .title {
+            @include lib-css(font-size, .3rem);
+        }
+    }
+
+    .footer-links {
+        .col-md-3 {
+            &:last-child {
+                @include lib-css(padding-left, 0);
+            }
+        }
+
+        .content {
+            .bottom {
+                @include lib-css(margin, .2rem 0);
+            }
+
+            .payment {
+                @include lib-css(margin-top, .1rem);
+            }
+
+            .contact {
+                @include lib-css(margin-top, .2rem);
+
+                a {
+                    @include lib-css(margin-right, .05rem);
+                    @include lib-css(margin-bottom, .1rem);
+                }
+            }
+        }
+    }
+
+    .mfp-iframe-holder {
+        .mfp-content {
+            @include lib-css(max-width, 8rem);
+        }
+    }
+
+    .core-values {
+        @include lib-css(margin, .7rem 0);
+    }
+
+    .core-values, .shop-solutions {
+        .container {
+            @include lib-css(padding, 0 .15rem);
+        }
+    }
+
+    .page-title {
+        @include lib-css(padding, .3rem 0);
+
+        h1 {
+            @include lib-css(font-size, .26rem);
+            @include lib-css(text-align, center);
+        }
+    }
+
+    .page-category {
+        @include lib-css(padding-left, 0);
+    }
+
+    .toolbar-products {
+        @include lib-css(margin-left, 0);
+    }
+
+    .navigation {
+        .level0 {
+            > .level-top {
+                @include lib-css(padding, .25rem);
+            }
+        }
+    }
+
+    .fotorama {
+        @include lib-css(padding, 0 .2rem);
+    }
+
+    .filter-options {
+        .filter-options-content {
+            .item {
+                a {
+                    @include lib-css(font-size, .14rem);
+                }
+            }
+        }
+    }
+
+    .page-category {
+        h3 {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(top, .4rem);
+            @include lib-css(right, .4rem);
+        }
+    }
+
+    .open-filter {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(right, -.25rem);
+        width: .5rem;
+        height: .5rem;
+        @include lib-css(display, block);
+        @include lib-css(padding, .2rem 0);
+        @include lib-css(background-color, $filter-color);
+        border-radius: 50%;
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: .05rem;
+        }
+
+        .left {
+            @include lib-css(display, none);
+        }
+    }
+
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .sidebar {
+            @include lib-css(position, fixed);
+            @include lib-css(left, -3rem);
+            @include lib-css(top, 2.4rem);
+            @include lib-css(width, 3rem);
+            @include lib-css(padding, .3rem);
+            @include lib-css(z-index, 960);
+            @include lib-css(background-color, $filter-color);
+            -webkit-box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+            -moz-box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+            box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+
+            &.slide {
+                @include lib-css(left, 0);
+
+                .left {
+                    @include lib-css(display, block);
+                }
+
+                .right {
+                    @include lib-css(display, none);
+                }
+            }
+
+            .swatch-row {
+                @include lib-css(margin-bottom, .1rem);
+            }
+        }
+
+        .column.main {
+            @include lib-css(width, 100%);
+        }
+    }   
+
+    .cart-container {
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+
+        .form-cart {
+            @include lib-css(flex, 0 1 100%);
+            @include lib-css(max-width, 100%);
+            @include lib-css(margin-bottom, .3rem);
+            @include lib-css(order, -1);
+        }
+
+        .cart-summary {
+            @include lib-css(flex, 0 1 100%);
+        }
+
+        .checkout-methods-items {
+            @include lib-css(margin, .5rem 0);
+
+            .action.primary {
+                @include lib-css(width, inherit);
+            }
+        }
+    }
+
+    .checkout-container {
+        @include lib-css(display, flex);
+        @include lib-css(padding, 0);
+        @include lib-css(flex-wrap, wrap);
+
+        .step {
+            @include lib-css(flex, 0 1 100%);
+
+            .title {
+                @include lib-css(font-size, .3rem);
+            }
+        }
+
+        .opc-wrapper, .opc-sidebar {
+            @include lib-css(flex, 0 1 100%);
+            @include lib-css(width, 100%);
+            @include lib-css(float, none);
+        }
+    }
+
+    .opc-block-summary {
+        > .title {
+            @include lib-css(text-align, center);
+        }
+    }
+
+    .minicart-items {
+        .product-item-details {
+            @include lib-css(width, 90%);
+        }
+    }
+
+    .checkout-payment-method {
+        .actions-toolbar {
+            @include lib-css(margin, .3rem 0);
+
+            .primary {
+                @include lib-css(float,  none);
+            }
+        }
+    }
+
+    .customer-thumbnail {
+        @include lib-css(display, none);
+    }
+
+    .login-container, .register-container {
+        .col-md-6 {
+            @include lib-css(flex, 0 0 100%);
+            @include lib-css(max-width, 100%);
+        }
+    }
+
+    .cs {
+        @include lib-css(display, block);
+
+        img {
+            @include lib-css(max-width, 3.6rem);
+        }
+    }
+
+    .customer-login,
+    .customer-forgotPassword {
+        .block-title {
+            @include lib-css(display, none);
+        }
+    }
+
+    .customer-register {
+        .block-title {
+            .tab-link {
+                @include lib-css(color, $gray-color);
+                @include lib-css(background-color, $color-gray-light01);
+                @include lib-css(text-transform, uppercase);
+            }
+        }
+
+        .social {
+            .media {
+                @include lib-css(display, none);
+            }
+
+            .login {
+                @include lib-css(display, block);
+            }
+        }
+    }
+
+    .forget-password {
+        @include lib-css(padding, .4rem);
+        @include lib-css(background-color, $color-gray-light01);
+
+        h2 {
+            @include lib-css(font-size, .24rem);
+            @include lib-css(font-weight, 600);
+            @include lib-css(display, block);
+            @include lib-css(margin-bottom, .3rem);
+            @include lib-css(text-align, center);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        .note {
+            @include lib-css(color, $gray-color);
+            @include lib-css(font-size, .16rem);
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(text-align, center);
+        }
+    }
+
+    .customer-account-login,
+    .customer-account-create,
+    .customer-account-forgotpassword {
+        .header, footer {
+            @include lib-css(display, none);
+        }
+
+        .page-main {
+            @include lib-css(max-width, inherit);
+            @include lib-css(margin, 0);
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .customer-forgotPassword {
+        @include lib-css(max-width, inherit);
+        @include lib-css(margin, 0);
+    }
+
+    .checkout-billing-address {
+        @include lib-css(margin-top, .2rem);
+    }
+
+    .login-container, 
+    .register-container {
+        @include lib-css(margin, 0);
+
+        .row {
+            @include lib-css(margin, 0);
+        }
+
+        .col-md-6 {
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .customer-forgotPassword, 
+    .customer-login, 
+    .customer-register {
+        @include lib-css(border, 0);
+
+        .block-content {
+            @include lib-css(padding, .8rem 0);
+            @include lib-css(position, relative);
+        }
+
+        .form {
+            @include lib-css(width, 70%);
+            @include lib-css(margin, 0 auto);
+        }
+
+        .form-row {
+            @include lib-css(margin, 0);
+
+            .form-group {
+                @include lib-css(padding, 0 !important);
+                @include lib-css(flex, 0 1 100%);
+
+                label {
+                    @include lib-css(display, none);
+                }
+            }
+        }
+
+        .form-group {
+            label {
+                @include lib-css(display, none);
+            }
+
+            input[type=email], 
+            input[type=password], 
+            input[type=text] {
+                @include lib-css(height, .6rem);
+                @include lib-css(padding, 0 .2rem);
+                -moz-box-shadow: inset 0 2px 6px $ios-color;
+                -webkit-box-shadow: inset 0 2px 6px $ios-color;
+                box-shadow: inset 0 2px 6px $ios-color;
+
+                &::-webkit-input-placeholder {
+                    @include lib-css(opacity, 1);
+                }
+    
+                &:-moz-placeholder {
+                    @include lib-css(opacity, 1);
+                }
+    
+                &::-moz-placeholder{
+                    @include lib-css(opacity, 1);
+                }
+            }
+        }
+
+        .btn {
+            @include lib-css(padding, .1rem 0);
+            @include lib-css(letter-spacing, 3px);
+            @include lib-css(background-color, $color-black);
+            @include lib-css(border-color, $color-black);
+
+            &:hover {
+                @include lib-css(color, $color-black);
+                @include lib-css(border-color, $color-black);
+            }
+        }
+
+        .methods {
+            @include lib-css(display, none);
+        }
+
+        .social {
+            @include lib-css(margin-top, .5rem);
+        }
+
+        .link {
+            &:last-child {
+                @include lib-css(margin-left, .5rem);
+            }
+        }
+
+        .remind {
+            @include lib-css(color, $gray-color);
+            @include lib-css(font-size, .18rem);
+            @include lib-css(text-decoration, none);
+        }
+    }
+
+    .social {
+
+        .d-flex {
+            @include lib-css(justify-content, center !important);
+        }
+
+        .icon {
+            @include lib-css(color, $cms-color);
+            @include lib-css(width, .5rem);
+            @include lib-css(height, .5rem);
+        }
+    }
+
+    .cart-summary {
+        > .title {
+            @include lib-css(text-align, center);
+        }
+
+        .cart-totals {
+            @include lib-css(padding, .1rem 0);
+        }
+    }
+
+    .product-info-main {
+        .product-addto-links {
+            .action {
+                @include lib-css(flex, 0 1 50%);
+            }
+        }
+    }
+
+    .waterfall {
+        .grid {
+            .middle {
+                @include lib-css(padding-top, 143%);
+            }
+        }
+
+        .name {
+            @include lib-css(font-size, .14rem);
+            @include lib-css(padding, .1rem .15rem);
+        }
+
+        .layer {
+            @include lib-css(height, .41rem);
+        }
+
+        .tier {
+            .view-more {
+                @include lib-css(font-size, .14rem);
+            }
+        }
+    }
+
+    .opc-wrapper {
+        .step-title {
+            @include lib-css(text-align, center);
+        }
+    }
+
+    .shipping-information-title {
+        @include lib-css(text-align, center);
+    }
+}
+
+@media screen and (max-width: $width-ipad) {
+    .col-md-3 {
+        @include lib-css(flex, 0 0 50%);
+        @include lib-css(max-width, 50%);
+    }
+
+    .navigation {
+        @include lib-css(background-color, $color-white);
+        
+        a {
+            @include lib-css(color, $color-gray34 !important);
+        }
+
+        .level0 {
+            > .submenu {
+                @include lib-css(width, inherit);
+                @include lib-css(margin-bottom, 0);
+                @include lib-css(padding, 0 .2rem);
+                @include lib-css(background-color, $color-white);
+                
+                .level {
+                    > li {
+                        > p {
+                            @include lib-css(max-width, inherit);
+                            @include lib-css(padding, .1rem 0 .1rem .1rem);
+                            @include lib-css(background-color, transparent !important);
+                        }
+                    }
+
+                    a {
+                        @include lib-css(font-size, .14rem);
+                        @include lib-css(padding, .05rem 0);
+                    }
+
+                    .first {
+                        .submenu {
+                            @include lib-css(display, none);
+                        }
+                    }
+                }
+
+                .link-toggle {
+                    @include lib-css(display, block);
+                }
+
+                .submenu {
+                    @include lib-css(position, static);
+                    @include lib-css(width, inherit);
+                    @include lib-css(padding, 0 .1rem);
+
+                    ul {
+                        @include lib-css(flex-basis, 100%);
+                        
+                        .level2 {
+                            @include lib-css(flex-basis, 100%);
+                            
+                            p {
+                                @include lib-css(padding, .05rem 0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .thumbnail {
+                @include lib-css(display, none);
+            }
+
+            &:first-child {
+                > .submenu {
+                    > .level {
+                        > li {
+                            p:after {
+                                @include lib-css(display, none);
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .level-top {
+                @include lib-css(font-family, $font-family_basic);
+            }
+        }
+    }
+
+    .core-values {
+        .row {
+            .col-md-3 {
+                @include lib-css(border-right, 0);
+            }
+        }
+    }
+
+    .page-header {
+        .banner {
+            .container {
+                @include lib-css(max-width, inherit);
+            }
+        }
+    }
+
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 20;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .header.content {
+        @include lib-css(position, relative);
+    }
+
+    .nav-toggle {
+        @include lib-css(display, block);
+
+        &:hover {
+            @include lib-css(color, $basic-color);
+        }
+    }
+
+    .nav-sections {
+        @include lib-css(position, fixed);
+        @include lib-css(top, 0);
+        @include lib-css(left, -3.6rem);
+        @include lib-css(width, 3.6rem);
+        @include lib-css(height, 100%);
+        @include lib-css(margin-left, 0);
+        @include lib-css(background-color, $color-white);
+        @include lib-css(z-index, 999);
+        -webkit-box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+        -moz-box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+        box-shadow: 0 20px 50px -20px rgba(0,0,0,.5);
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+
+        &.show {
+            @include lib-css(left, 0);
+        }
+
+        .close {
+            @include lib-css(display, block);
+        }
+    }
+
+    .navigation {
+        @include lib-css(padding, 0);
+
+        .submenu {
+            @include lib-css(display, none);
+        }
+
+        .level0 {
+            @include lib-css(display, block);
+
+            > .level-top {
+                @include lib-css(font-size, .14rem);
+                @include lib-css(max-width, inherit);
+                @include lib-css(display, flex);
+                @include lib-css(padding, .1rem .2rem);
+                @include lib-css(justify-content, space-between);
+            }
+
+            p {
+                @include lib-css(margin-bottom, 0);
+            }
+
+            > .submenu {
+                @include lib-css(position, static);
+                @include lib-css(padding, 0 .2rem .1rem .2rem);
+                @include lib-css(visibility, visible);
+                -webkit-opacity: 1;
+                -moz-opacity: 1;
+                opacity: 1;
+                -webkit-transform: inherit;
+                -moz-transform: inherit;
+                -o-transform: inherit;
+                transform: inherit;
+                box-shadow: inherit;
+                -moz-box-shadow: inherit;
+                -webkit-box-shadow: inherit;
+                -o-box-shadow: inherit;
+                -ms-box-shadow: inherit;
+
+                >.level {
+                    @include lib-css(display, block);
+
+                    a {
+                        @include lib-css(font-size, .15rem);
+                        @include lib-css(min-height, inherit);
+                    }
+
+                    .submenu {
+                        a {
+                            @include lib-css(font-size, .14rem);
+                        }
+                    }
+                }
+            }   
+        }
+    }
+
+    .nav-sections-item-title {
+        @include lib-css(font-size, .14rem);
+        @include lib-css(display, block);
+        @include lib-css(padding, .15rem);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .nav-sections-item-content {
+        .ui-content {
+            > li {
+                a {
+                    @include lib-css(margin, .1rem 0);
+                    @include lib-css(padding, 0 .2rem);
+                    @include lib-css(border-left, 2px solid $basic-color);
+                }
+            }
+        }
+    }
+
+    .converter {
+        .stable {
+            dl {
+                dd, dt {
+                    @include lib-css(font-size, .14rem);
+                    @include lib-css(padding, .2rem);
+                }
+            }
+        }
+    }
+
+    .cms-index-index {
+        .product-item-inner {
+            .tocheckout {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+
+        .page-header {
+            .level0 {
+                .level-top {
+                    .color {
+                        @include lib-css(margin, .1rem 0);
+                        @include lib-css(padding, 0 0 0 .15rem);
+                        @include lib-css(border-left, 2px solid $basic-color);
+                    }
+                }
+            }
+        }
+    }
+
+    .action.primary {
+        span {
+            @include lib-css(font-size, .12rem);
+        }
+    }
+}
+
+@media screen and (max-width: $width-bc) {
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .products-grid {
+            .product-item {
+                @include lib-css(width, 50%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $width-md) {
+    .fotorama__arr {
+        .fotorama__arr__arr {
+            @include lib-css(display, none);
+        }
+    }
+
+    .navigation {
+        .level-top {
+            .color {
+                @include lib-css(padding-left, 0);
+            }
+        }
+    }
+
+    .sidebar {
+        .block.widget {
+            .block-title {
+                > strong {
+                    @include lib-css(font-size, .28rem);
+                }
+            }
+
+            .block-content {
+                @include lib-css(margin, 0);
+            }
+        }
+    }
+
+    .cms_block {
+        .col-md-4 {
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .product-info-main {
+        form {
+            @include lib-css(display, none);
+        }
+    }
+
+    .converter {
+        @include lib-css(margin-top, .3rem);
+
+        .tl {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(margin-bottom, .2rem);
+        }
+
+        .stable {
+            dl {
+                dt {
+                    @include lib-css(font-size, .13rem);
+                    @include lib-css(padding, .2rem .05rem);
+                    @include lib-css(flex, 0 1 60%);
+                }
+                
+                dd {
+                    @include lib-css(font-size, .13rem);
+                    @include lib-css(flex, 0 1 20%);
+                }
+
+                &.head {
+                    dt {
+                        @include lib-css(font-size, .14rem);
+                        @include lib-css(padding, 0 0 .2rem 0);
+                        @include lib-css(flex, 0 1 20%);
+
+                        big {
+                            @include lib-css(font-size, .16rem);
+                        }
+
+                        &:first-child {
+                            @include lib-css(flex, 0 1 60%);
+                        }
+                    }
+                }
+            }
+        }
+
+        p {
+            @include lib-css(font-size, .14rem);
+        }
+    }
+
+    .minicart-items {
+        .product-item-details {
+            @include lib-css(width, 87%);
+        }
+    }
+
+    .flex-control-thumbs {
+        li {
+            @include lib-css(margin, 0 .1rem);
+        }
+    }
+
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .products {
+            @include lib-css(margin-right, 0);
+        }
+    }
+
+    .prod-form {
+        .action {
+            @include lib-css(width, 1.6rem);
+        }
+
+        .bundle {
+            @include lib-css(width, 100%);
+        }
+    }
+
+    .prod-describle {
+        .share {
+            @include lib-css(margin, .2rem 0);
+        }
+    }
+
+    .waterfall {
+        .grid {
+            .middle {
+                @include lib-css(padding-top, 148%);
+            }
+        }
+    }
+
+    .form-shipping-address,
+    .billing-address-form  {
+        .fieldset {
+            > .field {
+                &.city, 
+                &.country_id, 
+                &.postcode, 
+                &.region, 
+                &.region_id {
+                    @include lib-css(width, 50%);
+                }
+            }
+        }
+    }
+
+    .opc-progress-bar {
+        @include lib-css(max-width, 6rem);
+    }
+
+    .mfp-iframe-holder {
+        .mfp-content {
+            @include lib-css(max-width, 6.8rem);
+        }
+    }
+
+    .filter-options {
+        .filter-options-title {
+            @include lib-css(font-size, .16rem);
+        }
+    }
+
+    .block.filter {
+        .filter-title {
+            @include lib-css(font-size, .16rem);
+        }
+    }
+
+    .checkout-shipping-method {
+        .actions-toolbar {
+            @include lib-css(text-align, center);
+
+            > .primary {
+                @include lib-css(float, none);
+            }
+
+            .action.primary {
+                @include lib-css(width, 1.6rem);
+            }
+        }
+    }
+
+    .cms-reviews {
+        .link {
+            @include lib-css(flex-basis, 30%);
+        }
+
+        .info {
+            @include lib-css(flex-basis, 70%);
+        }
+    }
+}
+
+@media screen and (max-width: $width-small) {
+    .page-title {
+        @include lib-css(padding, .2rem .15rem);
+
+        .col-md-12 {
+            @include lib-css(padding, 0);
+        }
+
+        h1 {
+            @include lib-css(font-size, .2rem);
+        }
+    }
+
+    .cms-table {
+        display: -webkit-box; 
+        width: auto; 
+        white-space: nowrap; 
+        overflow-x: auto; 
+        overflow-y: hidden;
+    }
+
+    .category-view, .cms-page-view {
+        .form-orders-search {
+            @include lib-css(max-width, 100%);
+        }
+
+        .contact.form {
+            @include lib-css(max-width, 100%);
+        }
+    }
+
+    .cms-page-view {
+        .title {
+            @include lib-css(font-size, .26rem);
+            @include lib-css(margin, .3rem 0);
+        }
+
+        .columns {
+            .content {
+                h3 {
+                    @include lib-css(font-size, .18rem);
+                    @include lib-css(margin, .3rem 0);
+                }
+
+                p {
+                    @include lib-css(font-size, .13rem);
+                    @include lib-css(line-height, 20px);
+                }
+            }
+        }
+
+        h1 {
+            @include lib-css(font-size, .2rem);
+        }
+    }
+
+    .product.data.items {
+        > .item.title {
+            >.switch {
+                .down {
+                    @include lib-css(display, block);
+                }
+            }
+
+            &.active {
+                >.switch {
+                    .top {
+                        @include lib-css(display, block);
+                    }
+
+                    .down {
+                        @include lib-css(display, none);
+                    }
+                }
+            }
+        }
+    }
+
+    .page-layout-1column {
+        .product-info-main {
+            @include lib-css(width, 100%);
+            @include lib-css(margin, .2rem 0);
+        }
+
+        .product.media {
+            @include lib-css(width, 100%);
+        }
+
+        .page-quick {
+            .product-info-main {
+                @include lib-css(float, right);
+                @include lib-css(width, 48%);
+                @include lib-css(margin, 0);
+                @include lib-css(overflow-y, overlay);
+            }
+    
+            .product.media {
+                @include lib-css(float, left);
+                @include lib-css(width, 48%);
+            }
+        }
+    }
+
+    .catalog-product-view {
+        .page-quick {
+            .column.main {
+                @include lib-css(display, block);
+            }
+        }
+    }
+
+    .page-quick {
+        .product-info-main {
+            .stock.available, .stock.unavailable {
+                @include lib-css(font-size, .13rem);
+            }
+
+            .price-box {
+                .price-wrapper {
+                    .price {
+                        @include lib-css(font-size, .18rem);
+                    }
+                }
+            }
+        }
+
+        .prod-form {
+            .action {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+    }
+
+    .blog-post-view,
+    .blog-index-index {
+        .columns {
+            @include lib-css(flex-wrap, wrap);
+        }
+
+        .column.main {
+            @include lib-css(margin-top, .2rem);
+        }
+    }
+}
+
+@media screen and (max-width: $width-phone) {
+    .icon {
+        @include lib-css(width, .2rem);
+        @include lib-css(height, .2rem);
+    }
+
+    .page-wrapper {
+        &.fixed {
+            .page-main {
+                @include lib-css(margin-top, 1.38rem);
+            }
+        }    
+
+        .page-main {
+            @include lib-css(margin-top, .68rem);
+        }
+
+        .page-crumbs {
+            @include lib-css(display, none);
+        }
+    }
+
+    .cms-index-index,
+    .customer-account-create, 
+    .customer-account-forgotpassword, 
+    .customer-account-login {
+        .page-wrapper {
+            &.fixed {
+                .page-main {
+                    @include lib-css(margin-top, .5rem);
+                }
+            }    
+    
+            .page-main {
+                @include lib-css(margin-top, 0);
+            }
+        }
+    }
+
+    .blog {
+        @include lib-css(padding, .2rem 0 );
+
+        .slides {
+            @include lib-css(margin, 0 .15rem);
+
+            li {
+                .post-title {
+                    h2 {
+                        @include lib-css(height, .5rem);
+                        @include lib-css(padding, 0 .1rem);
+
+                        .post-item-link {
+                            @include lib-css(font-size, .13rem);
+                        }
+                    }
+                }
+
+                .layer {
+                    @include lib-css(height, .5rem);
+                }
+            }
+        }
+    }
+
+    .block-account {
+        @include lib-css(display, none);
+    }
+
+    .block-search {
+        @include lib-css(float, right);
+        @include lib-css(margin-top, 0);
+        @include lib-css(margin-right, .15rem);
+        @include lib-css(padding, .2rem 0);
+    }
+
+    .cms-index-index {
+        .page-header {
+            &.active {
+                &:before {
+                    @include lib-css(height, .63rem);
+                }
+            }
+        }
+    }
+
+    .minicart-wrapper {
+        @include lib-css(margin-top, 0);
+        @include lib-css(padding, .2rem 0);
+    }
+
+    .page-header {
+        .banner {
+            p {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+    }
+
+    .shop-solutions {
+        .grid {
+            @include lib-css(width, 100%);
+        }
+    }
+
+    .waterfall {
+        .grid {
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    .core-values {
+        .title {
+            @include lib-css(font-size, .2rem);
+        }
+    }
+
+    .col-md-3 {
+        @include lib-css(flex, 0 0 100%);
+        @include lib-css(max-width, 100%);
+    }
+
+    .shop-solutions {
+        .title {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(margin-top, .4rem);
+            @include lib-css(margin-bottom, .3rem);
+        }
+    }
+
+    .core-values {
+        @include lib-css(margin, .3rem 0 0);
+
+        .row {
+            &:last-child {
+                @include lib-css(margin-top, .3rem);
+            }
+        }
+
+        .values {
+            @include lib-css(margin, .1rem);
+
+            .lb {
+                @include lib-css(font-size, .15rem);
+                @include lib-css(display, flex);
+                @include lib-css(margin, .1rem 0);
+                @include lib-css(justify-content, center);
+                @include lib-css(align-items, center);
+            }
+
+            .para {
+                @include lib-css(font-size, .12rem);
+                @include lib-css(display, none);
+            }
+
+            .t {
+                @include lib-css(display, none);
+            }
+
+            &.on {
+                .para {
+                    @include lib-css(display, block);
+                }
+            }
+        }
+
+        .icon {
+            @include lib-css(width, .3rem);
+            @include lib-css(height, .3rem);
+            @include lib-css(display, block);
+        }
+
+        .col-md-3 {
+            @include lib-css(padding, .1rem);
+            @include lib-css(border-bottom, 1px solid $border-color);
+
+            &:first-child {
+                @include lib-css(border-top, 1px solid $border-color);
+            }
+
+            &:last-child {
+                @include lib-css(border-bottom, 0);
+            }
+        }
+    }
+
+    .flex-direction-nav {
+        @include lib-css(display, none);
+    }
+
+    .auto-search {
+        .container {
+           @include lib-css(padding, 0 .3rem .3rem);
+        }
+
+        .search-title {
+            h1 {
+                @include lib-css(font-size, .18rem);
+                @include lib-css(margin-bottom, .3rem);
+            }
+        }
+
+        .search-content {
+           @include lib-css(max-width, 100%);
+        }
+    }
+
+    .flex-control-thumbs {
+        @include lib-css(display, flex);
+        @include lib-css(margin-top, .2rem);
+
+        li {
+            @include lib-css(margin, 0 .05rem 0 0);
+        }
+
+        img {
+            @include lib-css(padding, .05rem);
+        }
+    }
+
+    .flex-control-nav {
+        @include lib-css(bottom, .1rem);
+    }
+
+    .shop-solutions {
+        .wrapper {
+            @include lib-css(margin-top, .3rem);
+            @include lib-css(padding, 0 .15rem);
+        }
+    }
+
+    .footer-links {
+        h5 {
+            @include lib-css(font-size, .15rem);
+            @include lib-css(padding, .2rem 0);
+        }
+
+        .subscribe {
+            .btn {
+                @include lib-css(font-size, .14rem);
+            }
+        }
+
+        .open-link {
+            .icon {
+                @include lib-css(width, .16rem);
+                @include lib-css(height, .16rem);
+            }
+        }
+    }
+
+    .page-category {
+        .poster {
+            img {
+                @include lib-css(min-height, 1.8rem);
+            }
+
+            .tl {
+                &.loaded {
+                    @include lib-css(opacity, 0);
+                }
+            }
+        }
+    }
+
+    .toolbar-amount {
+        @include lib-css(flex, 0 1 100%);
+        @include lib-css(padding, 0 0 .15rem);
+    }
+
+    .sorter-label {
+        @include lib-css(display, none);
+    }
+
+    .product-item-img {
+        .actions-secondary {
+            @include lib-css(padding, .15rem);
+        }
+    }
+
+    .products-grid {
+        @include lib-css(margin-left, -.1rem);
+        @include lib-css(margin-right, -.1rem);
+
+        .product-item {
+            @include lib-css(margin-bottom, 0);
+
+            .price-box .price {
+                @include lib-css(font-size, .14rem);
+            }
+        }
+
+        .product-item-inner,
+        .actions-secondary,
+        .product-item-swatch {
+            @include lib-css(display, none);
+        }
+
+        .product-item-info {
+            @include lib-css(padding, .1rem);
+        }
+
+        .product-item-row {
+            @include lib-css(margin, .05rem 0 0);
+            @include lib-css(flex-wrap, wrap-reverse);
+
+            .price-box {
+                @include lib-css(margin-bottom, 0);
+            }
+        }
+    }
+
+    .actions-primary {
+        .action.tocart {
+            @include lib-css(width, 100%);
+        }
+    }
+
+    .widget {
+        .block-title {
+            > strong {
+                @include lib-css(font-size, .18rem);
+            }
+        }
+    }
+
+    .block.widget {
+        @include lib-css(margin-bottom, .3rem);
+
+        .owl-stage-outer {
+            @include lib-css(padding-bottom, .1rem);
+        }
+
+        .products-grid {
+            @include lib-css(margin-left, 0);
+            @include lib-css(margin-right, 0);
+        }
+
+        .owl-carousel {
+            .owl-nav {
+                @include lib-css(right, 0);
+            }
+        }
+    }
+
+    .page-footer {
+        @include lib-css(margin-top, 0);
+    }
+
+    .website {
+        @include lib-css(bottom, 1.2rem);
+        -webkit-transform: inherit;
+        -moz-transform: inherit;
+        transform: inherit;
+
+        .list {
+            @include lib-css(display, none);
+
+            > li {
+                a:hover {
+                    @include lib-css(background-color, rgba(0,0,0,.5));
+                }
+            }
+
+            .tab {
+                @include lib-css(display, none);
+            }
+        }
+
+        .show-all {
+            @include lib-css(display, block);
+
+            &:hover {
+                @include lib-css(background-color, rgba(0,0,0,.5));
+            }
+        }
+
+        &.open {
+            .list {
+                @include lib-css(display, block);
+            }
+
+            .show-all {
+                @include lib-css(display, none);
+            }
+        }
+    }
+
+    .prod-form {
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+        @include lib-css(justify-content, space-between);
+
+        .action {
+            span {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+    }
+
+    .prod-info {
+        @include lib-css(margin, .2rem 0);
+    }
+
+    .product {
+        .tab-title {
+            .data.item {
+                .switch {
+                    @include lib-css(font-size, .12rem);
+                }
+            }
+        }
+    }
+
+    .prod-care {
+        .review-add {
+            @include lib-css(flex, 0 1 100%);
+            @include lib-css(padding-right, 0);
+        }
+
+        .product-review {
+            @include lib-css(flex, 0 1 100%);
+            @include lib-css(order, -1);
+        }
+    }
+
+    .review-ratings {
+        ~.review-content,
+        ~.review-details {
+            @include lib-css(margin-left, 0);
+        }
+    }
+
+    .prod-faq {
+        h1 {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(margin, .3rem 0);
+            @include lib-css(text-align, left);
+        }
+
+        .item {
+            h3 {
+                @include lib-css(font-size, .16rem);
+                @include lib-css(margin-bottom, .2rem);
+            }
+
+            ul {
+                > li {
+                    @include lib-css(padding, .15rem);
+                }
+            }
+
+            .link-faq {
+                @include lib-css(font-size, .13rem);
+            }
+
+            .icon {
+                @include lib-css(width, .16rem);
+                @include lib-css(height, .16rem);
+            }
+        }
+    }
+
+    .checkout-cart-index {
+        .page-title {
+            @include lib-css(padding, .2rem 0);
+
+            h3 {
+                @include lib-css(font-size, .2rem);
+            }
+        }
+    }
+
+    .cart-summary {
+        @include lib-css(padding, .2rem);
+        
+        > .title {
+            @include lib-css(font-size, .2rem);
+        }
+
+        .checkout {
+            span {
+                @include lib-css(font-size, .13rem);
+            }
+        }
+    }
+
+    .column.main {
+        .cart-summary {
+            .block {
+                >.title strong {
+                    @include lib-css(font-size, .16rem);
+                }
+            }
+        }
+    }
+
+    .prod-row {
+        @include lib-css(display, flex);
+        @include lib-css(margin-top, .1rem);
+        @include lib-css(justify-content, space-between);
+        @include lib-css(align-self, center);
+
+        p {
+            @include lib-css(margin-top, .15rem);
+            @include lib-css(margin-bottom, 0);
+
+            span {
+                @include lib-css(vertical-align, middle);
+            }
+        }
+    }
+
+    .prod-line {
+        @include lib-css(display, flex);
+        @include lib-css(margin-top, .1rem);
+        @include lib-css(align-self, center);
+
+        p {
+            @include lib-css(margin-bottom, 0);
+            @include lib-css(margin-right, .2rem);
+
+            span {
+                @include lib-css(vertical-align, middle);
+            }
+        }
+    }
+
+    .cart {
+        &.table-wrapper {
+            @include lib-css(overflow-x, hidden);
+
+            thead {
+                @include lib-css(display, none);
+            }
+
+            .cos {
+                @include lib-css(font-size, .14rem);
+                @include lib-css(left, 0);
+                @include lib-css(display, none);
+                @include lib-css(padding, .2rem);
+                @include lib-css(text-align, left);
+
+                &.item {
+                    @include lib-css(display, flex);
+                    @include lib-css(min-height, inherit);
+                    -webkit-transition: all .5s linear;
+                    -moz-transition: all .5s linear;
+                    transition: all .5s linear;
+                }
+
+                &.swipe {
+                    @include lib-css(left, -.8rem);
+                }
+            }
+
+            .item {
+                .cos {
+                    &.item {
+                        @include lib-css(padding, .15rem 0);
+                    }
+                }
+            }
+
+            .action-towishlist {
+                @include lib-css(display, none);
+            }
+
+            .items {
+                .item:last-child {
+                    @include lib-css(border-bottom, 0);
+                }
+            }
+
+            .product-item-photo {
+                @include lib-css(position, static);
+                @include lib-css(padding, 0);
+                flex: 20%;
+                min-width: 100px;
+            }
+
+            .product-item-details {
+                flex: 70%;
+                margin-left: 10%;
+            }
+
+            .prod-action {
+                @include lib-css(position, absolute);
+                @include lib-css(right, -.8rem);
+                @include lib-css(top, .15rem);
+                @include lib-css(padding, .39rem .2rem);
+                @include lib-css(background-color, $swipe-color);
+
+                .action-edit {
+                    @include lib-css(display, none);
+                }
+
+                .action-delete {
+                    @include lib-css(margin-left, 0);
+                }
+            }
+
+            .product-item-name {
+                @include lib-css(font-size, .14rem);
+                @include lib-css(margin, 0);
+            }
+
+            .input-text.qty {
+                @include lib-css(width, .6rem);
+                @include lib-css(height, .33rem);
+                @include lib-css(text-align, center);
+            }
+
+            .actions-toolbar {
+                @include lib-css(position, absolute);
+                @include lib-css(right, 0);
+                @include lib-css(z-index, 10);
+            }
+        }
+    }
+
+    .price-excluding-tax, 
+    .price-including-tax {
+        @include lib-css(font-size, .14rem);
+    }
+
+    .btn-update {
+        @include lib-css(width, 100%);
+        @include lib-css(margin-top, .1rem);
+        @include lib-css(margin-bottom, .3rem);
+    }
+
+    .step {
+        .title {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(margin, .2rem 0);
+        }
+    }
+
+    .opc-progress-bar-item {
+        > span {
+            @include lib-css(font-size, .14rem);
+        }
+    }
+
+    .opc-block-summary {
+        > .title {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(padding-bottom, .2rem);
+        }
+    }
+
+    .opc-wrapper {
+        .form-login {
+            .field {
+                @include lib-css(width, 100%);
+                @include lib-css(min-height, inherit);
+                @include lib-css(float, none);
+            }
+
+            .actions-toolbar {
+                @include lib-css(width, 100%);
+                @include lib-css(min-height, inherit);
+            }
+        }
+    }
+
+    .actions-toolbar {
+        > .secondary {
+            @include lib-css(margin, .1rem 0);
+            @include lib-css(text-align, left);
+        }
+    }
+
+    .billing-address-form, .form-shipping-address {
+        .fieldset {
+            > .field {
+                &.company, 
+                &.firstname, 
+                &.lastname, 
+                &.telephone {
+                    @include lib-css(width, 100%);
+                    @include lib-css(float, none);
+                }
+
+                &.city, 
+                &.country_id, 
+                &.postcode,
+                &.region, 
+                &.region_id {
+                    @include lib-css(width, 100%);
+                    @include lib-css(float, none);
+                }
+            }
+        }
+    }
+
+    .login-container, .register-container {
+        .col-md-6 {
+            @include lib-css(padding, 0);
+        }
+    }
+
+    .checkout-onepage-success {
+        .page-wrapper {
+            &.fixed {
+                .page-main {
+                    @include lib-css(padding-top, 1rem);
+                }
+            }
+
+            .page-main {
+                @include lib-css(padding-top, .5rem);
+            }
+        }
+    }
+
+    .checkout-box {
+        h2 {
+            @include lib-css(font-size, .22rem);
+        }
+
+        .text {
+            @include lib-css(font-size, .14rem);
+        }
+
+        .actions-toolbar {
+            @include lib-css(margin, .3rem 0);
+            @include lib-css(text-align, center);
+
+            .continue {
+                @include lib-css(font-size, .14rem);
+                @include lib-css(width, 100%);
+            }
+
+            .link {
+                @include lib-css(font-size, .14rem);
+                @include lib-css(margin, .3rem 0);
+            }
+        }
+    }
+
+    .checkout-failure, 
+    .checkout-success {
+        @include lib-css(margin, .6rem 0 .3rem 0);
+    }
+
+    .checkout-detail {
+        .checkout-head {
+            @include lib-css(font-size, .14rem);
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+        }
+
+        .checkout-body {
+            @include lib-css(margin-top, .3rem);
+            @include lib-css(padding, 0);
+
+            .row {
+                @include lib-css(padding, .3rem 0);
+
+                &:first-child {
+                    .r {
+                        @include lib-css(margin-top, .1rem);
+                    }
+                }
+            }
+
+            .r {
+                @include lib-css(text-align, left);
+            }
+
+            p {
+                @include lib-css(font-size, .14rem);
+            }
+
+            h5 {
+                @include lib-css(margin-bottom, .2rem);
+            }
+
+            dl {
+                dd, dt {
+                    @include lib-css(flex, 0 1 15%);
+                    @include lib-css(flex-wrap, wrap);
+
+                    &:first-child, 
+                    &:first-child {
+                        @include lib-css(flex, 0 1 40%);
+                    }
+                }
+
+                &.total {
+                    @include lib-css(justify-content, space-between);
+                }
+            }
+
+            .img {
+                @include lib-css(margin-left, 0);
+
+                img {
+                    @include lib-css(max-width, .8rem);
+                }
+            }
+
+            .prod {
+                @include lib-css(margin-top, .1rem);
+                @include lib-css(margin-left, 0);
+            }
+        }
+    }
+
+    .open-filter {
+        @include lib-css(display, none);
+    }
+    
+    .sorter-filter {
+        @include lib-css(display, inline-block);
+    }
+
+    .sorter, .toolbar .filter {
+        @include lib-css(flex, 0 1 50%);
+    }
+    
+    .sorter-options, .sorter-filter {
+        @include lib-css(width, 100%);
+        @include lib-css(margin, 0);
+        @include lib-css(border-top-width, 1px);
+    }
+
+    .sorter-action {
+        @include lib-css(position, absolute);
+        @include lib-css(top, -.4rem);
+        @include lib-css(right, 0);
+    }
+
+    .products {
+        @include lib-css(margin, .2rem 0);
+    }
+
+    .navigation {
+        .thumbnail {
+            @include lib-css(padding, .1rem .15rem);
+        }
+    }
+
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .sidebar {
+            @include lib-css(top, 0);
+            @include lib-css(width, 3rem);
+            @include lib-css(height, 100%);
+            @include lib-css(background-color, $color-white);
+        }
+    }
+
+    .close-filter {
+        @include lib-css(position, absolute);
+        @include lib-css(right, .1rem);
+        @include lib-css(top, .1rem);
+        @include lib-css(display, block);
+    }
+
+    .checkout-container {
+        @include lib-css(padding, 0);
+
+        .opc-sidebar {
+            @include lib-css(width, inherit);
+        }
+    }
+
+    .opc-estimated-wrapper {
+        @include lib-css(flex, 0 1 100%);
+        @include lib-css(margin-bottom, 0);
+
+        .minicart-wrapper {
+            @include lib-css(float, none);
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+        }
+    }
+
+    .opc-block-shipping-information {
+        .ship-to {
+            @include lib-css(margin, .2rem 0);
+        }
+    }
+
+    .opc-block-summary {
+        @include lib-css(padding, .3rem .2rem);
+    }
+
+    .minicart-items {
+        .product-item-details {
+            @include lib-css(padding-left, .2rem);
+        }
+    }
+
+    .footer-links {
+        @include lib-css(padding-top, .2rem);
+
+        .col-md-3 {
+            @include lib-css(padding, 0);
+        }
+
+        .item {
+            @include lib-css(padding, 0 .15rem);
+            @include lib-css(border-bottom, 1px solid $color-gray80);
+
+            &.open {
+                .top {
+                    @include lib-css(display, block);
+                }
+
+                .down {
+                    @include lib-css(display, none);
+                }
+
+                .list {
+                    @include lib-css(display, block);
+                }
+            }
+        }
+
+        .open-link {
+            @include lib-css(display, block);
+        }
+
+        .top {
+            @include lib-css(display, none);
+        }
+
+        .list {
+            @include lib-css(display, none);
+            @include lib-css(margin-bottom, .1rem);
+        }
+
+        .content {
+            .info {
+                @include lib-css(font-size, .13rem);
+            }
+        }
+    }
+
+    .auto-search {
+        .form-group {
+            @include lib-css(height, .5rem);
+            @include lib-css(line-height, .5rem);
+
+            .link-search, .link-close {
+                @include lib-css(padding, 0 .1rem);
+            }
+        }
+
+        .form-control {
+            @include lib-css(font-size, .12rem);
+            @include lib-css(height, .5rem);
+            @include lib-css(padding-left, .4rem);
+        }
+    }
+
+    .copyright {
+        p {
+            @include lib-css(font-size, .12rem);
+        }
+
+        .flex {
+            span {
+                @include lib-css(padding, 0);
+                @include lib-css(border-right, 0);
+            }
+
+            p {
+                @include lib-css(margin-left, 0);
+                @include lib-css(text-align, left);
+
+                a {
+                    @include lib-css(padding-left, 0);
+                }
+            }
+        }
+    }
+
+    .product-info-main {
+        .product-addto-links {
+            .action {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+
+       .stock {
+           &.available, &.unavailable {
+                @include lib-css(line-height, .45rem);
+                @include lib-css(margin-bottom, 0);
+           }
+       }
+    }
+
+    .product-info-main,
+    .product-options-bottom {
+        .price-box {
+            .price-wrapper {
+                .price {
+                    @include lib-css(font-size, .22rem);
+                }
+            }
+        }
+    }
+
+    .action.bundle {
+        @include lib-css(width, 100%);
+
+        span {
+            @include lib-css(font-size, .12rem);
+        }
+    }
+
+    .bundle-wrapper {
+        @include lib-css(flex, 0 1 100%);
+
+        .dropdown {
+            @include lib-css(width, 100%);
+
+            .input-text {
+                @include lib-css(width, .5rem);
+            }
+        }
+    }
+
+    .product-social-links {
+        @include lib-css(padding-bottom, 0);
+    }
+
+    .overflow {
+        .page-header {
+            @include lib-css(z-index, 700);
+        }
+
+        .page-wrapper {
+            &::before {
+                @include lib-css(position, fixed);
+                @include lib-css(top, 0);
+                @include lib-css(right, 0);
+                @include lib-css(bottom, 0);
+                content: '';
+                @include lib-css(display, block);
+                @include lib-css(left, 0);
+                @include lib-css(opacity, .7);
+                @include lib-css(background, $color-black);
+                @include lib-css(z-index, 720);
+            }
+        }
+
+        .quick-add {
+            form {
+                @include lib-css(height, inherit);
+                @include lib-css(border-top, 3px solid $basic-color);
+            }
+
+            .btn-quick {
+                @include lib-css(display, none);
+            }
+        }
+    }
+
+    .quick-add {
+        @include lib-css(padding, 0);
+        @include lib-css(opacity, 1);
+        @include lib-css(background-color, $color-white);
+
+        .container {
+            @include lib-css(padding, 0);
+        }
+
+        .tocart, .tocheckout {
+            @include lib-css(display, none);
+        }
+
+        .prod-form {
+            @include lib-css(padding-top, .2rem);
+            @include lib-css(flex, 0 1 100%);
+
+            > .field.qty {
+                @include lib-css(flex-basis, 100%);
+                @include lib-css(padding, .05rem .2rem);
+
+                .input-text {
+                    @include lib-css(width, .9rem);
+                    @include lib-css(padding, .09rem);
+                }
+            }
+
+            .field.option {
+                .field.qty {
+                    @include lib-css(flex-basis, inherit);
+                    @include lib-css(padding, 0);
+                }
+            }
+
+            .price-box {
+                @include lib-css(display, none);
+            }
+
+            .btn-group {
+                @include lib-css(padding-top, .2rem);
+                @include lib-css(flex-basis, 100%);
+            }
+
+            .action {
+                @include lib-css(width, 50%);
+                @include lib-css(padding, .15rem);
+                @include lib-css(border-style, solid);
+
+                span {
+                    @include lib-css(font-size, .14rem);
+                    @include lib-css(margin-left, 0);
+                }
+            }
+
+            .comfirm {
+                @include lib-css(display, block);
+                @include lib-css(background-color, $orange-color);
+                @include lib-css(border-color, $orange-color);
+            }
+
+            .cancel {
+                @include lib-css(display, block);
+                @include lib-css(background-color, $cms-color);
+                @include lib-css(border-color, $cms-color);
+            }
+
+            .bundle {
+                @include lib-css(display, none);
+            }
+        }
+
+        .bundle-wrapper {
+            .dropdown {
+                @include lib-css(position, static);
+                @include lib-css(width, 100%);
+                @include lib-css(display, block);
+                @include lib-css(margin-top, .2rem);
+                @include lib-css(box-shadow, inherit);
+                @include lib-css(border-top, 2px dashed $color-gray80);
+            }
+        }
+
+        .product-info-name {
+            @include lib-css(flex-basis, 100%);
+            @include lib-css(padding, .1rem .2rem);
+        }
+
+        form {
+            @include lib-css(height, 0);
+            -webkit-transition: all .5s linear;
+            -moz-transition: all .5s linear;
+            transition: all .5s linear;
+
+            > .price-box {
+                @include lib-css(display, flex);
+                @include lib-css(flex-basis, 100%);
+                @include lib-css(padding, 0 .2rem .1rem .2rem);
+                @include lib-css(border-bottom, 2px dashed $color-gray80);
+            }
+        }
+
+        .swatch-opt {
+            @include lib-css(flex-basis, 100%);
+            @include lib-css(padding, .2rem .2rem 0 .2rem);
+        }
+
+        .btn-quick {
+            @include lib-css(display, flex);
+            @include lib-css(flex, 0 1 100%);
+
+            .action {
+                @include lib-css(color, $color-white);
+                @include lib-css(font-size, .12rem);
+                @include lib-css(flex, 0 1 50%);
+                @include lib-css(padding, .15rem);
+                @include lib-css(border-style, solid);
+                @include lib-css(text-transform, uppercase);
+            }
+
+            span {
+                @include lib-css(margin-left, .1rem);
+            }
+
+            .cart {
+                @include lib-css(background-color, $orange-color);
+                @include lib-css(border-color, $orange-color);
+            }
+
+            .checkout {
+                @include lib-css(margin-left, 0);
+                @include lib-css(background-color, $cms-color);
+                @include lib-css(border-color, $cms-color);
+            }
+        }
+    }
+
+    .bundle-wrapper {
+        .input-checkbox {
+            @include lib-css(width, .2rem);
+            @include lib-css(height, .2rem);
+        }
+    }
+
+    .fotorama__fullscreen {
+        .fotorama__stage {
+            @include lib-css(height, 6rem !important);
+        }
+    }
+
+    .fotorama__stage {
+        @include lib-css(height, 3rem !important);
+    }
+
+    .prod-care, .prod-faq {
+        @include lib-css(margin-top, 0);
+        @include lib-css(padding, .3rem .15rem);
+    }
+
+    .opc-wrapper {
+        .shipping-address-items {
+            @include lib-css(margin-top, 0);
+        }
+
+        .addresses {
+            @include lib-css(margin-bottom, .1rem);
+        }
+
+        .form-discount {
+            .field {
+                .group {
+                    @include lib-css(flex, 0 1 65%);
+                }
+            }
+        }
+    }
+
+    .payment-list {
+        .payment-method {
+            flex-basis: calc((100% - 1 * .3rem)/ 2);
+
+            &:nth-child(2n) {
+                @include lib-css(margin-right, 0);
+            }
+
+            &:nth-child(3n) {
+                @include lib-css(margin-right, .3rem);
+            }
+        }
+    }
+
+    .opc-block-shipping-information {
+        .shipping-information-title {
+            @include lib-css(font-size, .2rem);
+            @include lib-css(padding-bottom, .2rem);
+            @include lib-css(text-align, center);
+            @include lib-css(text-transform, uppercase);
+        }
+    }
+
+    .checkout-payment-method {
+        .step-title {
+            @include lib-css(padding-top, 0);
+        }
+    }
+
+    .product-info-main {
+        .bundle-options-container {
+            @include lib-css(display, none);
+        }
+    }
+
+    .minicart-items {
+        .product-item-details {
+            @include lib-css(width, 78%);
+        }
+    }
+
+    .opc-block-summary {
+        .minicart-items {
+            .product-item-details {
+                @include lib-css(width, 70%);
+            }
+        }
+    }
+
+    .block-minicart {
+        .minicart-items-wrapper {
+            @include lib-css(padding, .1rem);
+        }
+
+        .action.checkout {
+            @include lib-css(font-size, .13rem);
+        }
+
+        .subtotal {
+            .label {
+                @include lib-css(font-size, .14rem);
+            }
+        }
+    }
+
+    .checkout-shipping-method {
+        .actions-toolbar {
+            .action.primary {
+                @include lib-css(width, 100%);
+            }
+        }
+    }
+
+    .cart-container {
+        .checkout-methods-items {
+            @include lib-css(margin, .3rem 0 .2rem 0);
+            
+            .action.primary {
+                @include lib-css(width, 100%);
+            }
+        }
+    }
+
+    .bundle-info {
+        @include lib-css(flex, 0 1 40%);
+
+        .product-name {
+            @include lib-css(font-size, .17rem);
+        }
+    }
+
+    .cs {
+        a {
+            @include lib-css(padding, .3rem 0);
+        }
+
+        img {
+            @include lib-css(max-width, 2.2rem);
+        }
+    }
+
+    .customer-forgotPassword, 
+    .customer-login, 
+    .customer-register {
+        .form {
+            @include lib-css(width, 80%);
+        }
+
+        .form-group {
+            input[type=email], 
+            input[type=password], 
+            input[type=text] {
+                @include lib-css(height, .45rem);
+            }
+        }
+
+        .remind {
+            @include lib-css(font-size, .14rem);
+        }
+
+        .btn {
+            @include lib-css(font-size, .14rem);
+        }
+
+        .block-title {
+            @include lib-css(font-size, .14rem);
+        }
+
+        .block-content {
+            @include lib-css(padding, .4rem 0);
+        }
+
+        .btn-group {
+            @include lib-css(margin, .3rem 0 0);
+        }
+    }
+
+    .customer-account-login {
+        .block-content {
+            @include lib-css(padding, 1rem 0 0);
+        }
+
+        .d-flex {
+            @include lib-css(margin-top, .2rem);
+        }
+    }
+
+    .customer-register {
+        .media {
+            @include lib-css(display, none);
+        }
+    }
+
+    .social {
+        .icon {
+            @include lib-css(width, .45rem);
+            @include lib-css(height, .45rem);
+        }
+    }
+
+    .customer-account-forgotpassword  {
+        .form {
+            @include lib-css(width, 80%);
+        }
+
+        .btn-group {
+            @include lib-css(margin-top, .1rem);
+        }
+    }
+
+    .forget-password {
+        @include lib-css(padding, .3rem .2rem);
+
+        h2 {
+            @include lib-css(font-size, .16rem);
+            @include lib-css(margin-bottom, .1rem);
+        }
+
+        .note {
+            @include lib-css(font-size, .13rem);
+        }
+    }
+
+    .control.captcha-image {
+        @include lib-css(margin-top, 0);
+        @include lib-css(height, inherit);
+
+        .captcha-img {
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    .checkout-billing-address {
+        > .fieldset {
+            @include lib-css(margin-top, 0);
+        }
+    }
+
+    .opc-wrapper {
+        @include lib-css(margin-bottom, 0);
+
+        .step-content {
+            @include lib-css(margin-bottom, 0);
+        }
+
+        .opc-summary {
+            @include lib-css(margin, .1rem 0 .2rem);
+
+            table {
+                th {
+                    @include lib-css(font-family, $font-family_light);
+                    @include lib-css(font-weight, normal);
+                    @include lib-css(text-align, left);
+                    @include lib-css(text-transform, uppercase);
+                }
+    
+                td {
+                    @include lib-css(font-weight, normal);
+                    @include lib-css(text-align, right);
+                }
+
+                .grand {
+                    th, td {
+                        @include lib-css(font-size, .16rem);
+                    }
+                }
+            }
+        }        
+    }
+
+    .catalog-product-view {
+        .page-wrapper {
+            .columns {
+                @include lib-css(padding, .1rem 0);
+            }
+        }
+    }
+
+    .converter {
+        .stable {
+            dl {
+                dd, dt {
+                    @include lib-css(padding, .2rem .1rem);
+                }
+            }
+        }
+    }
+
+    .prod-param {
+        .table {
+            @include lib-css(padding, .2rem);
+
+            table {
+                th, td {
+                    @include lib-css(font-size, .12rem);
+                    @include lib-css(padding, .1rem);
+                }
+            }
+        }
+    }
+
+    .prod-faq {
+        .video {
+            @include lib-css(margin-bottom, .1rem);
+        }
+    }
+
+    .cms-reviews {
+        .title {
+            h3 {
+                @include lib-css(flex-basis, 100%);
+                @include lib-css(margin-bottom, .1rem);
+            }
+        }
+    }
+
+    .waterfall {
+        .layer, .name {
+            @include lib-css(display, none);
+        }
+
+        .hide {
+            @include lib-css(display, block);
+            @include lib-css(margin, .2rem 0 .2rem);
+            @include lib-css(text-align, center);
+        }
+
+        .tier {
+            .view-more {
+                @include lib-css(font-size, .12rem);
+            }
+        }
+    }
+
+    .footer.content {
+        @include lib-css(padding, 0 .15rem);
+    }
+
+    .cms_block {
+        @include lib-css(padding, .1rem 0);
+
+        .item {
+            @include lib-css(margin, .1rem 0);
+        }
+
+        .club {
+            span {
+                @include lib-css(font-size, .13rem);
+                @include lib-css(flex-basis, 100%);
+                @include lib-css(margin, .1rem 0 0 0);
+                @include lib-css(text-align, center);
+            }
+        }
+    }
+
+    .flex-caption {
+        @include lib-css(left, 0);
+        @include lib-css(padding, 0 .15rem);
+
+        h1 {
+            @include lib-css(font-size, .24rem);
+        }
+
+        p {
+            @include lib-css(font-size, .13rem);
+            @include lib-css(margin, .15rem 0);
+        }
+
+        .lk {
+            @include lib-css(font-size, .12rem);
+            @include lib-css(width, 1.2rem);
+        }
+    }
+
+    .shop-solutions {
+        @include lib-css(margin-bottom, .1rem);
+    }
+
+    .owl-review, .owl-theme {
+        .owl-nav [class*=owl-] {
+            .icon {
+                @include lib-css(width, .22rem);
+                @include lib-css(height, .22rem);
+            }
+        }
+    }
+
+    .cms-reviews {
+        @include lib-css(margin-bottom, .35rem);
+
+        .link {
+            @include lib-css(flex-basis, 25%);
+        }
+
+        .info {
+            @include lib-css(flex-basis, 75%);
+        }
+    }
+
+    .navigation {
+        .level0 {
+            > .submenu {
+                .level {
+                    @include lib-css(font-size, .13rem);
+                }
+            }
+        }
+    }
+
+    .nav-toggle {
+        .icon {
+            @include lib-css(width, .22rem);
+            @include lib-css(height, .22rem);
+        }
+    }
+
+    .cms-reviews {
+        .wrapper {
+            @include lib-css(padding, .3rem 0);
+        }
+    }
+
+    .product-item-link {
+        @include lib-css(font-size, .14rem);
+    }
+
+    .page-layout-2columns-right {
+        .column.main {
+            @include lib-css(flex-basis, 100%);
+        }
+
+        .sidebar-additional {
+            @include lib-css(flex-basis, 100%);
+        }
+    }
+
+    .post-list {
+        .post-header {
+            .post-title {
+                @include lib-css(max-width, 100%);
+
+                a {
+                    @include lib-css(font-size, .16rem);
+                }
+            }
+
+            .addthis_toolbox {
+                @include lib-css(padding-top, 0 !important);
+            }
+        }
+    }
+
+    .checkout-cart-index {
+        .column.main {
+            @include lib-css(margin-top, 0);
+        }
+    }
+
+    .product-item {
+        .product-item-name {
+            @include lib-css(max-height, inherit);
+            @include lib-css(white-space, inherit);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    .nav-sections-item-title {
+        @include lib-css(font-size, .13rem);
+    }
+
+    .nav-sections-item-content {
+        @include lib-css(margin-top, .5rem);
+    }
+
+    .navigation {
+        a {
+            @include lib-css(font-size, .13rem);
+        }
+
+        .level0 {
+            > .submenu {
+                .level {
+                    a {
+                        @include lib-css(font-size, .13rem);
+                    }
+                    
+                    .submenu {
+                        a {
+                            @include lib-css(font-size, .13rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fotorama--fullscreen {
+        @include lib-css(padding, .2rem);
+    }
+
+    .block-actions {
+        @include lib-css(margin-bottom, .1rem);
+        @include lib-css(padding-left, 0);
+    }
+
+    .product-item-img {
+        .checkbox {
+            @include lib-css(bottom, .2rem);
+        }
+    }
+
+    .block.related {
+        .owl-carousel {
+            .owl-nav {
+                @include lib-css(top, -.9rem);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $width-less) {
+    .nav-sections {
+        @include lib-css(width, 2.6rem);
+    }
+
+    .nav-sections-item-title {
+        @include lib-css(width, 40%);
+        @include lib-css(padding, .15rem 0);
+        @include lib-css(border-bottom, 0);
+    }
+
+    .nav-sections-item-content {
+        .ui-content {
+            > li {
+                a {
+                    @include lib-css(font-size, .13rem);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $width-mobile) {
+    .sorter-filter,
+    .sorter-options {
+        @include lib-css(font-size, .12rem);
+        @include lib-css(padding, .1rem);
+    }
+
+    .catalog-category-view, 
+    .catalogsearch-result-index {
+        .products-grid {
+            .product-item {
+                width: 100%;
+            }
+        }
+    }
+}

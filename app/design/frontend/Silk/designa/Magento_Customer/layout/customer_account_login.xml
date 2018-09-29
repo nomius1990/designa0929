@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="customer.login.container">
+            <container name="customer.login.row" htmlTag="div" htmlClass="row">
+                <block class="Silk\Customer\Block\Title" name="customer.thumbnail" before="-" template="Magento_Customer::html/login-thumbnail.phtml">
+                    <arguments>
+                        <argument name="title" xsi:type="string">Welcome To EUREKA</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="customer_form_login">
+            <block class="Magento\Framework\View\Element\Template" name="cutomer_logo" template="Magento_Customer::logo.phtml" />
+        </referenceBlock>
+        <move element="customer_form_login" destination="customer.login.row" after="-"/>
+        <move element="page.messages" destination="main" before="-" />
+        <referenceBlock name="customer.new" remove="true"/>
+    </body>
+</page>

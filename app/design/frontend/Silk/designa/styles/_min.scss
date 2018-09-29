@@ -1,0 +1,249 @@
+$width-huge: 1440px;
+$width-pc: 1366px;
+$width-prod: 1260px;
+$width-mac: 1200px;
+$width-big: 1175px;
+$width-mini: 1024px;
+$width-middle: 999px;
+$width-ipad: 960px;
+$width-bc: 890px;
+$width-md: 768px;
+$width-small: 767px;
+$width-phone: 640px;
+$width-less: 460px;
+$width-mobile: 360px;
+
+@media screen and (min-width: $width-middle) {
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .products {
+            @include lib-css(margin-right, -.15rem);
+        }
+    }
+}
+
+@media screen and (min-width: $width-phone) {
+    .step-content {
+        .opc-summary {
+            @include lib-css(display, none);
+        }
+    }
+    
+    .block-login, .block-wrapper {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: none;
+        padding: .2rem;
+        border: 1px solid $box-color;
+        background-color: $color-white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+    }
+
+    .block-wrapper {
+        min-width: 320px;
+        @include lib-css(margin-bottom, 0);
+    }
+
+    .block-login {
+        @include lib-css(min-width, 150px);
+        
+        ul > li {
+            @include lib-css(margin-bottom, .1rem);
+        }
+    }
+    
+    .prod-row, .prod-line, .prod-action {
+        @include lib-css(display, none);
+    }
+
+    .page-category {
+        @include lib-css(padding-left, .15rem);
+    }
+
+    .block-products-list {
+        .item {
+            &:hover {
+                @include lib-css(z-index, 20);
+                -webkit-box-shadow: 0px 4px 15px $shadow-color;
+                -moz-box-shadow: 0px 4px 15px $shadow-color;
+                box-shadow: 0px 4px 15px $shadow-color;
+    
+                .product-item-inner {
+                    &:after {
+                        @include lib-css(background-color, $color-white);
+                    }
+                }
+    
+                .product-item-info {
+                    .weltpixel-quickview {
+                        @include lib-css(display, block);
+                    }
+                }
+
+                .actions-primary {
+                    .action.tocart {
+                        color: $color-white;
+                        background-color: $orange-color;
+                    }
+                }
+
+                .tocheckout {
+                    color: $color-white;
+                    background-color: $cms-color;
+                }
+            }
+        }
+    }
+    
+    .products-grid {
+        .product-item {
+            &:hover {
+                @include lib-css(z-index, 20);
+                -webkit-box-shadow: 0px 4px 15px $shadow-color;
+                -moz-box-shadow: 0px 4px 15px $shadow-color;
+                box-shadow: 0px 4px 15px $shadow-color;
+    
+                .weltpixel-quickview {
+                    @include lib-css(display, block);
+                }
+
+                .actions-primary {
+                    .action.tocart {
+                        color: $color-white;
+                        background-color: $orange-color;
+                    }
+                }
+
+                .tocheckout {
+                    color: $color-white;
+                    background-color: $cms-color;
+                }
+            }
+        }
+    }
+    
+    .product {
+        &-item {
+            &-info {
+                .catalog-category-view & {
+                    width: 100%;
+                    padding: .15rem;
+                }
+
+                .catalogsearch-result-index & {
+                    width: 100%;
+                    padding: .15rem;
+                }
+            }
+    
+            &-inner {
+                @include lib-css(position, relative);
+    
+                .product-item-actions {
+                    @include lib-css(padding-bottom, .3rem);
+                }
+            }
+        }
+    }
+
+    .toolbar-products {
+        @include lib-css(margin-left, .15rem);
+    }
+
+    .block.widget {
+        @include lib-css(margin-bottom, .5rem);
+        
+        .item {
+            margin: .05rem;
+        }
+    
+        .product-item-info {
+            padding: .15rem;
+        }
+    
+        .block-content {
+            margin: 0 -9px;
+        }
+    }
+
+    .cms-index-index {
+        .block.widget {
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    .prod-describle {
+        .share {
+            .fr {
+                &:hover {
+                    .hide {
+                        @include lib-css(right, 1.2rem);
+                        @include lib-css(opacity, 1);
+                    }
+                }
+            }
+    
+            .hide {
+                @include lib-css(right, .4rem);
+                @include lib-css(opacity, 0);
+                transition: all .3s linear;
+                -webkit-transition: all .3s linear;
+                -moz-transition: all .3s linear;
+                -ms-transition: all .3s linear;
+            }
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {   
+    .product-item-inner {
+        .actions-primary {
+            .action.tocart {
+                @include lib-css(flex-basis, 38%);
+            }
+        }
+
+        .tocheckout {
+            @include lib-css(flex-basis, 38%);
+        }
+    }
+
+    .page-quick {
+        .prod-form {
+            .input-text {
+                @include lib-css(padding, .11rem .09rem);
+            }
+        }
+    }
+
+    .page-layout-2columns-right {
+        .column.main {
+            @include lib-css(flex-basis, 69%);
+        }
+
+        .sidebar-additional {
+            @include lib-css(flex-basis, 29%);
+        }
+    }
+
+    .website {
+        .list {
+            > li {
+                a:hover {
+                    .tab {
+                        @include lib-css(left, -.9rem);
+                    }
+                }
+            }
+        }
+    }
+
+    .prod-form {
+        .input-text {
+            @include lib-css(padding, .11rem .09rem);
+        }
+    }
+}

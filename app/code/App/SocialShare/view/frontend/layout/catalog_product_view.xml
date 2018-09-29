@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="root">
+			<block class="App\SocialShare\Block\SocialButtons" name="social.header" after="-" template="App_SocialShare::header.phtml"/>
+		</referenceBlock>
+		<referenceBlock name="prod.describle">
+			<block class="App\SocialShare\Block\SocialButtons" name="socialshare" before="product.info.main"></block>
+			<container name="fb-root" htmlTag="div" htmlId="fb-root" />
+		</referenceBlock>
+	</body>
+</page>

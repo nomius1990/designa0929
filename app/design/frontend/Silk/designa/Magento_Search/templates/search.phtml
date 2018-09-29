@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+
+<section class="auto-search">
+    <div class="container">
+        <div class="search-title">
+            <p><?= __('In just one minute') ?></p>
+            <h1><?= __('Find your dream products now') ?></h1>
+        </div>
+        <div class="search-content">
+            <form class="form minisearch" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get">
+                <div class="form-group">
+                    <button type="submit" class="link-search">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-search"></use>
+                        </svg>
+                    </button>
+                    <input type="text"
+                        name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                        value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                        placeholder="<?= /* @escapeNotVerified */ __('Enter your search world here') ?>"
+                        class="form-control link-input"
+                        maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>" />
+                    <a href="javascript:;" class="link-close">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-delete"></use>
+                        </svg>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

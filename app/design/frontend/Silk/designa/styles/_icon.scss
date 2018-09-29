@@ -1,0 +1,140 @@
+//
+//  Icons
+//  ---------------------------------------------
+
+.dcon {
+    @include lib-css(display, inline-block);
+    @include lib-css(vertical-align, middle);
+    @include lib-css(background-image, url('../images/seprate.png'));
+    @include lib-css(background-repeat, no-repeat);
+}
+
+.dcon-free {
+    @include lib-css(width, .58rem);
+    @include lib-css(height, .48rem);
+    @include lib-css(background-position, 0 -218px);
+}
+
+.dcon-purchase {
+    @include lib-css(width, .54rem);
+    @include lib-css(height, .47rem);
+    @include lib-css(background-position, -60px -218px);
+}
+
+.dcon-safe {
+    @include lib-css(width, .45rem);
+    @include lib-css(height, .51rem);
+    @include lib-css(background-position, -120px -215px);
+}
+
+.dcon-qty {
+    @include lib-css(width, .17rem);
+    @include lib-css(height, .19rem);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -98px 0);
+}
+
+.dcon-value {
+    @include lib-css(width, .19rem);
+    @include lib-css(height, .19rem);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -119px 0);
+}
+
+.dcon-engineer {
+    @include lib-css(width, .15rem);
+    @include lib-css(height, .19rem);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -143px 0);
+}
+
+.dcon-satis {
+    @include lib-css(width, .19rem);
+    @include lib-css(height, .19rem);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -162px 0);
+}
+
+.dcon-orders {
+    @include lib-css(width, 50px);
+    @include lib-css(height, 50px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -2px -33px);
+}
+
+.dcon-wishlist {
+    @include lib-css(width, 55px);
+    @include lib-css(height, 50px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -52px -33px);
+}
+
+.dcon-review {
+    @include lib-css(width, 59px);
+    @include lib-css(height, 50px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -116px -30px);
+}
+
+.dcon-address {
+    @include lib-css(width, 66px);
+    @include lib-css(height, 50px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -177px -31px);
+}
+
+.dcon-newsletter {
+    @include lib-css(width, 73px);
+    @include lib-css(height, 50px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, -246px -30px);
+}
+
+.dcon-account {
+    @include lib-css(width, 59px);
+    @include lib-css(height, 55px);
+    @include lib-css(margin, 0 auto);
+    @include lib-css(background-position, 0 -85px);
+}
+
+.dcon-car {
+    @include lib-css(width, 31px);
+    @include lib-css(height, 27px);
+    @include lib-css(margin-right, .2rem);
+    @include lib-css(background-position, -190px 0);
+}
+
+.dcon-history {
+    @include lib-css(width, 36px);
+    @include lib-css(height, 32px);
+    @include lib-css(margin-right, .2rem);
+    @include lib-css(background-position, 0 -146px);
+}
+
+.dcon-shipping {
+    @include lib-css(width, 30px);
+    @include lib-css(height, 25px);
+    @include lib-css(margin-right, .05rem);
+    @include lib-css(background-position, -225px 0);
+}
+
+.dcon-return {
+    @include lib-css(width, 30px);
+    @include lib-css(height, 25px);
+    @include lib-css(margin-right, .05rem);
+    @include lib-css(background-position, -255px 0);
+}
+
+.dcon-warranty {
+    @include lib-css(width, 30px);
+    @include lib-css(height, 26px);
+    @include lib-css(margin-right, .05rem);
+    @include lib-css(background-position, -292px 0);
+}
+
+.dcon-install {
+    @include lib-css(width, 30px);
+    @include lib-css(height, 25px);
+    @include lib-css(margin-right, .05rem);
+    @include lib-css(background-position, 0 -185px);
+}

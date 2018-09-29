@@ -1,0 +1,1 @@
+Silk_Swatches module consists of installation.

@@ -1,0 +1,58 @@
+<div class="billing-address-details" data-bind="if: isAddressDetailsVisible() && currentBillingAddress()">
+    <div class="title" data-bind="i18n: 'Billing Address'"></div>
+    <div class="step-content">
+        <p>
+            <label data-bind="i18n: 'First Name'"></label>
+            <span data-bind="text: currentBillingAddress().firstname"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Last Name'"></label>
+            <span data-bind="text: currentBillingAddress().lastname"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Company'"></label>
+            <span data-bind="text: currentBillingAddress().company"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Street Address'"></label>
+            <span data-bind="text: currentBillingAddress().street"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Country'"></label>
+            <span data-bind="text: getCountryName(currentBillingAddress().countryId)"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'State/Province'"></label>
+            <!-- ko if: (typeof currentBillingAddress().region !== 'undefined') -->
+                <span data-bind="text: currentBillingAddress().region"></span>
+            <!-- /ko -->
+        </p>
+        <p>
+            <label data-bind="i18n: 'City'"></label>
+            <span data-bind="text: currentBillingAddress().city"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Zip/Postal Code'"></label>
+            <span data-bind="text: currentBillingAddress().postcode"></span>
+        </p>
+        <p>
+            <label data-bind="i18n: 'Phone Number'"></label>
+            <a data-bind="text: currentBillingAddress().telephone, attr: {'href': 'tel:' + currentBillingAddress().telephone}"></a>
+        </p>
+
+        <!-- ko foreach: { data: currentBillingAddress().customAttributes, as: 'element' } -->
+            <!-- ko foreach: { data: Object.keys(element), as: 'attribute' } -->
+                <p>
+                    <!-- ko if: (typeof element[attribute] === "object") -->
+                        <label data-bind="i18n: attribute"></label>
+                        <span data-bind="text: element[attribute].value"></span>
+                    <!-- /ko -->
+                    <!-- ko if: (typeof element[attribute] === "string") -->
+                        <label data-bind="i18n: attribute"></label>
+                        <span data-bind="text: element[attribute]"></span>
+                    <!-- /ko -->
+                </p>
+            <!-- /ko -->
+        <!-- /ko -->
+    </div>
+</div>

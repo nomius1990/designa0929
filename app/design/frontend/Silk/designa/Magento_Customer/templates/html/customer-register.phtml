@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<div class="register-container">
+    <div class="row">
+        <?= $block->getChildHtml('customer.thumbnail') ?>
+        
+        <div class="col-md-6 col-sm-6 col-sx-12">
+            <?= $block->getChildHtml('customer_form_register') ?>
+        </div>
+    </div>
+</div>

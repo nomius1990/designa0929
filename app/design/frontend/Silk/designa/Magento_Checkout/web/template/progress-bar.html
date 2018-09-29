@@ -1,0 +1,27 @@
+<div class="step">
+    <h1 class="title">
+        <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+            <translate args="item.title" if="item.isVisible()"/>
+        <!-- /ko -->
+    </h1>
+    <ul class="opc-progress-bar">
+        <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+            <li class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+                <!-- ko if: $index() == 0 -->
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-win"></use>
+                    </svg>
+                <!-- /ko -->
+                <!-- ko if: $index() > 0 -->
+                    <svg class="icon" aria-hidden="true" if="item.isVisible()">
+                        <use xlink:href="#icon-win"></use>
+                    </svg>
+                    <svg class="icon" aria-hidden="true" if="!item.isVisible()">
+                        <use xlink:href="#icon-circle"></use>
+                    </svg>
+                <!-- /ko -->
+                <span data-bind="i18n: $index() + 1 + '. ' + item.title, click: $parent.navigateTo"></span>
+            </li>
+        <!-- /ko -->
+    </ul>
+</div>

@@ -1,0 +1,135 @@
+//
+//  Printarea
+//  ---------------------------------------------
+
+@media print {
+    html {
+        @include lib-css(font-size, 625%);
+    }
+
+    body {
+        @include lib-css(color, $gray-900);
+        @include lib-css(font-family, $font-family_basic);
+        @include lib-css(font-size, .14rem);
+        @include lib-css(font-weight, 400);
+        @include lib-css(line-height, 1.5);
+    }
+
+    .checkout-detail {
+        .checkout-head {
+            @include lib-css(font-size, .18rem);
+            @include lib-css(position, relative);
+            @include lib-css(text-align, center);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        .print, .top {
+            @include lib-css(display, none);
+        }
+    
+        .checkout-body {
+            @include lib-css(margin-top, .4rem);
+            @include lib-css(padding, 0 .7rem);
+            @include lib-css(border-top, 1px solid $color-gray-middle2);
+            @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+
+            .row {
+                @include lib-css(margin, 0);
+                @include lib-css(padding, .4rem 0);
+                @include lib-css(justify-content, space-between);
+                @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+    
+                &:last-child {
+                    @include lib-css(border-bottom, 0);
+                }
+    
+                p {
+                    &:last-child {
+                        @include lib-css(margin-bottom, 0);
+                    }
+                }
+            }
+    
+            .l {
+                @include lib-css(text-align, left);
+            }
+    
+            .r {
+                @include lib-css(text-align, right);
+            }
+    
+            p {
+                @include lib-css(font-family, $font-family_light);
+                @include lib-css(font-size, .15rem);
+            }
+    
+            h5 {
+                @include lib-css(font-size, .15rem);
+                @include lib-css(margin-bottom, .4rem);
+            }
+    
+            dl {
+                @include lib-css(width, 100%);
+                @include lib-css(display, flex);
+                @include lib-css(padding, .1rem 0);
+    
+                dt, dd {
+                    &:first-child {
+                        @include lib-css(flex, 0  1 60%);
+                        @include lib-css(justify-content, flex-start);
+                    }
+                }
+            }
+    
+            .lb {
+                @include lib-css(margin-bottom, .2rem);
+                @include lib-css(padding, 0 0 .3rem);
+                @include lib-css(border-bottom, 1px solid $color-gray-middle2);
+            }
+    
+            dl.total {
+                @include lib-css(padding-bottom, 0);
+    
+                dt {
+                    @include lib-css(flex, 0  1 90%);
+                    @include lib-css(margin-bottom, 0);
+                }
+    
+                dd {
+                    @include lib-css(margin-bottom, 0);
+                }
+            }
+    
+            dt, dd {
+                @include lib-css(display, flex);
+                @include lib-css(flex, 0  1 10%);
+                @include lib-css(justify-content, center);
+            }
+    
+            .img {
+                @include lib-css(display, inline-block);
+                @include lib-css(margin-left, .2rem);
+                @include lib-css(padding, .1rem);
+                @include lib-css(background-color, $footer-bg);
+    
+                img {
+                    @include lib-css(max-width, 1.6rem);
+                }
+            }
+    
+            .prod {
+                @include lib-css(margin-left, .3rem);
+            }
+        }
+    }
+
+    .table-wrapper {
+        @include lib-css(width, 100%);
+
+        .owl-carousel {
+            .owl-item {
+                @include lib-css(margin-right, .2rem);
+            }
+        }
+    }
+}

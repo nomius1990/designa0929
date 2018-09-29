@@ -1,0 +1,446 @@
+//
+//  Product Lists
+//  _____________________________________________
+
+.products {
+    margin: .2rem 0;
+}
+
+.ias-noneleft {
+    @include lib-css(padding-bottom, .6rem);
+    @include lib-css(text-align, center);
+
+    em {
+        @include lib-css(font-style, normal);
+    }
+}
+
+.product-item-inner {
+    .actions-primary {
+        @include lib-css(padding, 0 .15rem);
+
+        form {
+            @include lib-css(display, flex);
+            @include lib-css(justify-content, space-between);
+        }
+
+        .action.tocart {
+            @include lib-css(width, inherit);
+            @include lib-css(flex-basis, 48%);
+        }
+    }
+
+    .tocheckout {
+        color: $cms-color;
+        @include lib-css(font-size, .15rem);
+        display: block;
+        @include lib-css(flex-basis, 48%);
+        padding: .06rem .15rem;
+        background-color: transparent;
+        border: 2px solid $cms-color;
+        text-align: center;
+        text-transform: uppercase;
+        transition-duration: .3s;
+        transition-property: all;
+        transition-timing-function: linear;
+    }
+}
+
+.product {
+    &-items {
+        @extend .abs-reset-list;
+    }
+
+    &-item {
+        @extend .abs-add-box-sizing;
+        vertical-align: top;
+        @include lib-css(position, relative);
+
+        .products-grid & {
+            display: inline-block;
+            width: 50%;
+            transition: all .3s linear;
+            -webkit-transition: all .3s linear;
+            -moz-transition: all .3s linear;
+            -ms-transition: all .3s linear;
+            -o-transition: all .3s linear;
+        }
+
+        &-name {
+            @include lib-css(display, block);
+            margin-top: .2rem;
+            max-height: .2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &-info {
+            max-width: 100%;
+        }
+
+        &-link {
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(font-size, .15rem);
+            @include lib-css(text-transform, uppercase);
+        }
+
+        &-img {
+            position: relative;
+
+            .actions-secondary {
+                @include lib-css(position, absolute);
+                @include lib-css(top, 0);
+                @include lib-css(left, 0);
+                @include lib-css(width, 100%);
+                @include lib-css(display, flex);
+                @include lib-css(padding, .2rem);
+                @include lib-css(z-index, 10);
+                @include lib-css(justify-content, space-between);
+
+                > a {
+                    @include lib-css(display, block);
+                }
+            }
+        }
+
+        &-swatch {
+            .swatch-option {
+                @include lib-css(margin-left, .1rem);
+            }
+        }
+
+        &-photo {
+            @include lib-css(display, block);
+            @include lib-css(padding, .4rem 0);
+            @include lib-css(border, 1px dashed $color-gray80);
+        }
+
+        &-details {
+            @include lib-css(position, relative);
+        }
+
+        &-row {
+            @include lib-css(display, flex);
+            @include lib-css(min-height, .3rem);
+            @include lib-css(margin, .1rem 0 0);
+            @include lib-css(justify-content, space-between);
+            @include lib-css(flex-wrap, wrap);
+        }
+
+        &-actions {
+            .actions-secondary {
+                & > .action {
+                    @extend .abs-actions-addto-gridlist;
+                    &:before {
+                        margin: 0;
+                    }
+
+                    span {
+                        @extend .abs-visually-hidden;
+                    }
+                }
+            }
+        }
+
+        &-description {
+            margin: $indent__m 0;
+        }
+
+        .product-reviews-summary {
+            .rating-summary {
+                margin: 0 4px 0 0;
+            }
+
+            .reviews-actions {
+                text-transform: lowercase;
+            }
+        }
+
+        .price-box {
+            .price {
+                font-size: .15rem;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+
+            .price-label {
+                font-size: $font-size__s;
+
+                &:after {
+                    content: ':';
+                }
+            }
+        }
+
+        .minimal-price {
+            .price {
+                font-size: .14rem;
+                font-weight: $font-weight__bold;
+            }
+
+            .price-wrapper {
+                display: inline-block;
+            }
+
+            .price-including-tax + .price-excluding-tax {
+                display: block;
+            }
+        }
+
+        .minimal-price {
+            .price-container {
+                display: block;
+            }
+        }
+
+        .minimal-price-link {
+            margin-top: .05rem;
+
+            .price-label {
+                color: $link__color;
+                font-size: .14rem;
+            }
+
+            .price {
+                font-weight: $font-weight__regular;
+            }
+        }
+
+        .minimal-price-link,
+        .price-excluding-tax,
+        .price-including-tax {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .price-from,
+        .price-to {
+            margin: 0;
+        }
+
+        .tocart {
+            @include lib-css(white-space, nowrap);
+        }
+    }
+}
+
+.price-container {
+    .price {
+        font-size: .18rem;
+    }
+
+    .price-including-tax + .price-excluding-tax,
+    .weee {
+        margin-top: $indent__xs;
+    }
+
+    .price-including-tax + .price-excluding-tax,
+    .weee,
+    .price-including-tax + .price-excluding-tax .price,
+    .weee .price,
+    .weee + .price-excluding-tax:before,
+    .weee + .price-excluding-tax .price {
+        font-size: .11rem;
+    }
+
+    .weee {
+        &:before {
+            content: '('attr(data-label) ': ';
+        }
+
+        &:after {
+            content: ')';
+        }
+
+        + .price-excluding-tax {
+            &:before {
+                content: attr(data-label) ': ';
+            }
+        }
+    }
+}
+
+.products-list {
+    .product {
+        &-item {
+            display: table;
+            width: 100%;
+
+            &-info {
+                display: table-row;
+            }
+
+            &-photo {
+                display: table-cell;
+                padding: 0 $indent__l $indent__l 0;
+                vertical-align: top;
+                width: 1%;
+            }
+
+            &-details {
+                display: table-cell;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .product-image-wrapper {
+        @extend .abs-reset-image-wrapper;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__s) {
+    .products-list .product {
+        &-item {
+            table-layout: fixed;
+
+            &-photo {
+                padding: 0 $indent__s $indent__s 0;
+                width: 30%;
+            }
+        }
+    }
+}
+
+@include min-screen($screen__s) {
+    .product {
+        &-item {
+            &-actions {
+                display: block;
+
+                .actions-primary + .actions-secondary {
+                    display: table-cell;
+                    padding-left: 5px;
+                    white-space: nowrap;
+                    width: 50%;
+                    & > * {
+                        white-space: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    .products-grid .product-item {
+        width: 33.3333%;
+    }
+
+    .catalog-category-view,
+    .page-layout-1column,
+    .page-layout-3columns,
+    .catalog-category-view.page-layout-1column,
+    .catalog-category-view.page-layout-3columns {
+        .products-grid {
+            .product-item {
+                width: 33.3333%;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .catalog-category-view,
+    .catalogsearch-result-index {
+        .products-grid {
+            .product-item {
+                width: 33.3333%;
+            }
+        }
+    }
+
+    .catalog-category-view.page-layout-1column {
+        .products-grid {
+            .product-item {
+                width: 25%;
+            }
+        }
+    }
+
+    .catalog-category-view.page-layout-3columns {
+        .products-grid {
+            .product-item {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.products-related {
+    .product-item-info {
+        @include lib-css(padding, .15rem);
+    }
+}
+
+@include min-screen($screen__l) {
+    .products-grid {
+        .product-item {
+            width: 25%;
+        }
+    }
+
+    .page-layout-1column {
+        .products-grid {
+            .product-item {
+                width: 16.6666%;
+            }
+        }
+    }
+
+    .page-layout-3columns {
+        .products-grid {
+            .product-item {
+                width: 25%;
+            }
+        }
+    }
+
+    .catalog-category-view {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                padding: 0;
+                margin-bottom: 2px;
+            }
+        }
+    }
+
+    .catalog-category-view {
+        &.page-layout-1column {
+            .products-grid {
+                .product-item {
+                    margin-left: 0;
+                    width: 20%;
+                }
+            }
+        }
+
+        &.page-layout-3columns {
+            .products-grid {
+                .product-item {
+                    margin-left: 1%;
+                    width: 32.667%;
+
+                    &:nth-child(3n) {
+                        margin-left: 1%;
+                    }
+
+                    &:nth-child(3n + 1) {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

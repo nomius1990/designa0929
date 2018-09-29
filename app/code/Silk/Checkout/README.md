@@ -1,0 +1,1 @@
+Silk_Checkout module consists of installation.

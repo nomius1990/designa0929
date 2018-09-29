@@ -1,0 +1,929 @@
+//
+//  Variables
+//  _____________________________________________
+
+$account-nav-background              : $sidebar__background-color;
+$account-nav-color                   : false;
+
+$account-nav-current-border          : 3px solid transparent;
+$account-nav-current-border-color    : $color-orange-red1;
+$account-nav-current-color           : false;
+$account-nav-current-font-weight     : $font-weight__semibold;
+
+$account-nav-delimiter__border-color : $color-gray82;
+
+$account-nav-item-hover              : $color-gray91;
+
+$_password-default                   : $color-gray-light01;
+$_password-weak                      : #ffafae;
+$_password-medium                    : #ffd6b3;
+$_password-strong                    : #c5eeac;
+$_password-very-strong               : #81b562;
+$_border-color                       : #cccccc;
+
+.customer-account-login,
+.customer-account-create,
+.customer-account-forgotpassword {
+    .page-main {
+        @include lib-css(margin, .52rem auto);
+    } 
+
+    .messages {
+        p {
+            @include lib-css(margin-top, .4rem);
+        }
+    }
+}
+
+.wishlist-index-index {
+    .messages {
+        p {
+            @include lib-css(margin-top, .4rem);
+        }
+    }
+}
+
+.login-container,
+.register-container {
+    @include lib-css(margin, .8rem 0 .4rem 0);
+
+    .col-md-6 {
+        @include lib-css(padding, 0 .25rem);
+    }
+    
+    .block {
+        &-new-customer {
+            .actions-toolbar {
+                margin-top: .25rem;
+            }
+        }
+
+        .block-title {
+            @include lib-css(font-size, .18rem);
+            @extend .abs-login-block-title;
+        }
+    }
+}
+
+.block-addresses-list {
+    .items.addresses {
+        > .item {
+            margin-bottom: $indent__base;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.form-address-edit {
+    #region_id {
+        display: none;
+    }
+
+    .actions-toolbar .action.primary {
+        @extend .abs-button-l;
+    }
+}
+
+.form-edit-account {
+    .fieldset.password {
+        display: none;
+    }
+}
+
+.box-billing-address,
+.box-shipping-address,
+.box-information,
+.box-newsletter {
+    .box-content {
+        line-height: 26px;
+    }
+}
+
+//  Full name fieldset
+.fieldset {
+    .fullname {
+        &.field {
+            > .label {
+                @extend .abs-visually-hidden;
+
+                + .control {
+                    width: 100%;
+                }
+            }
+        }
+
+        .field {
+            @extend .abs-add-clearfix;
+        }
+    }
+}
+
+//
+//  My account
+//  ---------------------------------------------
+
+.account {
+    .page-main {
+        max-width: inherit;
+        margin: .52rem auto;
+    }
+
+    .column.main {
+        h2 {
+            margin-top: 0;
+        }
+
+        .toolbar {
+            text-align: center;
+            .limiter-options {
+                width: auto;
+            }
+        }
+
+        .limiter {
+            >.label {
+                @extend .abs-visually-hidden;
+            }
+        }
+
+        .block:not(.widget) {
+            @extend .abs-account-blocks;
+        }
+    }
+
+    .sidebar-additional {
+        margin-top: 40px;
+    }
+
+    .table-wrapper {
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .action {
+            margin-right: 15px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .table-return-items {
+        .qty {
+            .input-text {
+                @extend .abs-input-qty;
+            }
+        }
+    }
+}
+
+//  Checkout address (create shipping address)
+.field.street {
+    .field.additional {
+        .label {
+            @extend .abs-visually-hidden;
+        }
+    }
+}
+
+.form-edit-account {
+    .fieldset {
+        @include lib-css(max-width, 4.5rem);
+        @include lib-css(margin-bottom, .3rem);
+
+        .form-row {
+            @include lib-css(display, block);
+            @include lib-css(margin, 0);
+        }
+    }
+
+    .field {
+        .label {
+            @include lib-css(font-weight, normal);
+            @include lib-css(margin-bottom, .05rem);
+        }
+    }
+
+    .d-flex {
+        .choice {
+            @include lib-css(flex, 0 1 50%);
+        }
+
+        .label {
+            @include lib-css(margin-left, .05rem);
+        }
+    }
+}
+
+//
+//  Account navigation
+//  ---------------------------------------------
+
+.account-nav {
+    .title {
+        @extend .abs-visually-hidden;
+    }
+
+    .item {
+        > a, > strong {
+            @include lib-css(width, 100%);
+            @include lib-css(display, block);
+            @include lib-css(line-height, .2rem);
+            @include lib-css(margin-top, -1px);
+            @include lib-css(padding, 20px 0);
+            @include lib-css(text-align, center);
+            @include lib-css(text-decoration, none);
+            @include lib-css(text-transform, uppercase);
+            @include lib-css(border-bottom, 1px solid $box-color);
+
+            &:hover {
+                @include lib-css(color, $basic-color);
+                @include lib-css(background-color, $color-white);
+            }
+        }
+
+        &.current {
+            a, strong {
+                @include lib-css(color, $basic-color);
+                @include lib-css(font-weight, normal);
+                @include lib-css(background-color, $color-white);
+                @include lib-css(border-bottom-color, $color-white);
+            }
+        }
+    }
+
+    .items {
+        @include lib-css(display, flex);
+        @include lib-css(justify-content, space-between);
+
+        > li {
+            @include lib-css(flex, 1);
+            @include lib-css(border-right, 1px solid $box-color);
+
+            &:last-child {
+                @include lib-css(border-right, 0);
+            }
+        }
+    }
+}
+
+//
+//  Blocks & Widgets
+//  ---------------------------------------------
+
+.block {
+    @extend .abs-margin-for-blocks-and-widgets;
+    .column.main & {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .title {
+        margin-bottom: $indent__s;
+
+        strong {
+            @include lib-heading(h4);
+            .column.main & {
+                font-size: .2rem;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    p:last-child {
+        margin: 0;
+    }
+
+    .box-actions {
+        margin-top: $indent__xs;
+    }
+}
+
+//
+//  Password Strength Meter
+//  ---------------------------------------------
+
+.field.password {
+    .control {
+        @include lib-vendor-prefix-display();
+        @include lib-vendor-prefix-flex-direction();
+
+        .mage-error {
+            @include lib-vendor-prefix-order(2);
+        }
+
+        .input-text {
+            @include lib-vendor-prefix-order(0);
+            z-index: 2;
+        }
+    }
+}
+
+.password-strength-meter {
+    background-color: $_password-default;
+    height: $form-element-input__height;
+    line-height: $form-element-input__height;
+    padding: $form-element-input__padding;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    .password-none & {
+        &:before {
+            background-color: $_password-default;
+            width: 100%;
+        }
+    }
+
+    .password-weak & {
+        &:before {
+            background-color: $_password-weak;
+            width: 25%;
+        }
+    }
+
+    .password-medium & {
+        &:before {
+            background-color: $_password-medium;
+            width: 50%;
+        }
+    }
+
+    .password-strong & {
+        &:before {
+            background-color: $_password-strong;
+            width: 75%;
+        }
+    }
+
+    .password-very-strong & {
+        &:before {
+            background-color: $_password-very-strong;
+            width: 100%;
+        }
+    }
+}
+
+.cs {
+    @include lib-css(display, none);
+    @include lib-css(text-align, center);
+    @include lib-css(background-image, url('../images/bg.png'));
+    @include lib-css(background-size, cover);
+    @include lib-css(background-position, center center);
+    @include lib-css(background-repeat, no-repeat);
+
+    a {
+        @include lib-css(display, block);
+        @include lib-css(padding, .6rem 0);
+    }
+}
+
+.control.captcha-image {
+    @include lib-css(margin-top, .3rem);
+    @include lib-css(height, .4rem);
+
+    .captcha-img {
+        vertical-align: middle;
+    }
+
+    .captcha-reload {
+        @include lib-css(color, $basic-color);
+        @include lib-css(padding, .07rem .14rem);
+        @include lib-css(background-color, transparent);
+        @include lib-css(border, 2px solid $basic-color);
+
+        &:focus {
+            @include lib-css(outline, 0);
+        }
+    }
+}
+
+.customer-forgotPassword {
+    @include lib-css(max-width, 7.6rem);
+    @include lib-css(margin, .9rem auto .25rem auto);
+}
+
+.forget-password {
+    h2 {
+        @include lib-css(display, none);
+    }
+}
+
+.social {
+    .login {
+        @include lib-css(display, none);
+        @include lib-css(text-transform, uppercase);
+        @include lib-css(letter-spacing, 2px);
+        @include lib-css(border-bottom, 2px solid #3d3d3d); 
+    }
+}
+
+.customer-login,
+.customer-register,
+.customer-forgotPassword {
+    @include lib-css(border, 1px solid $_border-color);
+
+    input {
+        &::-webkit-input-placeholder {
+            @include lib-css(opacity, 0);
+        }
+
+        &:-moz-placeholder {
+            @include lib-css(opacity, 0);
+        }
+
+        &::-moz-placeholder {
+            @include lib-css(opacity, 0);
+        }
+    }
+
+    .block-title {
+        @include lib-css(font-size, .22rem);
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+        @include lib-css(text-align, center);
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+
+        span {
+            @include lib-css(display, block);
+            @include lib-css(padding, .2rem 0);
+            @include lib-css(flex-basis, 100%);
+            @include lib-css(border-bottom, 1px solid $_border-color);
+        }
+
+        .tab-link {
+            @include lib-css(color, $color-black);
+            @include lib-css(padding, .2rem 0);
+            @include lib-css(border-bottom, 1px solid $_border-color);
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+
+            &.active {
+                @include lib-css(color, $basic-color);
+                @include lib-css(border-color, $basic-color);
+                @include lib-css(border-width, 3px);
+            }
+
+            &:hover {
+                @include lib-css(color, $basic-color);
+            }
+        }
+    }
+
+    .block-content {
+        @include lib-css(padding, .4rem .8rem);
+
+        .tab-page {
+            @include lib-css(display, none);
+
+            &.active {
+                @include lib-css(display, block);
+            }
+        }
+    }
+
+    .form-group {
+        label {
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(font-size, $font-size-15);
+            @include lib-css(display, block);
+            @include lib-css(line-height, .16rem);
+            @include lib-css(margin-bottom, .1rem);
+        }
+    }
+
+    .form-row {
+        .form-group {
+            flex: 0 1 50%;
+            max-width: 100%;
+            @include lib-css(padding, 0 .05rem);
+
+            &:first-child {
+                @include lib-css(padding-right, .1rem);
+            }
+
+            &:last-child {
+                @include lib-css(padding-left, .1rem);
+            }
+        }
+    }
+
+    .btn-group {
+        @include lib-css(display, block);
+        @include lib-css(margin, .2rem 0);
+    }
+
+    .btn {
+        @include lib-css(font-size, $font-size-16);
+        @include lib-css(width, 100%);
+        @include lib-css(display, block);
+        @include lib-css(padding, .08rem 0);
+        @include lib-css(background-color, $basic-color);
+        @include lib-css(border, 2px solid $basic-color);
+        @include lib-css(text-transform, uppercase);
+        -moz-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+
+        &:hover {
+            @include lib-css(color, $basic-color);
+            @include lib-css(background-color, transparent);
+            @include lib-css(border-color, $basic-color);
+        }
+    }
+
+    .form-check-input {
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+        @include lib-css(margin-top, .03rem);
+    }
+
+    .form-check {
+        label {
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(font-size, $font-size-15);
+            @include lib-css(margin-left, .15rem);
+        }
+    }
+
+    .remind {
+        @include lib-css(color, $font-color);
+        @include lib-css(font-size, $font-size-15);
+        @include lib-css(text-decoration, underline);
+    }
+
+    .social {
+        @include lib-css(margin-top, .2rem);
+
+        p {
+            @include lib-css(margin-bottom, 0);
+        }
+    }
+
+    .link {
+        &:last-child {
+            @include lib-css(margin-left, .15rem);
+        }
+    }
+}
+
+.customer-thumbnail {
+    .title {
+        @include lib-css(font-size, .28rem);
+    }
+
+    .boxes {
+        @include lib-css(height, 4.3rem);
+        @include lib-css(margin-top, .35rem);
+        @include lib-css(position, relative);
+        @include lib-css(background-color, $lg-color);
+
+        .wrapper {
+            @include lib-css(position, absolute);
+            @include lib-css(top, 50%);
+            @include lib-css(left, 50%);
+            @include lib-css(z-index, 10);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            img {
+                @include lib-css(max-width, 3.6rem);
+            }
+
+            .babel {
+                @include lib-css(font-size, $font-size-20);
+                @include lib-css(margin-top, .2rem);
+                @include lib-css(margin-bottom, 0);
+                @include lib-css(text-align, center);
+            }
+        }
+    }
+}
+
+.register-container {
+    .customer-thumbnail {
+        .boxes {
+            @include lib-css(height, 5.7rem);
+        }
+    }
+}
+
+.customer-header {
+    @include lib-css(background-color, $footer-bg);
+
+    .row {
+        @include lib-css(padding, .6rem .6rem 1.2rem .6rem);
+        @include lib-css(justify-content, space-between);
+    }
+
+    .dl {
+        p {
+            @include lib-css(font-size, .45rem);
+            @include lib-css(line-height, initial);
+        }
+
+        span {
+            @include lib-css(font-size, .18rem);
+        }
+    }
+
+    .dr {
+        > li {
+            @include lib-css(display, inline-block);
+            @include lib-css(text-align, center);
+
+            p {
+                @include lib-css(font-size, $font-size-18);
+                @include lib-css(margin-bottom, 0);
+            }
+
+            .link {
+                @include lib-css(font-size, $font-size-30);
+                @include lib-css(display, block);
+                @include lib-css(margin-bottom, .1rem);
+                -moz-transition: all .3s ease;
+                -o-transition: all .3s ease;
+                -webkit-transition: all .3s ease;
+                transition: all .3s ease;
+            }
+
+            &:first-child {
+                @include lib-css(padding-right, .65rem);
+                @include lib-css(border-right, 1px solid $box-color);
+            }
+    
+            &:last-child {
+                @include lib-css(padding-left , .65rem);
+            }
+        }
+    }
+}
+
+.redirect {
+    @include lib-css(margin-top, 1rem);
+}
+
+.customer-info { 
+    @include lib-css(padding-bottom, .1rem);
+
+    .boxes {
+        @include lib-css(flex, 0 1 100%);
+        @include lib-css(position, relative);
+        @include lib-css(margin-top, -.6rem);
+        box-shadow: 0 0 15px #dfdfdf;
+    }
+
+    .wrapper {
+        @include lib-css(min-height, 5rem);
+        @include lib-css(padding, .5rem);
+    }
+}
+
+.block-info {
+    .title {
+        @include lib-css(font-size, $font-size-30);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .list {
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+        @include lib-css(justify-content, center);
+
+        > li {
+            @include lib-css(flex, 0 0 2.85rem);
+            @include lib-css(margin, .4rem .6rem 0 0);
+            @include lib-css(padding, .6rem .4rem);
+            @include lib-css(text-align, center);
+            @include lib-css(border, 1px solid $box-color);
+            -moz-transition: all .3s ease;
+            -webkit-transition: all .3s ease;
+            -ms-transition: all .3s ease;
+            transition: all .3s ease;
+
+            a {
+                @include lib-css(font-size, $font-size-18);
+
+                span {
+                    @include lib-css(display, block);
+                    @include lib-css(margin-top, .3rem);
+                }
+            }
+
+            &:hover {
+                -moz-box-shadow: 0 0 12px 1px rgba(0, 0, 0, .35);
+                -webkit-box-shadow: 0 0 12px 1px rgba(0, 0, 0, .35);
+                box-shadow: 0 0 12px 1px rgba(0, 0, 0, .35);
+            }
+
+            .dcon {
+                @include lib-css(display, block);
+            }
+        }
+    }
+}
+
+.customer-account {
+    .messages {
+        p {
+            @include lib-css(margin-bottom, .2rem);
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__s) {
+    .account {
+        .column.main,
+        .sidebar-additional {
+            margin: 0;
+        }
+    }
+}
+
+@include max-screen($screen__m) {
+    .account {
+        .page.messages {
+            margin-bottom: $indent__xl;
+        }
+
+        .toolbar {
+            @extend .abs-pager-toolbar-mobile;
+        }
+    }
+
+    .control.captcha-image {
+        .captcha-img {
+            @include lib-css(margin-bottom, $indent__s);
+            display: inline-block;
+        }
+    }
+
+    .customer-account-index {
+        .page-title-wrapper {
+            position: relative;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .login-container {
+        @extend .abs-add-clearfix-desktop;
+
+        .block {
+            @extend .abs-blocks-2columns;
+            &.login {
+                .actions-toolbar {
+                    > .primary {
+                        margin-bottom: 0;
+                        margin-right: $indent__l;
+                    }
+
+                    > .secondary {
+                        float: left;
+                    }
+                }
+            }
+        }
+
+        .fieldset {
+            > .field {
+                > .control {
+                    width: 55%;
+                }
+            }
+        }
+    }
+
+    //  Full name fieldset
+    .fieldset {
+        .fullname {
+            .field {
+                .label {
+                    @include lib-css(margin, $form-field-type-label-inline__margin);
+                    @include lib-css(padding, $form-field-type-label-inline__padding);
+                    @include lib-css(text-align, $form-field-type-label-inline__align);
+                    @include lib-css(width, $form-field-type-label-inline__width);
+                    box-sizing: border-box;
+                    float: left;
+                }
+
+                .control {
+                    @include lib-css(width, $form-field-type-control-inline__width);
+                    float: left;
+                }
+            }
+        }
+    }
+
+    .form.password.reset,
+    .form.send.confirmation,
+    .form.password.forget,
+    .form.create.account {
+        min-width: 600px;
+        width: 50%;
+    }
+
+    //
+    //  My account
+    //  ---------------------------------------------
+
+    .account.page-layout-2columns-left {
+        .sidebar-main,
+        .sidebar-additional {
+            width: 22.3%;
+        }
+
+        .column.main {
+            width: 77.7%;
+        }
+    }
+
+    .account {
+        .column.main {
+            .block:not(.widget) {
+                .block-content {
+                    @extend .abs-add-clearfix-desktop;
+
+                    .box {
+                        @extend .abs-blocks-2columns;
+                    }
+                }
+            }
+        }
+
+        .toolbar {
+            @extend .abs-pager-toolbar;
+        }
+    }
+
+    .block-addresses-list {
+        .items.addresses {
+            @extend .abs-add-clearfix-desktop;
+            font-size: 0;
+
+            > .item {
+                display: inline-block;
+                font-size: .15rem;
+                margin-bottom: $indent__base;
+                vertical-align: top;
+                width: 48.8%;
+
+                &:nth-last-child(1),
+                &:nth-last-child(2) {
+                    margin-bottom: 0;
+                }
+
+                &:nth-child(even) {
+                    margin-left: 2.4%;
+                }
+            }
+        }
+    }
+
+    //
+    //  Welcome block
+    //  ---------------------------------------------
+
+    .dashboard-welcome-toggler {
+        @extend .abs-visually-hidden-desktop;
+    }
+
+    .control.captcha-image {
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+
+        img {
+            @include lib-css(max-width, 1.75rem);
+            @include lib-css(margin-right, .1rem);
+        }
+    }
+}

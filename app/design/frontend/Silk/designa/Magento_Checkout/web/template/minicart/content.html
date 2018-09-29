@@ -1,0 +1,87 @@
+<div class="block-title">
+    <strong>
+        <span class="text" translate="'My Cart'"/>
+        <span
+            class="qty empty"
+            text="getCartParam('summary_count')"
+            data-bind="css: { empty: !!getCartParam('summary_count') == false },
+                        attr: { title: $t('Items in Cart') }">
+        </span>
+    </strong>
+</div>
+
+<div class="block-content">
+    <div class="quickcart-top">
+        <span class="text">
+            <translate args="'My Cart'"></translate>
+        </span>
+        <button type="button"
+            class="action close"
+            data-bind="attr: { title: $t('Close') }">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-closebox"></use>
+            </svg>
+        </button>
+    </div>
+
+    <ifnot args="getCartParam('summary_count')">
+        <strong class="subtitle empty"
+                data-bind="visible: closeSidebar()"
+                translate="'You have no items in your shopping cart.'"
+        />
+    </ifnot>
+
+    <if args="getCartParam('summary_count')">
+        <div class="minicart-items-wrapper">
+            <ol id="mini-cart" class="minicart-items" data-bind="foreach: { data: getCartItems(), as: 'item' }">
+                <each args="$parent.getRegion($parent.getItemRenderer(item.product_type))"
+                        render="{name: getTemplate(), data: item, afterRender: function() {$parents[1].initSidebar()}}"
+                />
+            </ol>
+        </div>
+    </if>
+
+    <div class="quickcart-bottom">
+        <if args="getCartParam('summary_count')">
+            <each args="getRegion('subtotalContainer')" render=""/>
+        </if>
+        <ifnot args="getCartParam('summary_count')">
+            <if args="getCartParam('cart_empty_message')">
+                <p class="minicart empty text" text="getCartParam('cart_empty_message')"/>
+                <div class="actions">
+                    <button
+                        id="top-cart-btn-checkout"
+                        type="button"
+                        class="action checkout"
+                        data-action="close"
+                        data-bind="
+                            attr: {
+                                title: $t('PROCEED TO CHECKOUT')
+                            },
+                            click: closeMinicart()
+                        "
+                        translate="'Proceed to Checkout'"/>
+                    <a class="action viewcart" data-bind="attr: {href: shoppingCartUrl}, title: $t('View And Edit Cart')">
+                        <span translate="'View And Edit Cart'"/>
+                    </a>
+                </div>
+            </if>
+        </ifnot>
+        <div class="actions" if="getCartParam('summary_count')">
+            <a class="action viewcart" data-bind="attr: {href: shoppingCartUrl}, title: $t('View And Edit Cart')">
+                <span translate="'View And Edit Cart'"/>
+            </a>
+            <button
+                id="top-cart-btn-checkout"
+                type="button"
+                class="action checkout"
+                data-action="close"
+                data-bind="
+                    attr: {
+                        title: $t('PROCEED TO CHECKOUT')
+                    },
+                    click: closeMinicart(),
+                    i18n: 'Proceed to Checkout'"></button>
+        </div>
+    </div>
+</div>

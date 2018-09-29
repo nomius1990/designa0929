@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Silk\Catalog\Block\Title */
+?>
+
+<?php 
+    $bannerUrl = $block->getUrl('pub/media/catalog') . 'category/' . $block->getCategoryBanner();
+?>
+
+<?php if ($block->getCategoryBanner()): ?>
+    <div class="page-category">
+        <div class="poster">
+            <img class="lazy" src="<?php echo $block->getViewFileUrl('images/loading.gif') ?>" data-src="<?= $bannerUrl ?>" alt="<?= $block->getTitle() ?>" />
+            <h3 class="tl"><?= $block->getTitle() ?></h3>
+        </div>
+        <?= $block->getChildHtml('category.description') ?>
+    </div>
+<?php endif; ?>

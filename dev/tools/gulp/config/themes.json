@@ -1,0 +1,25 @@
+{
+  "blank": {
+    "src": "app/design/frontend/Silk/blank",
+    "dest": "pub/static/frontend/Silk/blank",
+    "locale": [
+      "en_US"
+    ],
+    "postcss": [
+      "plugins.autoprefixer()"
+    ],
+    "disableSuffix": true
+  },
+  "designa": {
+    "src": "app/design/frontend/Silk/designa",
+    "dest": "pub/static/frontend/Silk/designa",
+    "locale": [
+      "en_US"
+    ],
+    "parent": "blank",
+    "postcss": [
+      "plugins.autoprefixer()"
+    ],
+    "disableSuffix": true
+  }
+}

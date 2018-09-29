@@ -1,0 +1,117 @@
+.auto-search {
+    @include lib-css(position, fixed);
+    @include lib-css(left, 0);
+    @include lib-css(top, 0);
+    @include lib-css(width, 100%);
+    @include lib-css(min-height, 100%);
+    @include lib-css(opacity, 0);
+    @include lib-css(background, $footer-bg);
+    @include lib-css(z-index, -10);
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+
+    &.auto {
+        @include lib-css(opacity, 1);
+        @include lib-css(z-index, 999);
+    }
+
+    &.focus {
+        .search-title {
+            @include lib-css(opacity, 0);
+            -webkit-transform: translateY(-150px);
+            -moz-transform: translateY(-150px);
+            transform: translateY(-150px);
+        }
+
+        .search-content {
+            -webkit-transform: translateY(-150px);
+            -moz-transform: translateY(-150px);
+            transform: translateY(-150px);
+        }
+    }
+
+    .container {
+        @include lib-css(position, absolute);
+        @include lib-css(left, 50%);
+        @include lib-css(top, 50%);
+        @include lib-css(padding, 0 .5rem .3rem .5rem);
+        @include lib-css(z-index, 999);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .search-title {
+        @include lib-css(color, $color-gray60);
+        @include lib-css(text-align, center);
+        -moz-transition: all .5s linear;
+        -webkit-transition: all .5s linear;
+        -ms-transition: all .5s linear;
+        transition: all .5s linear;
+
+        p {
+            @include lib-css(text-transform, uppercase);
+        }
+        
+        h1 {
+            @include lib-css(font-size, .4rem);
+            @include lib-css(margin-bottom, .4rem);
+        }
+    }
+
+    .search-content {
+        @include lib-css(max-width, 80%);
+        @include lib-css(margin, 0 auto);
+        -moz-transition: all .5s linear;
+        -webkit-transition: all .5s linear;
+        -ms-transition: all .5s linear;
+        transition: all .5s linear;
+    }
+
+    .form-group {
+        @include lib-css(width, 100%);
+        @include lib-css(height, .7rem);
+        @include lib-css(line-height, .7rem);
+        @include lib-css(margin-bottom, 0);
+        @include lib-css(position, relative);
+        @include lib-css(background, $color-white);
+        @include lib-css(border, 1px solid $color-gray90);
+
+        .link-search, .link-close {
+            @include lib-css(position, absolute);
+            @include lib-css(top, 0);
+            @include lib-css(display, block);
+            @include lib-css(padding, 0 .2rem);
+            @include lib-css(cursor, pointer);
+            @include lib-css(border, 0);
+            @include lib-css(box-shadow, inherit);
+        }
+
+        .link-searc {
+            @include lib-css(left, 0);
+        }
+
+        .link-close {
+            @include lib-css(right, 0);
+        }
+    }
+
+    .form-control {
+        @include lib-css(font-size, .16rem);
+        @include lib-css(height, .68rem);
+        @include lib-css(padding-left, .6rem);
+        @include lib-css(border, 0);
+
+        &:focus {
+            box-shadow: inherit;
+        }
+    }
+}
+
+.catalogsearch-result-index {
+    .ias-noneleft {
+        @include lib-css(padding-top, .3rem);
+    }
+}

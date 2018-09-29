@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="home" before="footer-container" template="Magento_Cms::cms_page.phtml">
+                <block class="Magefan\Blog\Block\Index" name="new_blog" template="Magento_Cms::blog/new-blog.phtml">
+                    <block class="Magefan\Blog\Block\Post\PostList\Item" name="blog.posts.list.item" template="Magento_Cms::blog/blog-item.phtml"></block>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="cms_block" template="Magento_Cms::module/cms-block.phtml" />
+                <block class="Silk\Cms\Block\Category" name="shop_solutions" template="Magento_Cms::module/shop-solutions.phtml" />
+                <container name="cms.product" label="Cms Products Content"></container>
+                <block class="Silk\Cms\Block\Reviews" name="cms_review" template="Magento_Cms::module/cms-review.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="core_values" template="Magento_Cms::module/core-values.phtml" />
+            </block>
+        </referenceContainer>
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceBlock name="page.messages" remove="true" />
+    </body>
+</page>

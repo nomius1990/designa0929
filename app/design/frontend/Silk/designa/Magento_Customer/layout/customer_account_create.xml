@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="customer-register" template="Magento_Customer::html/customer-register.phtml" before="-">
+                <block class="Silk\Customer\Block\Title" name="customer.thumbnail" before="-" template="Magento_Customer::html/create-thumbnail.phtml">
+                    <arguments>
+                        <argument name="title" xsi:type="string">Create Account</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="customer_form_register">
+            <block class="Magento\Framework\View\Element\Template" name="cutomer_logo" template="Magento_Customer::logo.phtml" />
+        </referenceBlock>
+        <move element="customer_form_register" destination="customer-register" after="customer.thumbnail"/>
+        <move element="page.messages" destination="main" before="-" />
+        <referenceBlock name="require-cookie" remove="true" />
+    </body>
+</page>

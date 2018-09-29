@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="App_ProgressiveWebApp::pwa" title="Progressive Web App" module="App_ProgressiveWebApp" resource="App_ProgressiveWebApp::pwa" sortOrder="20"/>
+        <add id="App_ProgressiveWebApp::notification" title="Manage Notifications" module="App_ProgressiveWebApp" sortOrder="30" action="progressivewebapp/notification"
+             parent="App_ProgressiveWebApp::pwa" resource="App_ProgressiveWebApp::notification"/>
+        <add id="App_ProgressiveWebApp::settings" title="Settings" module="App_ProgressiveWebApp" sortOrder="40" action="adminhtml/system_config/edit/section/progressivewebapp"
+             parent="App_ProgressiveWebApp::pwa" resource="App_ProgressiveWebApp::settings"/>
+    </menu>
+</config>

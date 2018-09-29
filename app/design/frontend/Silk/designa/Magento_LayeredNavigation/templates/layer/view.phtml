@@ -1,0 +1,80 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter active" data-role="content" data-mage-init='{"collapsible":{"openedState": "active", "collapsible": true, "active": true }}'>
+        <div data-role="title" class="block-title filter-title">
+            <span><?= /* @escapeNotVerified */ __('Sort and Filter') ?></span>
+            <svg class="icon top" aria-hidden="true">
+                <use xlink:href="#icon-top"></use>
+            </svg>
+            <svg class="icon down" aria-hidden="true">
+                <use xlink:href="#icon-down"></use>
+            </svg>
+        </div>
+        <div data-role="content" class="block-content filter-content">
+            <?= $block->getChildHtml('state') ?>
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?= /* @escapeNotVerified */ $block->getClearUrl() ?>" class="action clear filter-clear"><span><?= /* @escapeNotVerified */ __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter): ?>
+                <?php 
+                    if ($filter->getName() != 'Category') {
+                        $attributeNote = $filter->getAttributeModel()->getAttributeNote();
+                    } else {
+                        $attributeNote = '';
+                    }
+                ?>
+                <?php if (!$wrapOptions): ?>
+                    <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": true, "multipleCollapsible": true }}'>
+                <?php $wrapOptions = true; endif; ?>
+                    <?php if ($filter->getItemsCount()): ?>
+                        <div data-role="collapsible" class="filter-options-item active">
+                            <div data-role="title" class="filter-options-title">
+                                <p>
+                                    <span><?= $block->escapeHtml(__($filter->getName())) ?></span>
+                                    <?php if (!empty($attributeNote)): ?>
+                                        <a href="javascript:;" class="filter-code">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icon-question"></use>
+                                            </svg>
+                                            <span><?= $attributeNote ?></span>
+                                        </a>
+                                    <?php endif; ?>
+                                </p>
+                                <svg class="icon top" aria-hidden="true">
+                                    <use xlink:href="#icon-top"></use>
+                                </svg>
+                                <svg class="icon down" aria-hidden="true">
+                                    <use xlink:href="#icon-down"></use>
+                                </svg>
+                            </div>
+                            <div data-role="content" class="filter-options-content">
+                                <?= /* @escapeNotVerified */ $block->getChildBlock('renderer')->render($filter) ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,553 @@
+//
+//  Variables
+//  _____________________________________________
+
+$minicart__border-color       : $color-gray80;
+$minicart__padding-horizontal : $indent__base;
+
+$minicart-qty__height         : 24px;
+
+//
+//  Minicart
+//  ---------------------------------------------
+
+.block-minicart {
+    .items-total {
+        font-size: .18rem;
+        float: left;
+
+        .count {
+            font-weight: $font-weight__bold;
+        }
+    }
+
+    .action.checkout {
+        @include lib-css(color, $color-white);
+        @include lib-css(width, 100%);
+        @include lib-css(display, block);
+        @include lib-css(margin-bottom, .1rem);
+        @include lib-css(padding, .1rem .15rem);
+        @include lib-css(background-color, $color-black);
+        @include lib-css(border, 2px solid $color-black);
+        @include lib-css(text-transform, uppercase);
+
+        &:hover {
+            @include lib-css(color, $color-black);
+            @include lib-css(background-color, transparent);
+        }
+    }
+
+    .viewcart {
+        @include lib-css(display, block);
+        @include lib-css(margin-bottom, .1rem);
+        @include lib-css(padding, .08rem .15rem);
+        @include lib-css(text-align, center);
+        @include lib-css(background-color, transparent);
+        @include lib-css(text-transform, uppercase);
+
+        &:hover {
+            @include lib-css(color, $basic-color);
+        }
+    }
+
+    .subtotal {
+        display: flex;
+        justify-content: space-between;
+
+        .label {
+            @extend .abs-colon;
+            font-size: .16rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .amount {
+        .price-wrapper {
+            .price {
+                font-size: .16rem;
+            }
+        }
+    }
+
+    .subtitle {
+        display: none;
+
+        &.empty {
+            font-weight: normal;
+            display: block;
+            margin-top: .5rem;
+            padding: 0 .3rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    .text {
+        &.empty {
+            text-align: center;
+        }
+    }
+
+    .block-content {
+        > .actions {
+            margin-top: 25px;
+            text-align: center;
+        }
+    }
+
+    .block-category-link,
+    .block-product-link,
+    .block-cms-link,
+    .block-banners {
+        margin: 15px 0 0;
+        text-align: center;
+    }
+}
+
+.action-edit {
+    .icon {
+        @include lib-css(width, .18rem);
+        @include lib-css(height, .18rem);
+    }
+}
+
+.quickcart-top {
+    @include lib-css(height, .5rem);
+    @include lib-css(line-height, .5rem);
+    @include lib-css(min-height, .3rem);
+    @include lib-css(top, 0);
+    @include lib-css(width, 100%);
+    @include lib-css(position, relative);
+    @include lib-css(z-index, 1);
+    @include lib-css(background, $font-color);
+    @include lib-css(text-align, center);
+
+    .text {
+        @include lib-css(color, $color-white);
+        @include lib-css(text-transform, uppercase);
+    }
+
+    .close {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(right, .15rem);
+        @include lib-css(height, inherit);
+        @include lib-css(padding, 0);
+        @include lib-css(border, 0);
+    }
+}
+
+.quickcart-bottom {
+    @include lib-css(position, absolute);
+    @include lib-css(bottom, 0);
+    @include lib-css(width, 100%);
+    
+    .subtotal {
+        @include lib-css(padding, .2rem);
+        @include lib-css(background-color, $footer-bg);
+    }
+
+    .actions {
+        @include lib-css(padding, .2rem);
+    }
+}
+
+.minicart-wrapper {
+    float: right;
+    position: relative;
+    padding: .25rem 0 .25rem .3rem;
+
+    .price-container {
+        .price {
+            @include lib-css(font-size, .15rem);
+        }
+    }
+
+    .block-minicart {
+        width: 3.2rem;
+        z-index: 999;
+
+        .block-title {
+            display: none;
+        }
+
+        &:after {
+            left: auto;
+            right: 25px;
+        }
+
+        &:before {
+            left: auto;
+            right: 26px;
+        }
+    }
+
+    .action {
+        &.showcart {
+            @include lib-css(position, relative);
+            white-space: nowrap;
+
+            .text {
+                @extend .abs-visually-hidden;
+            }
+
+            .counter.qty {
+                @include lib-css(color, $orange-color);
+                position: absolute;
+                top: -8px;
+                left: 3px;
+                display: inline-block;
+                min-width: 18px;
+                text-align: center;
+                white-space: normal;
+                background: transparent;
+                z-index: 90;
+                vertical-align: middle;
+
+                &.empty {
+                    display: none;
+                }
+
+                .loader {
+                    > img {
+                        @include lib-css(max-width, $minicart-qty__height);
+                    }
+                }
+            }
+
+            .counter-label {
+                @extend .abs-visually-hidden;
+            }
+        }
+    }
+
+    .minicart-widgets {
+        margin-top: 15px;
+    }
+
+    .product-item-pricing {
+        @include lib-css(display, flex);
+        @include lib-css(margin-top, .25rem);
+        @include lib-css(justify-content, space-between);
+
+        .price-container {
+            @include lib-css(order, 2);
+        }
+    }
+}
+
+.block-minicart {
+    .minicart-items-wrapper {
+        @include lib-css(width, 100%);
+        height: calc(100% - 215px) !important;
+        @include lib-css(margin, 0);
+        @include lib-css(padding, .2rem);
+        @include lib-css(z-index, -1);
+        @include lib-css(position, absolute);
+        @include lib-css(overflow-y, overlay);
+        @include lib-css(border, 0 none);
+    }
+}
+
+.minicart-items {
+    list-style-type: none;
+
+    .product-item {
+        padding: .2rem .1rem;
+        border-bottom: 1px solid $color-gray80;
+
+        > .product {
+            @extend .abs-add-clearfix;
+        }
+    }
+
+    .product-item-photo {
+        width: 22%;
+        @include lib-css(padding, 0);
+    }
+
+    .product-image-wrapper {
+        @extend .abs-reset-image-wrapper;
+    }
+
+    .product-item-pricing {
+        .label {
+            display: inline-block;
+            width: .45rem;
+        }
+    }
+
+    .price-minicart {
+        margin-bottom: $indent__xs;
+    }
+
+    .product {
+        > .product-item-photo,
+        > .product-image-container {
+            float: left;
+        }
+
+        .toggle {
+            @include lib-icon-font(
+                $_icon-font-content     : $icon-down,
+                $_icon-font-size        : 28px,
+                $_icon-font-line-height : 16px,
+                $_icon-font-text-hide   : false,
+                $_icon-font-position    : after,
+                $_icon-font-display     : block
+            );
+            cursor: pointer;
+            position: relative;
+
+            &:after {
+                position: static;
+                right: $indent__base;
+                top: 0;
+            }
+        }
+
+        &.active {
+            > .toggle {
+                @include lib-icon-font-symbol(
+                    $_icon-font-content  : $icon-up,
+                    $_icon-font-position : after
+                );
+            }
+        }
+    }
+
+    .product-item-name {
+        font-weight: $font-weight__regular;
+        margin: 0;
+        max-height: inherit;
+        padding-right: .2rem;
+        overflow: inherit;
+        white-space: inherit;
+
+        a {
+            @include lib-css(font-family, $font-family_light);
+            @include lib-css(font-size, .15rem);
+        }
+    }
+
+    .action.delete {
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(right, 0);
+    }
+
+    .product-item-details {
+        width: 75%;
+        float: left;
+        padding-left: 40px;
+        text-align: left;
+
+        .product-item-inner {
+            &:after {
+                @include lib-css(height, 0);
+            }
+        }
+
+        .price-including-tax,
+        .price-excluding-tax {
+            margin: $indent__xs 0 0;
+        }
+
+        .weee[data-label] {
+            @include lib-font-size(11);
+            .label {
+                @extend .abs-no-display;
+            }
+        }
+
+        .details-qty {
+            display: flex;
+            order: 1;
+        }
+
+        .loading {
+            @include lib-css(display, none);
+        }
+    }
+
+    .product.options {
+        .tooltip.toggle {
+            @include lib-icon-font(
+                $icon-down,
+                $_icon-font-size        : 28px,
+                $_icon-font-line-height : 28px,
+                $_icon-font-text-hide   : true,
+                $_icon-font-margin      : -3px 0 0 7px,
+                $_icon-font-position    : after
+            );
+
+            .details {
+                display: none;
+            }
+        }
+    }
+
+    .details-qty,
+    .price-minicart {
+        .label {
+            @extend .abs-colon;
+        }
+    }
+
+    .item-qty {
+        text-align: center;
+        width: .4rem;
+        height: .29rem;
+        vertical-align: middle;
+    }
+
+    .spinner {
+        width: .1rem;
+        height: .1rem;
+        background-color: transparent;
+        margin: .1rem .15rem;
+        border: 1px solid $color-black;
+        border-radius: 50%;
+        border-bottom: 0 none;
+        border-top: 0 none;
+        -webkit-animation: rotate 1.2s infinite ease-in-out;
+        -moz-animation: rotate 1.2s infinite ease-in-out;
+        animation: rotate 1.2s infinite ease-in-out;
+    }
+
+    .details-qty {
+        button {
+            @include lib-css(padding, .03rem .05rem);
+        }
+    }
+
+    .update-cart-item {
+        @include lib-font-size(11);
+        vertical-align: top;
+    }
+
+    .subtitle {
+        display: none;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__xs) {
+    .minicart-wrapper .block-minicart {
+        width: 2.6rem;
+    }
+}
+
+@include max-screen($screen__s) {
+    .minicart-wrapper {
+        margin-top: $indent__s;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include min-screen($screen__m) {
+    .minicart-wrapper {
+        .block-minicart {
+            width: 4rem;
+        }
+    }
+}
+
+@media (max-width: $screen__xl) {
+    .minicart-items {
+        .product-item-details {
+            @include lib-css(width, 70%);
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotateX(0deg);
+    }
+    
+    50% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotateX(0deg);
+    }
+    
+    50% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotateX(0deg);
+    }
+    
+    50% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotateX(0deg);
+    }
+    
+    50% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}

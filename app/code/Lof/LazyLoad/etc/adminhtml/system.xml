@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="loflazyload" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Lazy Load</label>
+			<tab>landofcoder</tab>
+			<resource>Lof_LazyLoad::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General Settings</label>
+				<field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="loadingIcon" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Loading Icon</label>
+					<backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+					<upload_dir config="system/filesystem/media" scope_info="1">lof/lazyload</upload_dir>
+					<base_url type="media" scope_info="1">lof/lazyload</base_url>
+					<comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
+				</field>
+				<field id="offset" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Offset</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offset option allows you to specify how far below, above, to the left, and to the right of the viewport you want Echo to begin loading your images. If you specify 0, Echo will load your image as soon as it is visible in the viewport, if you want to load 1000px below or above the viewport, use 1000.]]></comment>
+				</field>
+				<field id="offsetVertical" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetVertical</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetVertical option allows you to specify how far above and below the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="offsetHorizontal" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetHorizontal</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetHorizontal option allows you to specify how far to the left and right of the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="offsetTop" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetTop</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetTop option allows you to specify how far above the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="offsetBottom" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetBottom</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetBottom option allows you to specify how far below the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="offsetLeft" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetLeft</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetLeft option allows you to specify how far to left of the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="offsetRight" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>OffsetRight</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The offsetRight option allows you to specify how far to the right of the viewport you want Echo to begin loading your images.]]></comment>
+				</field>
+				<field id="throttle" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Throttle</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[The throttle is managed by an internal function that prevents performance issues from continuous firing of window.onscroll events. Using a throttle will set a small timeout when the user scrolls and will keep throttling until the user stops. The default is 250 milliseconds.]]></comment>
+				</field>
+				<field id="effect" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Effect</label>
+					<source_model>Lof\LazyLoad\Model\Config\Source\Effect</source_model>
+				</field>
+				<field id="debounce" translate="label comment" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Debounce</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[By default the throttling function is actually a debounce function so that the checking function is only triggered after a user stops scrolling. To use traditional throttling where it will only check the images every throttle milliseconds, set debounce to false.]]></comment>
+				</field>
+				<field id="unload" translate="label comment" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Unload</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[This option will tell echo to unload loaded images once they have scrolled beyond the viewport (including the offset area).]]></comment>
+				</field>
+				<field id="delay" translate="label comment" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Delay</label>
+					<validate>validate-number</validate>
+					<comment><![CDATA[If you want to load all elements at once after page load, then you can specify a delay time in milliseconds.]]></comment>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

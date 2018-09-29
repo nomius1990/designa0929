@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © Magefan. All rights reserved.
+ * See LICENSE.txt for license details.
+ *
+ * @var $block \Magefan\Blog\Block\Post\AbstractPost
+ */
+?>
+
+<?php
+    $_post = $this->getPost();
+    $_postUrl = $_post->getPostUrl();
+    $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+?>
+
+<li class="item">
+    <div class="post-img">
+        <?php if ($featuredImage = $_post->getFeaturedImage()): ?>
+            <a href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+                <img class="owl-lazy" data-src="<?php echo $featuredImage ?>" alt="<?php echo $_postName ?>" />
+            </a>
+        <?php endif; ?>
+    </div>
+    <div class="post-title">
+        <h2>
+            <a class="post-item-link" href="<?php echo $_postUrl ?>">
+                <span><?php echo $_postName; ?></span>
+            </a>
+        </h2>
+    </div>
+    <div class="layer"></div>
+</li>

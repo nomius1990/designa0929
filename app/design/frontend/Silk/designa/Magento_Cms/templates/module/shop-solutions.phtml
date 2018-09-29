@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Silk\Cms\Block\Category */
+?>
+
+<?php
+    $categories = $block->getCategory('Shop');
+?>
+
+<section class="shop-solutions">
+    <h1 class="title"><?= __('Shop Our Solutions') ?></h1>
+    <div class="wrapper">
+        <div class="waterfall">
+            <?php foreach ($categories as $category): ?>
+                <div class="grid">
+                    <div class="content lazy-bg <?= $category->getWaterfallPosition() ?>" data-origin="<?= $block->getCategoryImage($category->getId()) ?>">
+                        <a href="<?= $category->getUrl() ?>" class="name"><?= $category->getName() ?></a>
+                        <div class="layer"></div>
+                        <div class="tier">
+                            <a href="<?= $category->getUrl() ?>" class="view-more" title="<?= __('View More') ?>"><?= __('View More') ?></a> 
+                        </div>
+                    </div>
+                    <p class="hide"><?= $category->getName() ?></p>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1 @@
+Silk_Wishlist module consists of installation.

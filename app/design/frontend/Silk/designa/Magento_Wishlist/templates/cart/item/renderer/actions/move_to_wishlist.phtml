@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Wishlist\Block\Cart\Item\Renderer\Actions\MoveToWishlist $block */
+?>
+<?php if ($block->isAllowInCart() && $block->isProductVisibleInSiteVisibility()): ?>
+    <a href="javascript:;"
+       data-post='<?= /* @noEscape */ $block->getMoveFromCartParams() ?>'
+       class="use-ajax action-towishlist">
+       <svg class="icon" aria-hidden="true">
+           <use xlink:href="#icon-wishlist"></use>
+        </svg>
+    </a>
+<?php endif ?>

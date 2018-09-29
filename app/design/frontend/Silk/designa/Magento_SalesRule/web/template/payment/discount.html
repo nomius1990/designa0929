@@ -1,0 +1,28 @@
+<div class="payment-option discount-code">
+    <!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    <form class="form form-discount" id="discount-form">
+        <div class="step-title" data-bind="i18n: 'Promo Code'"></div>
+        <div class="field">
+            <div class="group">
+                <input class="input-text"
+                    type="text"
+                    id="discount-code"
+                    name="discount_code"
+                    data-validate="{'required-entry':true}"
+                    data-bind="value: couponCode, attr:{placeholder: $t('Enter discount code')} " />
+            </div>
+            <!-- ko ifnot: isApplied() -->
+                <button class="action action-apply" type="submit" data-bind="'value': $t('Apply'), click: apply">
+                    <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                </button>
+            <!-- /ko -->
+            <!-- ko if: isApplied() -->
+                <button class="action action-cancel" type="submit" data-bind="'value': $t('Cancel'), click: cancel">
+                    <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
+                </button>
+            <!-- /ko -->
+        </div>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+<!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+<div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+        <p data-bind="attr: {
+            class: message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <!-- ko if: message.type == 'success' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-success"></use>
+                </svg>
+            <!-- /ko -->
+            <!-- ko if: message.type == 'error' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-error"></use>
+                </svg>
+            <!-- /ko -->
+            <!-- ko if: message.type == 'warning' || message.type == 'info' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-warning"></use>
+                </svg>
+            <!-- /ko -->
+            <span data-bind="html: message.text"></span>
+        </p>
+    </div>
+<!-- /ko -->
+<!-- ko if: messages().messages && messages().messages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+        <p data-bind="attr: {
+            class: message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <!-- ko if: message.type == 'success' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-success"></use>
+                </svg>
+            <!-- /ko -->
+            <!-- ko if: message.type == 'error' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-error"></use>
+                </svg>
+            <!-- /ko -->
+            <!-- ko if: message.type == 'warning' || message.type == 'info' -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-warning"></use>
+                </svg>
+            <!-- /ko -->
+            <span data-bind="html: message.text"></span>
+        </p>
+    </div>
+<!-- /ko -->

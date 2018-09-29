@@ -1,0 +1,9 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \WeltPixel\Quickview\Block\Initialize */
+?>
+
+<script>
+    window.quickView = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($block->getConfig()); ?>;
+</script>

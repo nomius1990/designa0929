@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+
+<div class="customer-account">
+    <div class="container">
+        <?= $block->getChildHtml('page.messages') ?>
+    </div>
+    <?= $block->getChildHtml('customer-header') ?>
+    <?= $block->getChildHtml('customer-info') ?>
+</div>

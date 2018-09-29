@@ -1,0 +1,139 @@
+//
+//  Typography
+//  ---------------------------------------------
+
+//  Headings
+$h1__margin-bottom__desktop                                   : $indent__xl !default;
+
+//
+//  Layout grid
+//  ---------------------------------------------
+
+//  Header
+$header-icons-color                                           : $color-gray56 !default;
+$header-icons-color-hover                                     : $color-gray20 !default;
+$basic-color:    #a5d55d !default;
+$footer-bg:      #f1f1f1 !default;
+$font-color:     #4bac68 !default;
+$lg-color:       #daeaf9 !default;
+$box-color:      #dfdfdf !default;
+$border-color:   #ddddde !default;
+$gray-color:     #55565a !default;
+$dark-color:     #010101 !default;
+$required-color: #f4bbb4 !default;
+$banner-color:   #308a4b !default;
+$box-color:      #c9c9c9 !default;
+$scrollbar-color:#aaaaaa !default;
+$thumb-color:    #888888 !default;
+$hover-color:    #7c7c7c !default;
+$process-color:  #d9d9d9 !default;
+$shadow-color:   #828282 !default;
+$tab-color:      #cacaca !default;
+$copy-color:     #d2d2d3 !default;
+$media-color:    #a3a3a5 !default;
+$title-color:    #252525 !default;
+$orange-color:   #ff5012 !default;
+$cms-color:      #a4d55d !default;
+$filter-color:   #d4eedc !default;
+$owl-color:      #d6d6d6 !default;
+$quick-color:    #d95d00 !default;
+$swipe-color:    #f4b2a8 !default;
+$ios-color:      #dddddd !default;
+$table-color:    #1b1b1b !default;
+$prod-color:     #68676c !default;
+$success-color: #91D067 !default;
+$error-color:    #ea7373 !default;
+$warning-color:  #eabe73 !default;
+$button-color:   #a2d06a !default;
+$copyright-color: #212221 !default;
+ 
+//
+//  Icons
+//  ---------------------------------------------
+//
+
+$icon-edit                                                    : '\e606' !default;
+
+//
+//  Popups
+//  ---------------------------------------------
+
+//  Checkout tooltip
+$checkout-tooltip-icon-arrow__font-size                       : 10px !default;
+$checkout-tooltip-icon__font-size                             : 21px !default;
+
+$checkout-tooltip-content-mobile__right                       : -($indent__s) !default;
+$checkout-tooltip-content-mobile__top                         : 30px + $checkout-tooltip-icon-arrow__font-size !default;
+$checkout-tooltip-content__background-color                   : $color-gray-light01 !default;
+$checkout-tooltip-content__padding                            : 12px !default;
+$checkout-tooltip-content__border-width                       : 1px !default;
+
+$checkout-tooltip-content__border-color                       : $color-gray60 !default;
+$checkout-tooltip-content__font-size                          : $font-size__base !default;
+$checkout-tooltip-content__width                              : 270px !default;
+$checkout-tooltip-content__active__border-color               : darken($checkout-tooltip-content__border-color, 20%) !default;
+$checkout-tooltip-icon-arrow__left                            : -( $checkout-tooltip-content__padding + $checkout-tooltip-icon-arrow__font-size - $checkout-tooltip-content__border-width) !default;
+
+$checkout-billing-address-details__line-height                : 27px !default;
+
+// Checkout
+$checkout-step-title__padding                                 : $indent__s !default;
+$checkout-step-title__border                                  : $border-width__base solid $color-gray80 !default;
+$checkout-step-title__font-size                               : 26px !default;
+$checkout-step-title__font-weight                             : $font-weight__light !default;
+$checkout-sidebar__columns                                    : 4 !default;
+$checkout-shipping-address__max-width                         : 500px !default;
+
+//
+//  Sidebar
+//  ---------------------------------------------
+
+// Used in cart sidebar, Checkout sidebar, Tier Prices, My account navigation, Rating block background
+$sidebar__background-color                                    : $color-white-smoke !default;
+
+//
+//  Variables missing in extend.scss
+//  ---------------------------------------------
+
+$addto-color                                                  : $primary__color !default;
+$addto-hover-color                                            : $link__hover__color !default;
+
+//
+//  Product
+//  ---------------------------------------------
+
+$product-name-link__color                                     : $text__color !default;
+$product-name-link__color__active                             : $text__color !default;
+$product-name-link__color__hover                              : $text__color !default;
+$product-name-link__color__visited                            : $text__color !default;
+
+$product-name-link__text-decoration                           : none !default;
+$product-name-link__text-decoration__active                   : $link__hover__text-decoration !default;
+$product-name-link__text-decoration__hover                    : $link__hover__text-decoration !default;
+$product-name-link__text-decoration__visited                  : $link__hover__text-decoration !default;
+
+//
+//  Button
+//  ---------------------------------------------
+
+$button__shadow                                               : inset 0 2px 1px rgba(0, 0, 0, 0.12) !default;
+
+//
+//  Minicart
+//  ---------------------------------------------
+
+$minicart-icons-color                                         : $header-icons-color !default;
+$minicart-icons-color-hover                                   : $header-icons-color-hover !default;
+
+// Font size
+$font-size-12:    .12rem;
+$font-size-13:    .14rem;
+$font-size-15:    .15rem;
+$font-size-16:    .16rem;
+$font-size-18:    .18rem;
+$font-size-20:    .2rem;
+$font-size-24:    .24rem;
+$font-size-25:    .25rem;
+$font-size-30:    .3rem;
+$font-size-40:    .4rem;
+$font-size-45:    .45rem;

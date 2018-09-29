@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="empty"/>
+    <referenceContainer name="page.wrapper">
+        <container name="checkout.header.container" as="checkout_header_container" label="Checkout Page Header Container" htmlTag="header" htmlClass="page-header" before="main.content">
+            <container name="checkout.header.wrapper" label="Checkout Page Header" as="checkout_header_wrapper" htmlTag="div" htmlClass="header content">
+                <block class="Magento\Framework\View\Element\Template" name="checkout.navigation.sections" template="Magento_Theme::html/sections.phtml">
+                    <arguments>
+                        <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                        <argument name="group_css" xsi:type="string">nav-sections</argument>
+                    </arguments>
+                </block>
+            </container>
+        </container>
+        <container name="checkout.footer" label="Checkout Footer" as="checkout_footer" htmlTag="footer" htmlClass="page-footer" after="main.content">
+            <container name="checkout.footer.container" as="checkout_footer_container" label="Checkout Page Footer Container" htmlTag="div" htmlClass="footer content"></container>
+            <block class="Magento\Theme\Block\Html\Footer" name="checkout.copyright" template="Magento_Theme::html/copyright.phtml"/>
+        </container>
+    </referenceContainer>
+    <referenceContainer name="page.wrapper" htmlClass="page-wrapper fixed" />
+    <referenceContainer name="checkout.header.container">
+        <container name="checkout.header.inner" htmlTag="div" htmlClass="inner-wrapper" before="-"></container>
+    </referenceContainer>
+    <move element="checkout.header.wrapper" destination="checkout.header.inner" />
+    <move element="store.menu" destination="checkout.navigation.sections" />
+    <move element="store.links" destination="checkout.navigation.sections" />
+    <move element="sales.banner" destination="checkout.header.inner" before="-" />
+    <move element="logo" destination="checkout.header.wrapper" before="checkout.navigation.sections" />
+    <move element="minicart" destination="checkout.header.wrapper" after="checkout.navigation.sections" />
+    <move element="user_login" destination="checkout.header.wrapper" before="minicart" />
+    <move element="top.search" destination="checkout.header.wrapper" after="-" />
+    <move element="footer.links" destination="checkout.footer.container" before="-" />    
+    <move element="footer_category" destination="checkout.footer.container" after="footer.links" />
+</layout>

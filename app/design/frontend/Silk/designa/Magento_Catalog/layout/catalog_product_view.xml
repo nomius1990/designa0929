@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="product.quickAdd" before="footer-container" template="Magento_Catalog::product/quick-add.phtml" />
+        </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="details" template="Magento_Catalog::product/branch/details.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Details</argument>
+                    <argument name="at_call" xsi:type="string">getDescription</argument>
+                    <argument name="at_code" xsi:type="string">description</argument>
+                    <argument name="css_class" xsi:type="string">description</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                </arguments> 
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="specific" template="Magento_Catalog::product/branch/specific.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Specifications</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Review\Block\Product\Review" name="review" template="Magento_Review::review.phtml" group="detailed_info"></block>
+            <block class="Magento\Framework\View\Element\Template" name="faq" template="Magento_Catalog::product/branch/faq.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Faq</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="prod.name" before="product.info.price" template="Magento_Catalog::product/name.phtml" />
+            <block class="Magento\Catalog\Block\Product\View" name="prod.stock" after="product.info.price" template="Magento_Catalog::product/stock.phtml" />
+            <block class="Magento\Catalog\Block\Product\View" name="prod.info" before="prod.describle" template="Magento_Catalog::product/info.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="prod.describle" before="product.info" template="Magento_Catalog::product/describle.phtml" />
+        </referenceContainer>
+        <referenceBlock name="product.quickAdd">
+            <block class="Magento\Catalog\Block\Product\View" name="quick.info" template="Magento_Catalog::product/view/quick-form.phtml">
+                <block class="Magento\Catalog\Block\Product\View" name="quick.name" template="Magento_Catalog::product/name.phtml" />
+                <block class="Magento\Catalog\Pricing\Render" name="quick.price">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">final_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
+                <container name="quick.info.form.content">
+                    <block class="Magento\Catalog\Block\Product\View" name="quick.info.addtocart" template="Magento_Catalog::product/view/quick-addtocart.phtml">
+                        <block class="Magento\Catalog\Pricing\Render" name="quick.price.final">
+                            <arguments>
+                                <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                                <argument name="price_type_code" xsi:type="string">final_price</argument>
+                                <argument name="zone" xsi:type="string">item_view</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                </container>
+                <block class="Magento\Framework\View\Element\Template" name="quick.info.form.options" as="options_container">
+                    <block class="Magento\Catalog\Block\Product\View" name="quick.info.options.wrapper" as="product_options_wrapper" template="Magento_Catalog::product/view/options/wrapper.phtml">
+                    </block>
+                    <block class="Magento\Catalog\Block\Product\View" name="quick.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="Magento_Catalog::product/view/options/wrapper/bottom.phtml">
+                        <block class="Magento\Catalog\Block\Product\View" name="quick.info.addtocart.additional" as="product.info.addtocart" template="Magento_Catalog::product/view/quick-addtocart.phtml">
+                            <block class="Magento\Catalog\Pricing\Render" name="quick.configuration.price.final">
+                                <arguments>
+                                    <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                                    <argument name="price_type_code" xsi:type="string">final_price</argument>
+                                    <argument name="zone" xsi:type="string">item_view</argument>
+                                </arguments>
+                            </block>
+                        </block>
+                    </block>
+                </block>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="quick.button" after="-" template="Magento_Catalog::product/quick-button.phtml" />
+        </referenceBlock>
+        <referenceBlock name="product.info.description" remove="true" />
+        <referenceBlock name="product.attributes" remove="true" />
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.info.sku" remove="true" />
+        <referenceBlock name="product.info.mailto" remove="true" />
+        <move element="product.info.social" destination="product.info.main" before="prod.info" />
+        <move element="product.review.form" destination="review" />
+        <move element="product.info.details" destination="page.wrapper" after="main.content" />
+        <move element="product.price.final" destination="prod.stock" />
+        <move element="product.price.tier" destination="prod.stock" />
+        <move element="product.info.stock.sku" destination="prod.stock" />
+        <move element="catalog.product.related" destination="product.info.details" after="-" />
+        <move element="product.info.upsell" destination="product.info.details" after="-" />
+    </body>
+</page>

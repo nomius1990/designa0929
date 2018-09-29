@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="root">
+            <block name="require.config" class="Magento\Framework\View\Element\Template" before="-" template="Magento_Theme::page/require-config.phtml"></block>
+        </referenceContainer> 
+        <move element="requirejs-config" destination="require.config" before="-" />
+        <move element="translate-config" destination="require.config" />
+        <move element="translate" destination="require.config" />
+        <move element="head.components" destination="require.config" />
+        <move element="head.calendar" destination="require.config" />
+    </body>
+</page>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Cms\Block\Page" type="App\Page\Block\Homepage\Page" />
+    <preference for="Magento\Catalog\Controller\Category\View" type="App\Page\Block\Category\Page" />
+    <preference for="Magento\Catalog\Helper\Product\View" type="App\Page\Block\Product\Page" />
+</config>

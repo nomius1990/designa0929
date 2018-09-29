@@ -1,0 +1,33 @@
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "root";
+@import "reboot";
+@import "grid";
+@import "forms";
+@import "buttons";
+@import "utilities";
+
+select {
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='10' width='16'><line x1='0' y1='0' x2='8' y2='8' style='stroke:rgb(69,69,69);stroke-width:2' /><line x1='16' y1='0' x2='8' y2='8' style='stroke:rgb(69,69,69);stroke-width:2' /></svg>") no-repeat 95% 50% #fff;
+    background-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+
+    &::-ms-expand { 
+        display: none; 
+    }
+
+    option {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+
+        &::-ms-expand { 
+            display: none; 
+        }
+    }
+}

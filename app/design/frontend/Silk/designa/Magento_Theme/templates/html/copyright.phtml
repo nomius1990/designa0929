@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<div class="copyright">
+    <div class="container">
+        <div class="flex">
+            <a href="<?= $this->getUrl("/") ?>">
+                <img class="lazy" data-src="<?= $block->getViewFileUrl('images/meta.png') ?>" />
+            </a>
+            <p>
+                <span><?= __('Eureka Ergonomic') ?></span>
+                <span><?= __('635 Fritz Dr.Suite 105 Coppell, Texas 75019 United States') ?></span>
+                <a href="tel: 8444162090"><?= __('844-416-2090') ?></a>
+            </p>
+        </div>
+        <p><?= /* @escapeNotVerified */ $block->getCopyright() ?></p>
+    </div>
+</div>

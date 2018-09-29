@@ -1,0 +1,244 @@
+.block.filter {
+    margin-bottom: $indent__xl;
+
+    .filter-title {
+        font-family: $font-family_light;
+        font-size: .18rem;
+        padding-bottom: .2rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $color-gray-middle2;
+    }
+
+    .filter-content {
+        margin-top: .2rem;
+    }
+
+    .icon {
+        width: .18rem;
+        height: .18rem;
+        margin-top: 5px;
+    }
+
+    &.active {
+        .filter-title {
+            .top {
+                display: block;
+            }
+
+            .down {
+                display: none;
+            }
+        }
+    }
+
+    .filter-options-title {
+        p {
+            @include lib-css(flex-basis, 75%);
+            @include lib-css(margin-bottom, 0);
+        }
+    
+        .icon {
+            @include lib-css(width, .18rem);
+            @include lib-css(height, .18rem);
+            @include lib-css(margin-top, 0);
+        }
+    }
+}
+
+.filter-code {
+    @include lib-css(margin-left, .1rem);
+    @include lib-css(position, relative);
+
+    span {
+        @include lib-css(font-size, .13rem);
+        @include lib-css(position, absolute);
+        @include lib-css(top, 0);
+        @include lib-css(left, .25rem);
+        @include lib-css(width, 1.8rem);
+        @include lib-css(padding, .05rem 0);
+        @include lib-css(border, 1px solid $color-gray80);
+        @include lib-css(text-align, center);
+        @include lib-css(display, none);
+        @include lib-css(background-color, $color-white);
+        @include lib-css(z-index, 30);
+        -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,.15);
+        -moz-box-shadow: 5px 5px 15px rgba(0,0,0,.15);
+        box-shadow: 5px 5px 15px rgba(0,0,0,.15);
+    }
+
+    &:hover {
+        span {
+            @include lib-css(color, $color-black);
+            @include lib-css(display, block);
+        }
+    }
+}
+
+.filter-title {
+    .top {
+        display: none;
+    }
+}
+
+.filter-options-item {
+    .filter-options-title {
+        .top {
+            display: none;
+        }
+    }
+
+    &.active {
+        .filter-options-title {
+            .top {
+                display: block;
+            }
+
+            .down {
+                display: none;
+            }
+        }
+    }
+}
+
+.block-subtitle {
+    display: inline-block;
+    margin-bottom: $indent__s;
+}
+
+.filter-current {
+    .item {
+        margin-bottom: $indent__s;
+    }
+
+    .filter-label {
+        display: block;
+        font-weight: $font-weight__bold;
+
+        &:after {
+            content: ':';
+        }
+    }
+
+    + .filter-actions {
+        margin-bottom: $indent__l;
+    }
+}
+
+.filter-options-content {
+    .filter-count-label {
+        @extend .abs-visually-hidden;
+    }
+}
+
+.filter-options {
+    margin: 0;
+
+    .swatch-attribute-options {
+        @include lib-css(display, flex);
+        @include lib-css(flex-wrap, wrap);
+    }
+
+    .swatch-row {
+        @include lib-css(flex, 0 1 20%);
+    }
+
+    .filter-options-title {
+        font-family: $font-family_light;
+        font-size: .18rem;
+        padding-bottom: .2rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $color-gray-middle2;
+    }
+
+    .filter-options-item {
+        margin-bottom: .2rem;
+    }
+
+    .filter-options-content {
+        padding-top: .2rem;
+        padding-left: .2rem;
+
+        .item {
+            display: flex;
+            margin-bottom: .1rem;
+            align-items: baseline;
+
+            &:before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                display: block;
+                margin-right: .1rem;
+                border: 1px solid $color-gray60;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+            }
+
+            a {
+                font-family: $font-family_light;
+                font-size: .16rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .count {
+        @include lib-css(color, $text__color__muted);
+
+        &:before {
+            content: '(';
+        }
+
+        &:after {
+            content: ')';
+        }
+    }
+}
+
+.items {
+    @extend .abs-reset-list;
+}
+
+.filtered {
+    .items {
+        margin: 15px 0;
+    }
+
+    .item {
+        margin-bottom: 6px;
+        padding-left: 22px;
+        position: relative;
+
+        .label {
+            font-weight: $font-weight__bold;
+        }
+
+        .action.remove {
+            @extend .abs-remove-button-for-blocks;
+            left: -6px;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    & + .actions {
+        margin-bottom: 35px;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include max-screen($screen__m) {
+    .page-with-filter {
+        .columns {
+            .sidebar-main {
+                @include lib-vendor-prefix-order(0);
+            }
+        }
+    }
+}

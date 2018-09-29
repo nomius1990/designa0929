@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<loflazyload>
+			<general>
+				<enable>1</enable>
+				<loadingIcon>images/loader.gif</loadingIcon>
+				<offset>0</offset>
+				<offsetVertical>0</offsetVertical>
+				<offsetHorizontal>0</offsetHorizontal>
+				<offsetTop>0</offsetTop>
+				<offsetBottom>0</offsetBottom>
+				<offsetLeft>0</offsetLeft>
+				<offsetRight>0</offsetRight>
+				<throttle>250</throttle>
+				<effect>show</effect>
+				<debounce>1</debounce>
+				<unload>0</unload>
+				<delay>250</delay>
+			</general>
+		</loflazyload>
+	</default>
+</config>
